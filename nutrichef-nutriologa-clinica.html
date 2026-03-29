@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutrichef — Para nutriólogas clínicas · Diseña el plan, nosotros cocinamos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0B1F3A;--navym:#122844;--navyl:#E8EEF5;
+  --teal:#0E7C86;--teall:#E4F4F5;--tealm:#2EA8B4;
+  --off:#F6F5F1;--white:#FFFFFF;
+  --dark:#0D1B2A;--mid:#4A5568;--light:#9AA5B4;
+  --accent:#C97B2E;--accentl:#FDF0E0;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--dark);overflow-x:hidden}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 56px;background:rgba(246,245,241,.96);border-bottom:1px solid rgba(0,0,0,.07);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.logo{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--navy);text-decoration:none}
+.logo span{color:var(--teal)}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a{font-size:13.5px;color:var(--mid);text-decoration:none}
+.nav-cta{background:var(--teal);color:#fff;padding:9px 24px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none}
+
+/* HERO */
+.hero{background:var(--off);padding:100px 56px 88px;display:grid;grid-template-columns:52% 48%;gap:64px;align-items:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(0,0,0,.08)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teall);border:1px solid rgba(14,124,134,.2);color:var(--teal);font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:6px 16px;border-radius:4px;margin-bottom:28px;width:fit-content;animation:fadeUp .6s ease both}
+h1{font-family:'Libre Baskerville',serif;font-size:50px;line-height:1.07;font-weight:700;color:var(--dark);margin-bottom:20px;animation:fadeUp .6s .1s ease both}
+h1 em{color:var(--teal);font-style:italic;font-weight:400}
+.hero-sub{font-size:17px;color:var(--mid);line-height:1.75;font-weight:300;max-width:480px;margin-bottom:40px;animation:fadeUp .6s .2s ease both}
+.hero-sub strong{color:var(--dark);font-weight:500}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-teal{background:var(--teal);color:#fff;padding:15px 36px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;display:inline-block}
+.btn-ghost-dark{background:transparent;color:var(--dark);padding:15px 28px;border-radius:6px;font-size:15px;border:1.5px solid rgba(0,0,0,.18);text-decoration:none;display:inline-block}
+
+/* PORTAL PREVIEW */
+.portal-prev{background:var(--navy);border-radius:20px;overflow:hidden;animation:fadeUp .7s .3s ease both;position:relative}
+.pp-topbar{background:rgba(255,255,255,.07);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.07)}
+.pp-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.8)}
+.pp-tag{font-size:10px;background:rgba(14,124,134,.25);color:var(--tealm);padding:2px 8px;border-radius:100px;font-weight:600}
+.pp-body{padding:20px}
+.pp-sec-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.pp-patient{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin-bottom:10px}
+.pp-pat-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.pp-pat-info{}
+.pp-pat-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.85)}
+.pp-pat-diag{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+.pp-pat-status{font-size:10px;font-weight:600;padding:3px 8px;border-radius:100px}
+.pp-pat-status.pending{background:rgba(245,158,11,.15);color:#F59E0B}
+.pp-pat-status.active{background:rgba(14,124,134,.2);color:var(--tealm)}
+.pp-plan-preview{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:10px}
+.pp-plan-label{font-size:10px;color:rgba(255,255,255,.3);margin-bottom:6px;font-weight:500}
+.pp-plan-days{display:flex;gap:6px;flex-wrap:wrap}
+.pp-plan-day{font-size:11px;padding:3px 8px;border-radius:100px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5)}
+.pp-plan-day.filled{background:rgba(14,124,134,.2);color:var(--tealm)}
+.pp-action-row{display:flex;gap:8px;margin-top:10px}
+.pp-btn{font-size:11.5px;padding:6px 12px;border-radius:6px;border:none;cursor:pointer;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif}
+.pp-btn.primary{background:var(--teal);color:#fff}
+.pp-btn.ghost{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6)}
+
+/* SECTIONS */
+section{padding:88px 56px}
+.seye{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.s-title{font-family:'Libre Baskerville',serif;font-size:38px;line-height:1.1;color:var(--dark);margin-bottom:20px}
+.s-title em{color:var(--teal);font-style:italic}
+.s-sub{font-size:17px;color:var(--mid);line-height:1.75;font-weight:300;max-width:560px}
+
+/* ROL */
+.rol{background:#fff}
+.rol-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:56px}
+.rol-steps{display:flex;flex-direction:column;gap:0}
+.rstep{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.rstep:last-child{border-bottom:none}
+.rstep-num{font-family:'Libre Baskerville',serif;font-size:28px;color:var(--navyl);font-style:italic;min-width:36px;line-height:1}
+.rstep-body{}
+.rstep-title{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.rstep-desc{font-size:13.5px;color:var(--mid);line-height:1.65}
+.rstep-tag{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;color:var(--teal);background:var(--teall);padding:3px 10px;border-radius:100px}
+
+.rol-right{}
+.diferenciador{background:var(--navy);border-radius:16px;padding:32px;margin-bottom:20px}
+.dif-title{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.dif-compare{display:flex;flex-direction:column;gap:12px}
+.dif-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dif-col{padding:14px;border-radius:10px}
+.dif-col.sin{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.dif-col.con{background:rgba(14,124,134,.12);border:1px solid rgba(14,124,134,.2)}
+.dif-col-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.sin .dif-col-label{color:rgba(255,255,255,.3)}
+.con .dif-col-label{color:var(--tealm)}
+.dif-col-text{font-size:12.5px;line-height:1.55}
+.sin .dif-col-text{color:rgba(255,255,255,.5)}
+.con .dif-col-text{color:rgba(255,255,255,.75)}
+
+.requisitos{background:var(--teall);border:1px solid rgba(14,124,134,.2);border-radius:16px;padding:28px}
+.req-title{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:16px}
+.req-list{display:flex;flex-direction:column;gap:10px}
+.req-item{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--mid)}
+.req-check{width:18px;height:18px;border-radius:4px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* INGRESOS */
+.ingresos{background:var(--off)}
+.ing-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:56px}
+.ing-cards{display:flex;flex-direction:column;gap:16px}
+.ing-card{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(0,0,0,.07);display:flex;gap:20px;align-items:flex-start}
+.ing-icon{width:44px;height:44px;border-radius:10px;background:var(--teall);border:1px solid rgba(14,124,134,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ing-title{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.ing-desc{font-size:13px;color:var(--mid);line-height:1.6}
+.ing-right{}
+.pricing-note{background:var(--navy);border-radius:16px;padding:32px}
+.pn-title{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.pn-item{padding:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;margin-bottom:10px}
+.pn-item:last-child{margin-bottom:0}
+.pn-item-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.pn-item-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.8)}
+.pn-item-tag{font-size:10px;background:rgba(14,124,134,.2);color:var(--tealm);padding:2px 8px;border-radius:100px;font-weight:600}
+.pn-item-desc{font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.55}
+.pn-note{margin-top:16px;font-size:12px;color:rgba(255,255,255,.3);line-height:1.6;font-style:italic}
+
+/* REGISTRO */
+.registro{background:var(--teal);padding:100px 56px}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.reg-left .seye{color:rgba(255,255,255,.6)}
+.reg-left .s-title{color:#fff}
+.reg-left .s-title em{color:rgba(255,255,255,.7)}
+.reg-left .s-sub{color:rgba(255,255,255,.65)}
+.reg-form{background:#fff;border-radius:20px;padding:36px}
+.rf-title{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:6px;font-family:'Libre Baskerville',serif}
+.rf-sub{font-size:13.5px;color:var(--mid);margin-bottom:28px;line-height:1.6}
+.rf-field{margin-bottom:16px}
+.rf-label{font-size:12.5px;font-weight:600;color:var(--dark);margin-bottom:6px;display:block}
+.rf-input{width:100%;padding:11px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:8px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark);outline:none;background:#fff;transition:border-color .2s}
+.rf-input:focus{border-color:var(--teal)}
+.rf-select{width:100%;padding:11px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:8px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark);outline:none;background:#fff;cursor:pointer}
+.rf-disclaimer{font-size:12px;color:var(--light);line-height:1.65;margin-bottom:20px;margin-top:4px}
+.rf-submit{width:100%;background:var(--teal);color:#fff;padding:14px;border-radius:8px;font-size:15px;font-weight:600;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+
+footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:'Libre Baskerville',serif;font-size:20px;color:#fff;text-decoration:none}
+.footer-logo span{color:var(--teal)}
+.footer-mid{font-size:12px;color:rgba(255,255,255,.3);text-align:center;line-height:1.7}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,.4);text-decoration:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="nutrichef-index.html" class="logo">Nutri<span>chef</span></a>
+  <div class="navlinks">
+    <a href="#rol">Tu rol</a>
+    <a href="#ingresos">Ingresos</a>
+    <a href="#registro">Registro</a>
+    <a href="nutrichef-medico.html">Para médicos</a>
+  </div>
+  <a href="#registro" class="nav-cta">Unirme a la red</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">Nutriólogas clínicas · Red Nutrichef · Saltillo</div>
+    <h1>Tú diseñas el plan.<br><em>Nosotros lo cocinamos.</em></h1>
+    <p class="hero-sub">Amplía tu alcance clínico sin aumentar tu carga de trabajo. Tus pacientes — o los que te asignemos — reciben su alimentación exactamente como la indicas. <strong>Tu cédula respalda cada plan.</strong></p>
+    <div class="hero-actions">
+      <a href="#registro" class="btn-teal">Unirme a la red</a>
+      <a href="#rol" class="btn-ghost-dark">Ver cómo funciona →</a>
+    </div>
+  </div>
+  <div class="portal-prev">
+    <div class="pp-topbar">
+      <div class="pp-title">Portal · Nut. Clínica Ramírez</div>
+      <div class="pp-tag">3 pacientes activos</div>
+    </div>
+    <div class="pp-body">
+      <div class="pp-sec-label">Pacientes asignados</div>
+      <div class="pp-patient">
+        <div class="pp-pat-head">
+          <div class="pp-pat-info">
+            <div class="pp-pat-name">María González · Dieta renal</div>
+            <div class="pp-pat-diag">Fase 3 · Dr. Hernández · Nefrología</div>
+          </div>
+          <div class="pp-pat-status active">Plan activo</div>
+        </div>
+        <div class="pp-plan-preview">
+          <div class="pp-plan-label">Plan semana 31 mar–4 abr</div>
+          <div class="pp-plan-days">
+            <div class="pp-plan-day filled">Lun</div>
+            <div class="pp-plan-day filled">Mar</div>
+            <div class="pp-plan-day filled">Mié</div>
+            <div class="pp-plan-day filled">Jue</div>
+            <div class="pp-plan-day filled">Vie</div>
+          </div>
+        </div>
+        <div class="pp-action-row">
+          <button class="pp-btn ghost">Ver plan</button>
+          <button class="pp-btn ghost">Enviar al doctor</button>
+        </div>
+      </div>
+      <div class="pp-patient">
+        <div class="pp-pat-head">
+          <div class="pp-pat-info">
+            <div class="pp-pat-name">Carlos López · Dieta diabética</div>
+            <div class="pp-pat-diag">DM tipo 2 · Dra. Solís · Endocrinología</div>
+          </div>
+          <div class="pp-pat-status pending">Plan pendiente</div>
+        </div>
+        <div class="pp-plan-preview">
+          <div class="pp-plan-label">Plan semana 31 mar–4 abr</div>
+          <div class="pp-plan-days">
+            <div class="pp-plan-day filled">Lun</div>
+            <div class="pp-plan-day filled">Mar</div>
+            <div class="pp-plan-day">Mié</div>
+            <div class="pp-plan-day">Jue</div>
+            <div class="pp-plan-day">Vie</div>
+          </div>
+        </div>
+        <div class="pp-action-row">
+          <button class="pp-btn primary">Completar plan →</button>
+          <button class="pp-btn ghost">Historial</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROL -->
+<section class="rol" id="rol">
+  <div class="seye">Tu rol en Nutrichef</div>
+  <h2 class="s-title">Diseñas el plan.<br><em>Cada decisión, firmada con tu cédula.</em></h2>
+  <p class="s-sub">Eres el eje clínico del servicio. Tu especialidad garantiza que cada paciente reciba exactamente lo que su condición requiere.</p>
+
+  <div class="rol-grid">
+    <div class="rol-left">
+      <div class="rol-steps">
+        <div class="rstep">
+          <div class="rstep-num">01</div>
+          <div class="rstep-body">
+            <div class="rstep-title">Recibes el paciente asignado</div>
+            <div class="rstep-desc">El paciente llega con indicaciones de su médico, o directo sin plan. Nutrichef te asigna el caso en tu portal con toda la información disponible.</div>
+            <span class="rstep-tag">Portal digital · Sin llamadas</span>
+          </div>
+        </div>
+        <div class="rstep">
+          <div class="rstep-num">02</div>
+          <div class="rstep-body">
+            <div class="rstep-title">Revisas las indicaciones del médico</div>
+            <div class="rstep-desc">Con las indicaciones clínicas en mano, diseñas el plan nutricional semanal específico para ese paciente: ingredientes, cantidades, método de cocción, restricciones.</div>
+            <span class="rstep-tag">Tu especialidad clínica en acción</span>
+          </div>
+        </div>
+        <div class="rstep">
+          <div class="rstep-num">03</div>
+          <div class="rstep-body">
+            <div class="rstep-title">Apruebas el plan y lo envías</div>
+            <div class="rstep-desc">Una vez listo, tu cédula queda vinculada al plan. El sistema lo envía automáticamente al doctor y a la nutrióloga que cocinará. Sin correos manuales.</div>
+            <span class="rstep-tag">Cédula profesional firmada</span>
+          </div>
+        </div>
+        <div class="rstep">
+          <div class="rstep-num">04</div>
+          <div class="rstep-body">
+            <div class="rstep-title">Seguimiento y actualización mensual</div>
+            <div class="rstep-desc">Puedes revisar y actualizar el plan cada mes o cuando el médico lo indique. El portal te muestra la adherencia del paciente para ajustar si es necesario.</div>
+            <span class="rstep-tag">Revisión periódica · Sin carga operativa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rol-right">
+      <div class="diferenciador">
+        <div class="dif-title">Nutrichef vs. consulta tradicional</div>
+        <div class="dif-compare">
+          <div class="dif-row">
+            <div class="dif-col sin">
+              <div class="dif-col-label">Sin Nutrichef</div>
+              <div class="dif-col-text">El paciente no cocina el plan. La adherencia es baja y los resultados son inconsistentes.</div>
+            </div>
+            <div class="dif-col con">
+              <div class="dif-col-label">Con Nutrichef</div>
+              <div class="dif-col-text">El plan que tú diseñas se cocina exactamente. El paciente solo recoge.</div>
+            </div>
+          </div>
+          <div class="dif-row">
+            <div class="dif-col sin">
+              <div class="dif-col-label">Sin Nutrichef</div>
+              <div class="dif-col-text">No sabes si el paciente cumplió hasta la siguiente consulta — y solo por su palabra.</div>
+            </div>
+            <div class="dif-col con">
+              <div class="dif-col-label">Con Nutrichef</div>
+              <div class="dif-col-text">Tienes datos reales de adherencia semana a semana desde tu portal.</div>
+            </div>
+          </div>
+          <div class="dif-row">
+            <div class="dif-col sin">
+              <div class="dif-col-label">Sin Nutrichef</div>
+              <div class="dif-col-text">Tu trabajo clínico termina en la consulta. No hay continuidad en la ejecución.</div>
+            </div>
+            <div class="dif-col con">
+              <div class="dif-col-label">Con Nutrichef</div>
+              <div class="dif-col-text">Tu indicación se ejecuta diariamente. Tu impacto clínico se extiende más allá de la consulta.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="requisitos">
+        <div class="req-title">Requisitos para unirte</div>
+        <div class="req-list">
+          <div class="req-item">
+            <div class="req-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            Cédula profesional de nutriología o nutrición clínica
+          </div>
+          <div class="req-item">
+            <div class="req-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            Especialidad o experiencia en nutrición clínica (renal, metabólica, cardíaca o quirúrgica)
+          </div>
+          <div class="req-item">
+            <div class="req-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            Disponibilidad para revisar y subir planes en el portal semanalmente
+          </div>
+          <div class="req-item">
+            <div class="req-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            Puedes ser la nutrióloga clínica de tu propio paciente o recibir casos asignados por Nutrichef
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGRESOS -->
+<section class="ingresos" id="ingresos">
+  <div class="seye">Modelo de ingresos</div>
+  <h2 class="s-title">Cobras por tu trabajo<br><em>clínico, no por cocinar.</em></h2>
+  <p class="s-sub">Tu rol es diseñar y validar el plan. Tu ingreso refleja ese valor clínico — independiente del número de comidas que se cocinen.</p>
+
+  <div class="ing-grid">
+    <div class="ing-cards">
+      <div class="ing-card">
+        <div class="ing-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="13" rx="2" stroke="#0E7C86" stroke-width="1.5"/><path d="M7 5V4a4 4 0 018 0v1M8 12l2 2 4-4" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="ing-title">Consulta inicial por paciente</div>
+          <div class="ing-desc">Cada paciente nuevo que atiendas genera un pago por consulta. Tú defines tu tarifa. Los pacientes sin nutrióloga clínica propia pagan la consulta como parte de su plan Nutrichef.</div>
+        </div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v18M3 11h18" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="7.5" stroke="#0E7C86" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <div class="ing-title">Revisión mensual de plan</div>
+          <div class="ing-desc">Cada mes que el paciente continúa activo, hay una revisión del plan. Eso genera un ingreso recurrente por supervisión clínica — sin tener que ver al paciente en persona.</div>
+        </div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 17l4-4m0 0l4-4m-4 4l4 4m4-8l-4-4" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="ing-title">Precio dinámico por complejidad</div>
+          <div class="ing-desc">Tú defines cuánto cobras por cada tipo de plan. Una dieta renal con 12 restricciones puede tener una tarifa diferente a una diabética estándar. La plataforma aplica tu tarifa automáticamente.</div>
+        </div>
+      </div>
+    </div>
+    <div class="ing-right">
+      <div class="pricing-note">
+        <div class="pn-title">Cómo se estructura el pago</div>
+        <div class="pn-item">
+          <div class="pn-item-head">
+            <div class="pn-item-title">Consulta inicial</div>
+            <div class="pn-item-tag">Tú defines el precio</div>
+          </div>
+          <div class="pn-item-desc">Por cada paciente nuevo que pasa por consulta contigo. Se cobra al paciente como parte del plan Nutrichef.</div>
+        </div>
+        <div class="pn-item">
+          <div class="pn-item-head">
+            <div class="pn-item-title">Supervisión mensual</div>
+            <div class="pn-item-tag">Recurrente</div>
+          </div>
+          <div class="pn-item-desc">Revisión y actualización del plan cada mes. Ingreso recurrente por cada paciente activo bajo tu supervisión.</div>
+        </div>
+        <div class="pn-item">
+          <div class="pn-item-head">
+            <div class="pn-item-title">Comisión Nutrilú</div>
+            <div class="pn-item-tag">Plataforma</div>
+          </div>
+          <div class="pn-item-desc">Nutrichef toma una comisión sobre el total que se cobra al paciente. El equipo te comunica el porcentaje al registrarte.</div>
+        </div>
+        <div class="pn-note">Tú enfocas en el trabajo clínico. Nutrichef se encarga de cobrar, facturar y coordinar la logística.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRO -->
+<section class="registro" id="registro">
+  <div class="reg-grid">
+    <div class="reg-left">
+      <div class="seye">Únete a la red</div>
+      <h2 class="s-title">Tu especialidad,<br><em>impacto diario.</em></h2>
+      <p class="s-sub">Diseñas el plan una vez. Nutrichef lo cocina cada semana. Tu trabajo clínico se ejecuta todos los días — sin que tengas que estar presente.</p>
+    </div>
+    <div class="reg-form">
+      <div class="rf-title">Solicitud de registro</div>
+      <div class="rf-sub">Llena este formulario y el equipo de Nutrichef se pondrá en contacto en 24–48 horas para completar la integración.</div>
+      <div class="rf-field">
+        <label class="rf-label">Nombre completo</label>
+        <input type="text" class="rf-input" placeholder="Lic. Nombre Apellido">
+      </div>
+      <div class="rf-field">
+        <label class="rf-label">Especialidad clínica</label>
+        <select class="rf-select">
+          <option value="">Seleccionar especialidad</option>
+          <option>Nutrición renal</option>
+          <option>Nutrición metabólica / diabetes</option>
+          <option>Nutrición cardíaca</option>
+          <option>Nutrición oncológica</option>
+          <option>Nutrición clínica general</option>
+          <option>Otra</option>
+        </select>
+      </div>
+      <div class="rf-field">
+        <label class="rf-label">Número de cédula profesional</label>
+        <input type="text" class="rf-input" placeholder="Cédula SEP">
+      </div>
+      <div class="rf-field">
+        <label class="rf-label">Correo electrónico</label>
+        <input type="email" class="rf-input" placeholder="tu@correo.com">
+      </div>
+      <div class="rf-field">
+        <label class="rf-label">WhatsApp</label>
+        <input type="tel" class="rf-input" placeholder="844 000 0000">
+      </div>
+      <div class="rf-disclaimer">Al enviar, confirmas que tienes cédula profesional vigente y aceptas ser parte de la red de nutriólogas clínicas de Nutrichef. Tu cédula quedará vinculada a los planes que generes.</div>
+      <button class="rf-submit">Enviar solicitud →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="nutrichef-index.html" class="footer-logo">Nutri<span>chef</span></a>
+  <div class="footer-mid">Un servicio de Nutrilú · Saltillo, Coahuila, México<br>La responsabilidad clínica recae en las nutriólogas certificadas con cédula profesional.</div>
+  <div class="footer-links">
+    <a href="nutrichef-index.html">Para pacientes</a>
+    <a href="nutrichef-medico.html">Para médicos</a>
+    <a href="nutrichef-nutriologa-cocina.html">Nutrióloga que cocina</a>
+  </div>
+</footer>
+
+</body>
+</html>

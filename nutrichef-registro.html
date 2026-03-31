@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro · Nutrichef</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0B1F3A;--navyd:#061426;--navyl:#E8EEF5;--navym:#122844;
+  --teal:#0E7C86;--teald:#095E66;--teall:#E4F4F5;--tealm:#2EA8B4;
+  --off:#F6F5F1;--white:#fff;
+  --dark:#0D1B2A;--mid:#4A5568;--light:#9AA5B4;--border:rgba(0,0,0,.07);
+  --accent:#C97B2E;--accentl:#FDF0E0;--accento:rgba(201,123,46,.15);
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--dark);min-height:100vh;display:grid;grid-template-columns:420px 1fr}
+
+/* ══ PANEL IZQUIERDO ══ */
+.left{background:var(--navyd);display:flex;flex-direction:column;padding:40px 44px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.left-logo{font-family:'Libre Baskerville',serif;font-size:24px;color:#fff;font-weight:700;text-decoration:none;margin-bottom:48px;display:block;letter-spacing:-.02em}
+.left-logo span{color:var(--tealm)}
+.progress-wrap{margin-bottom:48px}
+.progress-label{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:14px}
+.progress-steps{display:flex;flex-direction:column;gap:0}
+.pstep{display:flex;align-items:flex-start;gap:14px;padding:12px 0;position:relative}
+.pstep:not(:last-child)::after{content:'';position:absolute;left:15px;top:40px;width:1px;height:calc(100% - 16px);background:rgba(255,255,255,.08)}
+.pstep-num{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;transition:.25s;position:relative;z-index:1}
+.pstep.done .pstep-num{background:var(--tealm);color:#fff}
+.pstep.active .pstep-num{background:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(201,123,46,.2)}
+.pstep.pending .pstep-num{background:rgba(255,255,255,.08);color:rgba(255,255,255,.25)}
+.pstep-title{font-size:14px;font-weight:600;transition:.25s}
+.pstep.done .pstep-title{color:rgba(255,255,255,.45)}
+.pstep.active .pstep-title{color:#fff}
+.pstep.pending .pstep-title{color:rgba(255,255,255,.2)}
+.pstep-sub{font-size:12px;margin-top:2px;transition:.25s}
+.pstep.done .pstep-sub{color:rgba(255,255,255,.25)}
+.pstep.active .pstep-sub{color:rgba(255,255,255,.5)}
+.pstep.pending .pstep-sub{color:rgba(255,255,255,.12)}
+.left-bottom{margin-top:auto}
+.left-quote{font-family:'Libre Baskerville',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:24px}
+.left-quote em{color:var(--tealm);font-style:normal}
+.left-trust{display:flex;flex-direction:column;gap:10px}
+.lt-item{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:rgba(255,255,255,.35);line-height:1.5}
+.lt-dot{width:6px;height:6px;border-radius:50%;background:var(--tealm);flex-shrink:0;margin-top:4px}
+
+/* ══ PANEL DERECHO ══ */
+.right{display:flex;flex-direction:column;min-height:100vh}
+.right-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;border-bottom:1px solid var(--border);background:rgba(246,245,241,.96);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+.rn-back{font-size:13.5px;color:var(--mid);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .15s}
+.rn-back:hover{color:var(--dark)}
+.rn-step{font-size:12px;color:var(--light)}
+.right-body{flex:1;padding:52px;max-width:580px}
+.right-body.wide{max-width:100%;padding:40px 52px}
+.step-eyebrow{font-size:11px;color:var(--teal);text-transform:uppercase;letter-spacing:.13em;font-weight:600;margin-bottom:12px}
+.step-title{font-family:'Libre Baskerville',serif;font-size:38px;font-weight:700;color:var(--dark);line-height:1.1;margin-bottom:8px}
+.step-title em{color:var(--teal);font-style:italic;font-weight:400}
+.step-sub{font-size:15px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:36px}
+
+/* ── CAMPOS ── */
+.field{margin-bottom:20px}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark);background:var(--white);outline:none;transition:.15s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,124,134,.08)}
+.field textarea{resize:vertical;min-height:88px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field-hint{font-size:12px;color:var(--light);margin-top:6px;line-height:1.5}
+.field-optional{font-weight:300;text-transform:none;letter-spacing:0;font-size:11px}
+
+/* ── CONDICIONES GRID (multi-select) ── */
+.condicion-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.cond-chip{display:flex;align-items:center;gap:10px;padding:13px 15px;border-radius:10px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;transition:.15s;text-align:left;width:100%}
+.cond-chip:hover{border-color:rgba(14,124,134,.35);background:var(--teall)}
+.cond-chip.sel{border-color:var(--teal);background:var(--teall);box-shadow:0 0 0 1px var(--teal)}
+.cond-emoji{font-size:17px;width:34px;height:34px;border-radius:8px;background:var(--off);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cond-chip.sel .cond-emoji{background:var(--white)}
+.cond-label{font-size:13px;font-weight:600;color:var(--dark);line-height:1.3;flex:1}
+/* Checkbox cuadrado para multiselect */
+.cond-check{width:16px;height:16px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;transition:.15s;position:relative;background:var(--white)}
+.cond-chip.sel .cond-check{background:var(--teal);border-color:var(--teal)}
+.cond-chip.sel .cond-check::after{content:'';position:absolute;left:3px;top:1px;width:5px;height:8px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg)}
+.cond-hint{font-size:12px;color:var(--light);margin-bottom:24px;line-height:1.5;padding:0 2px}
+
+/* ── OPCIONES (plan) ── */
+.opciones{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.opcion{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:12px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;transition:.15s;text-align:left;width:100%}
+.opcion:hover{border-color:rgba(14,124,134,.35);background:var(--teall)}
+.opcion.selected{border-color:var(--teal);background:var(--teall);box-shadow:0 0 0 1px var(--teal)}
+.opcion-icon{font-size:22px;width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--off)}
+.opcion.selected .opcion-icon{background:var(--white)}
+.opcion-body{flex:1}
+.opcion-title{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.opcion-sub{font-size:13px;color:var(--mid);font-weight:300}
+.opcion-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:.15s}
+.opcion.selected .opcion-check{background:var(--teal);border-color:var(--teal)}
+.opcion-check-inner{width:8px;height:8px;border-radius:50%;background:#fff;opacity:0;transition:.15s}
+.opcion.selected .opcion-check-inner{opacity:1}
+
+/* ── AVISO CLÍNICO ── */
+.aviso-clinico{background:var(--accentl);border:1px solid rgba(201,123,46,.3);border-radius:12px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px;margin-bottom:28px}
+.aviso-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.aviso-text{font-size:13px;color:#7A4A10;line-height:1.6}
+.aviso-text strong{font-weight:700;display:block;margin-bottom:2px}
+
+/* ── PASO 3: MENÚ INTERACTIVO ── */
+.demo-banner{background:var(--navyl);border:1px solid rgba(11,31,58,.15);border-radius:12px;padding:14px 20px;display:flex;align-items:flex-start;gap:14px;margin-bottom:28px}
+.demo-banner-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.demo-banner-text{font-size:13.5px;color:var(--navym);line-height:1.55}
+.demo-banner-text strong{font-weight:700;display:block;margin-bottom:2px}
+
+.menu-header-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.menu-semana{font-size:14px;font-weight:700;color:var(--dark)}
+
+.dias-wrap{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.dia-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;overflow:hidden;transition:.2s}
+.dia-card.completo{border-color:rgba(14,124,134,.3)}
+.dia-head{padding:10px 18px;background:#F0F4F7;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.dia-nombre{font-size:11px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.08em}
+.dia-estado{font-size:11.5px;font-weight:600;color:var(--light);transition:.2s}
+.dia-estado.ok{color:var(--teal)}
+.dia-opciones{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.platillo{padding:14px 15px;border-radius:10px;border:1.5px solid var(--border);background:var(--off);cursor:pointer;text-align:left;transition:.15s;position:relative;width:100%}
+.platillo:hover{border-color:rgba(14,124,134,.3);background:var(--teall)}
+.platillo.sel{border-color:var(--teal);background:var(--teall);box-shadow:0 0 0 1px var(--teal)}
+.p-check{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:.15s;background:var(--white)}
+.platillo.sel .p-check{background:var(--teal);border-color:var(--teal)}
+.p-check-inner{width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;transition:.15s}
+.platillo.sel .p-check-inner{opacity:1}
+.p-name{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:6px;line-height:1.35;padding-right:26px}
+.p-meta{display:flex;gap:8px;margin-bottom:6px}
+.p-cal{font-size:11px;color:var(--light)}
+.p-prot{font-size:11px;color:var(--teal);font-weight:600}
+.p-benefit{font-size:11px;color:var(--teald);background:rgba(14,124,134,.08);border-radius:6px;padding:3px 8px;display:inline-flex;align-items:center;gap:4px;line-height:1.4}
+.p-benefit::before{content:'✦';font-size:9px;color:var(--tealm)}
+
+/* Banner combinado */
+.multi-banner{background:var(--navyl);border:1px solid rgba(11,31,58,.15);border-radius:12px;padding:20px 24px;text-align:center;margin-bottom:28px}
+.multi-banner-title{font-family:'Libre Baskerville',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.multi-banner-sub{font-size:13px;color:var(--mid);line-height:1.6}
+.multi-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.multi-tag{font-size:11px;background:var(--teall);color:var(--teal);border:1px solid rgba(14,124,134,.2);padding:4px 12px;border-radius:100px;font-weight:600}
+
+/* ── DISCLAIMER CHECKBOX ── */
+.disclaimer-box{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:24px}
+.disclaimer-check-row{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.disclaimer-check-box{width:18px;height:18px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;margin-top:2px;transition:.15s;position:relative;background:var(--white)}
+.disclaimer-check-row.checked .disclaimer-check-box{background:var(--teal);border-color:var(--teal)}
+.disclaimer-check-row.checked .disclaimer-check-box::after{content:'';position:absolute;left:3px;top:1px;width:6px;height:9px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg)}
+.disclaimer-text{font-size:12.5px;color:var(--mid);line-height:1.65}
+.disclaimer-text strong{color:var(--dark);font-weight:600}
+
+/* ── ÉXITO ── */
+.success-wrap{text-align:center;padding:52px 20px}
+.success-icon{font-size:56px;margin-bottom:20px}
+.success-title{font-family:'Libre Baskerville',serif;font-size:40px;font-weight:700;color:var(--dark);margin-bottom:12px;line-height:1.1}
+.success-title em{color:var(--teal);font-style:italic;font-weight:400}
+.success-sub{font-size:15px;color:var(--mid);line-height:1.75;font-weight:300;max-width:440px;margin:0 auto 32px}
+.success-steps{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto 36px;text-align:left}
+.ss-item{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--white);border-radius:12px;border:1px solid var(--border)}
+.ss-num{width:26px;height:26px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;margin-top:1px}
+.ss-title{font-size:13.5px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.ss-sub{font-size:12px;color:var(--mid);line-height:1.5}
+
+/* ── BOTONES ── */
+.btn-primary{background:var(--teal);color:#fff;border:none;padding:15px 36px;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;width:100%;transition:.15s}
+.btn-primary:hover{background:var(--teald)}
+.btn-primary:disabled{background:var(--light);cursor:not-allowed;opacity:.6}
+.btn-ghost{background:transparent;color:var(--mid);border:1.5px solid var(--border);padding:15px 28px;border-radius:100px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;width:100%;margin-top:10px;transition:.15s}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btns{display:flex;flex-direction:column;gap:0}
+
+.step{display:none}
+.step.active{display:block;animation:fadeIn .3s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:12px 24px;border-radius:100px;font-size:13px;z-index:9999;opacity:0;transition:opacity .3s;white-space:nowrap;font-weight:500;pointer-events:none}
+
+@media(max-width:900px){
+  body{grid-template-columns:1fr}
+  .left{display:none}
+  .right-body{padding:36px 24px}
+  .right-body.wide{padding:28px 24px}
+  .right-nav{padding:16px 24px}
+  .condicion-grid{grid-template-columns:1fr}
+  .dia-opciones{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ PANEL IZQUIERDO ══ -->
+<div class="left">
+  <a href="nutrichef-index.html" class="left-logo">Nutri<span>chef</span></a>
+  <div class="progress-wrap">
+    <div class="progress-label">Tu proceso de registro</div>
+    <div class="progress-steps">
+      <div class="pstep active" data-step="1">
+        <div class="pstep-num">1</div>
+        <div class="pstep-body">
+          <div class="pstep-title">Datos personales</div>
+          <div class="pstep-sub">Nombre, contacto y condición médica</div>
+        </div>
+      </div>
+      <div class="pstep pending" data-step="2">
+        <div class="pstep-num">2</div>
+        <div class="pstep-body">
+          <div class="pstep-title">Tu situación clínica</div>
+          <div class="pstep-sub">¿Tienes plan, indicaciones o nada?</div>
+        </div>
+      </div>
+      <div class="pstep pending" data-step="3">
+        <div class="pstep-num">3</div>
+        <div class="pstep-body">
+          <div class="pstep-title">Así funciona Nutrichef</div>
+          <div class="pstep-sub">Menú de ejemplo y confirmación</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="left-bottom">
+    <div class="left-quote">"Tu médico da las indicaciones.<br><em>Nosotros las cocinamos.</em>"</div>
+    <div class="left-trust">
+      <div class="lt-item"><div class="lt-dot"></div>Plan generado y firmado por nutrióloga clínica certificada</div>
+      <div class="lt-item"><div class="lt-dot"></div>Respaldado por cédula profesional en cada preparación</div>
+      <div class="lt-item"><div class="lt-dot"></div>Sin sustituciones no autorizadas por tu médico</div>
+      <div class="lt-item"><div class="lt-dot"></div>Recogida 4–9 PM en Escápate Café · Saltillo</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PANEL DERECHO ══ -->
+<div class="right">
+  <div class="right-nav">
+    <a href="nutrichef-index.html" class="rn-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 3L5 8l5 5"/></svg>
+      Volver a Nutrichef
+    </a>
+    <div class="rn-step" id="rn-step">Paso 1 de 3</div>
+  </div>
+
+  <!-- ══ PASO 1 ══ -->
+  <div class="step active" id="step-1">
+    <div class="right-body">
+      <div class="step-eyebrow">Paso 1 de 3</div>
+      <h1 class="step-title">Cuéntanos <em>quién eres.</em></h1>
+      <p class="step-sub">Solo lo necesario para crear tu cuenta y coordinar tu plan de alimentación clínica.</p>
+
+      <div class="field-row">
+        <div class="field"><label>Nombre</label><input type="text" placeholder="Tu nombre" id="f-nombre"></div>
+        <div class="field"><label>Apellido</label><input type="text" placeholder="Tu apellido" id="f-apellido"></div>
+      </div>
+      <div class="field">
+        <label>WhatsApp</label>
+        <input type="tel" placeholder="844 000 0000" id="f-whatsapp">
+        <div class="field-hint">Te avisamos aquí cuando tu comida esté lista y para coordinar tu plan.</div>
+      </div>
+      <div class="field">
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="tu@correo.com" id="f-email">
+        <div class="field-hint">Para tu confirmación y acceso al portal.</div>
+      </div>
+
+      <div class="field" style="margin-bottom:10px">
+        <label>¿Qué condiciones médicas tienes?</label>
+      </div>
+      <div class="condicion-grid" id="condicion-grid">
+        <button class="cond-chip" onclick="toggleCondicion(this,'diabetes')">
+          <div class="cond-emoji">🩸</div><div class="cond-label">Diabetes tipo 2</div><div class="cond-check"></div>
+        </button>
+        <button class="cond-chip" onclick="toggleCondicion(this,'renal')">
+          <div class="cond-emoji">🫘</div><div class="cond-label">Enfermedad renal crónica</div><div class="cond-check"></div>
+        </button>
+        <button class="cond-chip" onclick="toggleCondicion(this,'hipertension')">
+          <div class="cond-emoji">❤️</div><div class="cond-label">Hipertensión arterial</div><div class="cond-check"></div>
+        </button>
+        <button class="cond-chip" onclick="toggleCondicion(this,'cardiovascular')">
+          <div class="cond-emoji">🫀</div><div class="cond-label">Enfermedad cardiovascular</div><div class="cond-check"></div>
+        </button>
+        <button class="cond-chip" onclick="toggleCondicion(this,'colesterol')">
+          <div class="cond-emoji">🧪</div><div class="cond-label">Colesterol / triglicéridos altos</div><div class="cond-check"></div>
+        </button>
+        <button class="cond-chip" onclick="toggleCondicion(this,'postquirurgico')">
+          <div class="cond-emoji">🩹</div><div class="cond-label">Post-operatorio / recuperación</div><div class="cond-check"></div>
+        </button>
+        <button class="cond-chip" onclick="toggleCondicion(this,'otro')" style="grid-column:span 2">
+          <div class="cond-emoji">📋</div><div class="cond-label">Otra condición indicada por mi médico</div><div class="cond-check"></div>
+        </button>
+      </div>
+      <div class="cond-hint">Puedes seleccionar más de una. Esta información le llega directamente a la nutrióloga clínica que diseñará tu plan.</div>
+
+      <div class="field">
+        <label>¿Cómo nos encontraste? <span class="field-optional">(opcional)</span></label>
+        <select>
+          <option value="">Seleccionar</option>
+          <option>Mi médico me lo recomendó</option>
+          <option>Mi nutrióloga me lo recomendó</option>
+          <option>Recomendación de un familiar o amigo</option>
+          <option>Instagram / Facebook</option>
+          <option>Hospital o clínica</option>
+          <option>Escápate Café</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="btns">
+        <button class="btn-primary" onclick="goStep(2)">Continuar →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PASO 2 ══ -->
+  <div class="step" id="step-2">
+    <div class="right-body">
+      <div class="step-eyebrow">Paso 2 de 3</div>
+      <h1 class="step-title">¿Con qué <em>llegas?</em></h1>
+      <p class="step-sub">Nutrichef se adapta a tu situación. Cuéntanos en qué punto estás con tu tratamiento alimenticio.</p>
+
+      <div class="opciones">
+        <button class="opcion" onclick="selectOpcion(this,'plan')">
+          <div class="opcion-icon">📋</div>
+          <div class="opcion-body">
+            <div class="opcion-title">Tengo plan de mi nutrióloga clínica</div>
+            <div class="opcion-sub">Fue prescrito por nutrióloga o médico — cualquier formato vale: PDF, foto, escrito a mano</div>
+          </div>
+          <div class="opcion-check"><div class="opcion-check-inner"></div></div>
+        </button>
+        <button class="opcion" onclick="selectOpcion(this,'indicaciones')">
+          <div class="opcion-icon">🏥</div>
+          <div class="opcion-body">
+            <div class="opcion-title">Tengo indicaciones de mi médico, sin plan nutricional</div>
+            <div class="opcion-sub">Mi médico me dijo qué no puedo comer, pero no hay plan detallado — una nutrióloga clínica de la red lo genera</div>
+          </div>
+          <div class="opcion-check"><div class="opcion-check-inner"></div></div>
+        </button>
+        <button class="opcion" onclick="selectOpcion(this,'nada')">
+          <div class="opcion-icon">🤝</div>
+          <div class="opcion-body">
+            <div class="opcion-title">No tengo nada — necesito orientación</div>
+            <div class="opcion-sub">Te canalizamos con una nutrióloga clínica de la red para que evalúe tu caso y genere tu plan desde cero</div>
+          </div>
+          <div class="opcion-check"><div class="opcion-check-inner"></div></div>
+        </button>
+      </div>
+
+      <div class="field">
+        <label>¿Quién te lleva el tratamiento? <span class="field-optional">(opcional)</span></label>
+        <input type="text" placeholder="Ej. Dr. Pérez · Endocrinólogo, o Lic. García · Nutrióloga clínica…">
+        <div class="field-hint">Puede ser tu endocrinólogo, nefrólogo, internista, cardiólogo u otro especialista. No necesita estar registrado en Nutrichef.</div>
+      </div>
+
+      <div class="field">
+        <label>Alergias, intolerancias o restricciones adicionales <span class="field-optional">(opcional)</span></label>
+        <textarea placeholder="Ej. Alergia a mariscos · No puedo consumir gluten · Restricción de potasio y fósforo por indicación médica…"></textarea>
+        <div class="field-hint">Cualquier detalle que el equipo deba saber además de tu condición médica principal.</div>
+      </div>
+
+      <div class="aviso-clinico">
+        <div class="aviso-icon">⚠️</div>
+        <div class="aviso-text">
+          <strong>Aviso de responsabilidad</strong>
+          Nutrichef cocina exactamente lo que indica tu plan clínico. Al registrarte confirmas que el plan proviene de un profesional de salud certificado. Si el plan contiene errores, la responsabilidad recae en quien lo prescribió.
+        </div>
+      </div>
+
+      <div class="btns">
+        <button class="btn-primary" onclick="goStep(3)">Continuar →</button>
+        <button class="btn-ghost" onclick="goStep(1)">← Regresar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PASO 3 ══ -->
+  <div class="step" id="step-3">
+    <div class="right-body wide">
+      <div class="step-eyebrow">Paso 3 de 3</div>
+      <h1 class="step-title">Así elegirías tu <em>menú.</em></h1>
+      <p class="step-sub">Dos opciones por día adaptadas a tu condición. Tú eliges una.</p>
+
+      <!-- Banner dinámico -->
+      <div id="banner-demo"></div>
+
+      <!-- Header menú -->
+      <div style="background:var(--navyl);border:1px solid rgba(11,31,58,.12);border-radius:10px;padding:14px 20px;margin-bottom:20px">
+        <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px" id="menu-semana-label">Ejemplo de menú para tu plan clínico</div>
+        <div style="font-size:13px;color:var(--mid);font-weight:300">Dos opciones de platillo por día · Solo es un ejemplo ilustrativo</div>
+      </div>
+
+      <!-- Días dinámicos -->
+      <div class="dias-wrap" id="dias-wrap"></div>
+
+      <div style="max-width:540px">
+        <!-- Disclaimer obligatorio -->
+        <div class="disclaimer-box">
+          <div class="disclaimer-check-row" id="disclaimer-row" onclick="toggleDisclaimer()">
+            <div class="disclaimer-check-box"></div>
+            <div class="disclaimer-text">
+              Entiendo que <strong>los platillos de ejemplo son ilustrativos</strong>. Mi menú real lo definirá la nutrióloga clínica asignada a mi caso, en función de mi plan y condición médica específica. Nutrichef cocina lo que se le indica — no modifica ni interpreta las indicaciones médicas.
+            </div>
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="btn-primary" id="btn-crear" onclick="goStep(4)" disabled>Crear mi cuenta →</button>
+          <button class="btn-ghost" onclick="goStep(2)">← Regresar</button>
+        </div>
+        <p style="font-size:12px;color:var(--light);text-align:center;margin-top:16px;line-height:1.6">El precio se define después de revisar tu plan y condición — te lo enviamos por WhatsApp en menos de 24h.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ÉXITO ══ -->
+  <div class="step" id="step-4">
+    <div class="right-body">
+      <div class="success-wrap">
+        <div class="success-icon">✅</div>
+        <h1 class="success-title">Registro<br><em>recibido.</em></h1>
+        <p class="success-sub">El equipo de Nutrichef revisará tu información y condición médica. Te escribiremos por WhatsApp en menos de 24 horas para coordinar los siguientes pasos.</p>
+        <div class="success-steps">
+          <div class="ss-item">
+            <div class="ss-num">1</div>
+            <div class="ss-body">
+              <div class="ss-title">Revisamos tu caso</div>
+              <div class="ss-sub">Asignamos la nutrióloga clínica adecuada según tu condición médica y el tipo de plan que necesitas.</div>
+            </div>
+          </div>
+          <div class="ss-item">
+            <div class="ss-num">2</div>
+            <div class="ss-body">
+              <div class="ss-title">Te contactamos por WhatsApp</div>
+              <div class="ss-sub">En menos de 24 horas te orientamos en los siguientes pasos: envío de plan, consulta o coordinación con tu médico.</div>
+            </div>
+          </div>
+          <div class="ss-item">
+            <div class="ss-num">3</div>
+            <div class="ss-body">
+              <div class="ss-title">Cada miércoles eliges tu semana</div>
+              <div class="ss-sub">Dos opciones por día dentro de tu plan clínico. Tu comida lista de lunes a viernes en Escápate Café.</div>
+            </div>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="showToast('Abriendo tu portal...')" style="max-width:360px;margin:0 auto;display:block">Ver mi portal →</button>
+        <div style="text-align:center;margin-top:14px">
+          <a href="nutrichef-index.html" style="font-size:13.5px;color:var(--mid);text-decoration:none">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── CONDICIONES SELECCIONADAS (multi-select) ──
+let condicionesSel = new Set();
+
+function toggleCondicion(el, key) {
+  el.classList.toggle('sel');
+  if (condicionesSel.has(key)) {
+    condicionesSel.delete(key);
+  } else {
+    condicionesSel.add(key);
+  }
+}
+
+// ── OPCIÓN DE PLAN ──
+let opcionSel = null;
+
+function selectOpcion(el, key) {
+  document.querySelectorAll('.opcion').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  opcionSel = key;
+}
+
+// ── DISCLAIMER ──
+let disclaimerChecked = false;
+
+function toggleDisclaimer() {
+  disclaimerChecked = !disclaimerChecked;
+  const row = document.getElementById('disclaimer-row');
+  row.classList.toggle('checked', disclaimerChecked);
+  document.getElementById('btn-crear').disabled = !disclaimerChecked;
+}
+
+// ── MENÚS POR CONDICIÓN ──
+const MENUS = {
+  diabetes: {
+    label: 'Ejemplo para paciente con Diabetes tipo 2',
+    dias: [
+      {d:'Lunes',p:[{n:'Pechuga al vapor con nopal y frijoles negros',c:'340 kcal',p:'34g prot',b:'Fibra del nopal regula la absorción de glucosa'},{n:'Huevo con espinaca y tortilla de maíz',c:'310 kcal',p:'24g prot',b:'Carbohidrato de liberación lenta, proteína completa'}]},
+      {d:'Martes',p:[{n:'Salmón a la plancha con verduras al vapor',c:'380 kcal',p:'36g prot',b:'Omega-3 mejora la sensibilidad a la insulina'},{n:'Pollo con brócoli y camote cocido',c:'360 kcal',p:'30g prot',b:'Camote: índice glucémico bajo y alto en fibra'}]},
+      {d:'Miércoles',p:[{n:'Res con ensalada de quinoa y jitomate',c:'390 kcal',p:'28g prot',b:'Quinoa: proteína completa con IG muy bajo'},{n:'Atún con aguacate y verduras crudas',c:'320 kcal',p:'30g prot',b:'Grasas saludables sin impacto glucémico'}]},
+      {d:'Jueves',p:[{n:'Pollo con lentejas y zanahoria',c:'370 kcal',p:'32g prot',b:'Leguminosas: fibra y proteína sin picos de glucosa'},{n:'Pescado al horno con ejotes y papa al vapor',c:'350 kcal',p:'28g prot',b:'Papa cocida y fría: almidón resistente benéfico'}]},
+      {d:'Viernes',p:[{n:'Pavo con calabacita y arroz integral',c:'360 kcal',p:'34g prot',b:'Arroz integral: fibra que desacelera la digestión'},{n:'Sopa de verduras con pollo y chícharos',c:'330 kcal',p:'26g prot',b:'Caldo bajo en sodio, rico en micronutrientes'}]}
+    ]
+  },
+  renal: {
+    label: 'Ejemplo para paciente con Enfermedad Renal Crónica',
+    dias: [
+      {d:'Lunes',p:[{n:'Pechuga al vapor con arroz blanco y manzana',c:'330 kcal',p:'30g prot',b:'Bajo en potasio y fósforo — protege la función renal'},{n:'Clara de huevo con pasta y aceite de oliva',c:'300 kcal',p:'22g prot',b:'Proteína de alto valor biológico sin carga de fósforo'}]},
+      {d:'Martes',p:[{n:'Res magra con pan blanco y pera',c:'340 kcal',p:'26g prot',b:'Carbohidratos simples controlados sin potasio elevado'},{n:'Pollo con arroz y calabacita hervida',c:'320 kcal',p:'28g prot',b:'Calabacita pre-cocida reduce contenido de potasio'}]},
+      {d:'Miércoles',p:[{n:'Tilapia al horno con pasta y zanahoria cocida',c:'310 kcal',p:'26g prot',b:'Pescado blanco: fósforo moderado y proteína limpia'},{n:'Pechuga con arroz y pepino fresco',c:'300 kcal',p:'28g prot',b:'Pepino: bajo en potasio, hidratante y digestivo'}]},
+      {d:'Jueves',p:[{n:'Res con puré de papa doble cocción y ejotes',c:'340 kcal',p:'26g prot',b:'Doble cocción de papa reduce el potasio hasta 50%'},{n:'Pollo con fideos y manzana al vapor',c:'320 kcal',p:'28g prot',b:'Fruta pre-cocida con menor concentración de potasio'}]},
+      {d:'Viernes',p:[{n:'Clara de huevo con arroz blanco y pera',c:'290 kcal',p:'20g prot',b:'Proteína sin fósforo adicional de yema'},{n:'Tilapia con pasta y zanahoria hervida',c:'310 kcal',p:'26g prot',b:'Minerales controlados para estadio renal específico'}]}
+    ]
+  },
+  hipertension: {
+    label: 'Ejemplo para paciente con Hipertensión arterial',
+    dias: [
+      {d:'Lunes',p:[{n:'Salmón con espinaca y limón al vapor',c:'360 kcal',p:'36g prot',b:'Omega-3 reduce la presión arterial sistólica'},{n:'Pechuga con verduras y arroz con hierbas',c:'350 kcal',p:'30g prot',b:'Hierbas aromáticas reemplazan la sal sin perder sabor'}]},
+      {d:'Martes',p:[{n:'Frijoles negros con pollo y aguacate',c:'380 kcal',p:'28g prot',b:'Potasio contrarresta el efecto del sodio en arterias'},{n:'Atún con camote y ejotes',c:'340 kcal',p:'30g prot',b:'Camote: fuente clave de potasio y magnesio'}]},
+      {d:'Miércoles',p:[{n:'Res magra con espinaca y quinoa',c:'390 kcal',p:'32g prot',b:'Magnesio natural para vasodilatación'},{n:'Pollo con brócoli y pasta integral',c:'370 kcal',p:'28g prot',b:'Sulforafanos del brócoli con efecto vasoprotector'}]},
+      {d:'Jueves',p:[{n:'Sopa de lentejas con apio y zanahoria',c:'340 kcal',p:'22g prot',b:'Ftalidas del apio relajan el músculo arterial'},{n:'Tilapia al horno con verduras mixtas',c:'320 kcal',p:'32g prot',b:'Pescado blanco: bajo en grasa saturada y sodio'}]},
+      {d:'Viernes',p:[{n:'Pollo con betabel y ensalada de pepino',c:'340 kcal',p:'30g prot',b:'Nitratos del betabel dilatan los vasos sanguíneos'},{n:'Salmón con puré de chícharo y limón',c:'380 kcal',p:'34g prot',b:'Omega-3 + vitamina C: dúo antiinflamatorio vascular'}]}
+    ]
+  },
+  postquirurgico: {
+    label: 'Ejemplo para paciente en recuperación Post-operatoria',
+    dias: [
+      {d:'Lunes',p:[{n:'Pechuga desmenuzada en caldo suave con fideos',c:'280 kcal',p:'28g prot',b:'Proteína blanda de fácil digestión para cicatrización'},{n:'Clara de huevo revuelta con puré de papa',c:'250 kcal',p:'22g prot',b:'Textura suave · vitamina C para síntesis de colágeno'}]},
+      {d:'Martes',p:[{n:'Pescado blanco al vapor con arroz blanco',c:'290 kcal',p:'26g prot',b:'Alta biodisponibilidad proteica sin esfuerzo digestivo'},{n:'Pollo desmenuzado con puré de zanahoria',c:'270 kcal',p:'24g prot',b:'Betacaroteno para regeneración de mucosas y piel'}]},
+      {d:'Miércoles',p:[{n:'Res molida baja en grasa con arroz y puré de papa',c:'320 kcal',p:'28g prot',b:'Hierro hemo para compensar pérdidas post-quirúrgicas'},{n:'Pechuga con caldo de verduras y pasta fina',c:'280 kcal',p:'26g prot',b:'Electrolitos naturales y proteína de recuperación'}]},
+      {d:'Jueves',p:[{n:'Tilapia al horno con puré de camote',c:'300 kcal',p:'26g prot',b:'Omega-3 suave antiinflamatorio y vitamina A'},{n:'Clara con puré de chícharo y pan blanco tostado',c:'260 kcal',p:'20g prot',b:'Fibra moderada + proteína para recuperación gradual'}]},
+      {d:'Viernes',p:[{n:'Pollo al vapor con arroz y calabacita cocida',c:'290 kcal',p:'26g prot',b:'Textura blanda controlada para tolerancia digestiva'},{n:'Pescado blanco con fideos y zanahoria suave',c:'280 kcal',p:'24g prot',b:'Caldo suave rico en minerales para recuperación'}]}
+    ]
+  },
+  colesterol: {
+    label: 'Ejemplo para paciente con Colesterol / Triglicéridos altos',
+    dias: [
+      {d:'Lunes',p:[{n:'Salmón con lentejas y espárragos',c:'390 kcal',p:'36g prot',b:'Omega-3 sube el HDL y reduce triglicéridos'},{n:'Pechuga con frijoles negros y nopal',c:'360 kcal',p:'30g prot',b:'Fibra de leguminosas arrastra el colesterol LDL'}]},
+      {d:'Martes',p:[{n:'Atún con aguacate y pepino',c:'330 kcal',p:'28g prot',b:'Ácido oleico del aguacate mejora el perfil lipídico'},{n:'Bowl de quinoa con garbanzos y jitomate',c:'370 kcal',p:'22g prot',b:'Proteína vegetal reduce el colesterol total'}]},
+      {d:'Miércoles',p:[{n:'Tilapia al vapor con brócoli y limón',c:'310 kcal',p:'32g prot',b:'Sulforafanos del brócoli: efecto cardioprotector'},{n:'Res magra con espinaca y champiñones',c:'360 kcal',p:'30g prot',b:'Hierro hemo + fibra de espinaca sin grasa saturada'}]},
+      {d:'Jueves',p:[{n:'Pechuga con ensalada de espinaca y nuez',c:'350 kcal',p:'32g prot',b:'Nuez: esteroles que bloquean absorción de colesterol'},{n:'Salmón con puré de chícharo y apio',c:'380 kcal',p:'34g prot',b:'Omega-3 EPA/DHA baja los triglicéridos hasta 30%'}]},
+      {d:'Viernes',p:[{n:'Avena salada con pechuga y verduras',c:'360 kcal',p:'30g prot',b:'Beta-glucano de la avena reduce LDL hasta 15%'},{n:'Pollo con betabel y ensalada verde',c:'330 kcal',p:'28g prot',b:'Betaínas del betabel con efecto hipocolesterolémico'}]}
+    ]
+  },
+  combinado: {
+    label: 'Ejemplo para múltiples condiciones',
+    dias: [
+      {d:'Lunes',p:[{n:'Pechuga al vapor con nopal, arroz blanco y limón',c:'320 kcal',p:'30g prot',b:'Bajo en sodio y glucosa · fósforo y potasio moderados'},{n:'Clara de huevo con calabacita hervida y tortilla',c:'290 kcal',p:'22g prot',b:'Proteína limpia sin carga de fósforo ni sodio'}]},
+      {d:'Martes',p:[{n:'Tilapia al horno con pasta y ejotes',c:'310 kcal',p:'26g prot',b:'Pescado blanco: neutro para restricciones combinadas'},{n:'Pollo desmenuzado con arroz y zanahoria cocida',c:'300 kcal',p:'26g prot',b:'Textura y minerales adaptados a múltiples restricciones'}]},
+      {d:'Miércoles',p:[{n:'Res magra molida con arroz blanco y pepino',c:'330 kcal',p:'26g prot',b:'Proteína moderada · sodio y potasio controlados'},{n:'Pechuga con pasta fina y calabacita al vapor',c:'310 kcal',p:'28g prot',b:'Macros balanceados para comorbilidades múltiples'}]},
+      {d:'Jueves',p:[{n:'Salmón con arroz y zanahoria hervida',c:'360 kcal',p:'32g prot',b:'Omega-3 antiinflamatorio · minerales pre-filtrados'},{n:'Clara con puré de papa doble cocción y ejotes',c:'290 kcal',p:'20g prot',b:'Papa desintoxicada de potasio · proteína de yema omitida'}]},
+      {d:'Viernes',p:[{n:'Tilapia al vapor con fideos y manzana cocida',c:'300 kcal',p:'24g prot',b:'Fruta pre-cocida · restricciones de potasio observadas'},{n:'Pollo con arroz blanco y pepino fresco',c:'290 kcal',p:'26g prot',b:'Platillo neutro adaptable a plan clínico específico'}]}
+    ]
+  },
+  general: {
+    label: 'Ejemplo de menú con alimentación clínica general',
+    dias: [
+      {d:'Lunes',p:[{n:'Pechuga al horno con arroz integral y ejotes',c:'380 kcal',p:'34g prot',b:'Macros balanceados según indicación clínica'},{n:'Salmón con quinoa y verduras mixtas',c:'400 kcal',p:'36g prot',b:'Omega-3, proteína completa y micronutrientes esenciales'}]},
+      {d:'Martes',p:[{n:'Res magra con camote y brócoli',c:'390 kcal',p:'30g prot',b:'Hierro, vitamina A y sulforafanos en un plato'},{n:'Pollo con lentejas y zanahoria',c:'370 kcal',p:'32g prot',b:'Fibra + proteína + betacaroteno en combinación ideal'}]},
+      {d:'Miércoles',p:[{n:'Atún con ensalada mediterránea y aguacate',c:'350 kcal',p:'28g prot',b:'Grasas mono y poliinsaturadas con vitaminas liposolubles'},{n:'Pechuga con espinaca y pasta integral',c:'370 kcal',p:'30g prot',b:'Hierro + vitamina C + fibra: absorción optimizada'}]},
+      {d:'Jueves',p:[{n:'Salmón con espárragos y arroz con hierbas',c:'390 kcal',p:'36g prot',b:'Vitamina D, selenio y ácido fólico en una sola comida'},{n:'Pollo con garbanzos y jitomate',c:'370 kcal',p:'30g prot',b:'Licopeno + proteína vegetal y animal combinadas'}]},
+      {d:'Viernes',p:[{n:'Res con frijoles y nopales',c:'380 kcal',p:'30g prot',b:'Fibra prebiótica + hierro hemo + proteína completa'},{n:'Pescado al horno con puré de chícharo',c:'340 kcal',p:'30g prot',b:'Omega-3 + vitamina K + proteína ligera de calidad'}]}
+    ]
+  }
+};
+
+let sels = [null, null, null, null, null];
+
+function getMenuKey() {
+  const conds = Array.from(condicionesSel);
+  if (conds.length === 0) return 'general';
+  if (conds.length > 1) return 'combinado';
+  return MENUS[conds[0]] ? conds[0] : 'general';
+}
+
+function renderBanner(key) {
+  const bannerEl = document.getElementById('banner-demo');
+  if (condicionesSel.size > 1) {
+    const tags = Array.from(condicionesSel).map(c => {
+      const labels = {
+        diabetes: 'Diabetes tipo 2', renal: 'Enf. Renal Crónica',
+        hipertension: 'Hipertensión', cardiovascular: 'Enf. Cardiovascular',
+        colesterol: 'Colesterol alto', postquirurgico: 'Post-operatorio', otro: 'Otra condición'
+      };
+      return `<span class="multi-tag">${labels[c] || c}</span>`;
+    }).join('');
+    bannerEl.innerHTML = `<div class="multi-banner">
+      <div class="multi-banner-title">Tienes múltiples condiciones registradas</div>
+      <div class="multi-banner-sub">Tu menú real integrará todas las restricciones combinadas. La nutrióloga clínica diseñará un plan específico para tu caso. Este ejemplo es una aproximación general.</div>
+      <div class="multi-tags">${tags}</div>
+    </div>`;
+  } else {
+    bannerEl.innerHTML = `<div class="demo-banner">
+      <div class="demo-banner-icon">🧪</div>
+      <div class="demo-banner-text"><strong>Menú ilustrativo</strong>Los platillos son de ejemplo. Tu menú real lo define la nutrióloga clínica asignada a tu caso.</div>
+    </div>`;
+  }
+}
+
+function renderMenu(key) {
+  const data = MENUS[key] || MENUS.general;
+  document.getElementById('menu-semana-label').textContent = data.label;
+  sels = [null, null, null, null, null];
+
+  const wrap = document.getElementById('dias-wrap');
+  wrap.innerHTML = '';
+  data.dias.forEach((d, di) => {
+    const card = document.createElement('div');
+    card.className = 'dia-card';
+    card.id = 'dia-card-' + di;
+    card.innerHTML = `
+      <div class="dia-head">
+        <div class="dia-nombre">${d.d}</div>
+        <div class="dia-estado" id="est-${di}">Pendiente</div>
+      </div>
+      <div class="dia-opciones">
+        ${d.p.map((p, pi) => `
+          <button class="platillo" onclick="selPlatillo(this,${di},${pi})">
+            <div class="p-check"><div class="p-check-inner"></div></div>
+            <div class="p-name">${p.n}</div>
+            <div class="p-meta"><span class="p-cal">${p.c}</span><span class="p-prot">${p.p}</span></div>
+            <div class="p-benefit">${p.b}</div>
+          </button>`).join('')}
+      </div>`;
+    wrap.appendChild(card);
+  });
+}
+
+function selPlatillo(btn, di, pi) {
+  btn.closest('.dia-opciones').querySelectorAll('.platillo').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  sels[di] = pi;
+  const est = document.getElementById('est-' + di);
+  est.textContent = '✓ Elegido';
+  est.classList.add('ok');
+  document.getElementById('dia-card-' + di).classList.add('completo');
+}
+
+function goStep(n) {
+  if (n === 3) {
+    const key = getMenuKey();
+    renderBanner(key);
+    renderMenu(key);
+    // Reset disclaimer al navegar al paso 3
+    disclaimerChecked = false;
+    document.getElementById('disclaimer-row').classList.remove('checked');
+    document.getElementById('btn-crear').disabled = true;
+  }
+
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+
+  document.querySelectorAll('.pstep').forEach(p => {
+    const s = parseInt(p.dataset.step);
+    p.classList.remove('active', 'done', 'pending');
+    if (s < n) p.classList.add('done');
+    else if (s === n) p.classList.add('active');
+    else p.classList.add('pending');
+  });
+  document.querySelectorAll('.pstep.done .pstep-num').forEach(el => el.textContent = '✓');
+  document.querySelectorAll('.pstep:not(.done) .pstep-num').forEach(el => {
+    el.textContent = el.closest('.pstep').dataset.step;
+  });
+
+  const labels = {1:'Paso 1 de 3', 2:'Paso 2 de 3', 3:'Paso 3 de 3', 4:'¡Registro enviado!'};
+  document.getElementById('rn-step').textContent = labels[n] || '';
+  window.scrollTo(0, 0);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.opacity = 1;
+  setTimeout(() => t.style.opacity = 0, 2500);
+}
+</script>
+</body>
+</html>

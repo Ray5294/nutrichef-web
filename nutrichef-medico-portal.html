@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Médico · Nutrichef</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0B1F3A;--navym:#122844;--navyl:#E8EEF5;
+  --teal:#0E7C86;--teall:#E4F4F5;--tealm:#2EA8B4;
+  --off:#F6F5F1;--white:#FFFFFF;
+  --dark:#0D1B2A;--mid:#4A5568;--light:#9AA5B4;
+  --border:rgba(0,0,0,.07);--cream:#F0EEE9;
+  --accent:#C97B2E;--accentl:#FDF0E0;
+  --ok:#15803D;--okl:#DCFCE7;
+  --warn:#C47A00;--warnl:#FFFBEA;
+  --danger:#E24B4A;--dangerl:#FCEBEB;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--dark);min-height:100vh;display:grid;grid-template-columns:248px 1fr}
+
+/* ── SIDEBAR ── */
+.sidebar{background:var(--navy);display:flex;flex-direction:column;padding:24px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sb-logo{font-family:'Libre Baskerville',serif;font-size:20px;color:#fff;letter-spacing:-.02em;margin-bottom:2px}
+.sb-logo em{font-style:italic;color:var(--tealm)}
+.sb-role{font-size:10px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-sect{font-size:10px;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.1em;font-weight:700;padding:12px 10px 5px}
+.sbtn{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;font-size:13px;color:rgba(255,255,255,.4);cursor:pointer;border:none;background:transparent;width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;transition:.14s;text-align:left}
+.sbtn:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
+.sbtn.active{background:rgba(14,124,134,.2);color:#fff;border:1px solid rgba(14,124,134,.3)}
+.sbtn svg{width:14px;height:14px;flex-shrink:0;opacity:.5}
+.sbtn.active svg{opacity:1}
+.sb-div{height:1px;background:rgba(255,255,255,.07);margin:4px 0}
+.sb-sp{flex:1}
+.sb-info{background:rgba(255,255,255,.06);border-radius:10px;padding:14px;margin-top:8px}
+.si-label{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:5px}
+.si-val{font-size:13px;color:rgba(255,255,255,.7);line-height:1.55}
+.sb-profile{margin-top:10px;padding:12px;background:rgba(255,255,255,.05);border-radius:9px;display:flex;align-items:center;gap:10px}
+.sp-av{width:32px;height:32px;border-radius:50%;background:var(--navyl);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--navy);flex-shrink:0}
+.sp-name{font-size:12px;font-weight:700;color:#fff}
+.sp-spec{font-size:10px;color:rgba(255,255,255,.28);margin-top:2px}
+
+/* ── MAIN ── */
+.main{overflow-y:auto}
+.view{display:none;padding:28px 32px}
+.view.active{display:block}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;gap:12px;flex-wrap:wrap}
+.pt{font-family:'Libre Baskerville',serif;font-size:26px;color:var(--dark);line-height:1.1}
+.pt em{color:var(--teal);font-style:italic}
+.ps{font-size:13px;color:var(--mid);margin-top:4px;font-weight:300}
+
+/* ── HEADER ── */
+.main-header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px 0;position:sticky;top:0;z-index:50;background:var(--off)}
+.mh-left{font-size:12px;color:var(--light)}
+
+/* ── BUTTONS ── */
+.btn-primary{background:var(--teal);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-sm{font-size:12px;padding:6px 14px;border-radius:6px;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--mid);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600}
+.btn-teal-sm{font-size:12px;padding:6px 14px;border-radius:6px;cursor:pointer;border:none;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600}
+
+/* ── METRICS ── */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.metric{background:var(--white);border-radius:12px;padding:16px;border:1px solid var(--border)}
+.ml{font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;font-weight:700}
+.mv{font-size:22px;font-weight:700;color:var(--dark)}
+.ms{font-size:11px;color:var(--mid);margin-top:3px;font-weight:300}
+.mb{display:inline-block;margin-top:5px;font-size:11px;padding:2px 9px;border-radius:100px;font-weight:600}
+.mb-ok{background:var(--okl);color:var(--ok)}
+.mb-teal{background:var(--teall);color:var(--teal)}
+.mb-warn{background:var(--warnl);color:var(--warn)}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:14px;border:1px solid var(--border);margin-bottom:18px}
+.card-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border)}
+.card-t{font-size:14px;font-weight:700;color:var(--dark)}
+.inner{padding:18px 20px}
+
+/* ── PILLS ── */
+.pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:100px;font-weight:600}
+.pill-ok{background:var(--okl);color:var(--ok)}
+.pill-warn{background:var(--warnl);color:var(--warn)}
+.pill-danger{background:var(--dangerl);color:var(--danger)}
+.pill-teal{background:var(--teall);color:var(--teal)}
+.pill-navy{background:var(--navyl);color:var(--navy)}
+
+/* ── PATIENT CARD ── */
+.patient-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:.12s}
+.patient-row:last-child{border-bottom:none}
+.patient-row:hover{background:var(--off);margin:0 -20px;padding:14px 20px;border-radius:8px}
+.pr-av{width:38px;height:38px;border-radius:50%;background:var(--teall);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+.pr-info{flex:1}
+.pr-name{font-size:14px;font-weight:600;color:var(--dark)}
+.pr-meta{font-size:12px;color:var(--mid);margin-top:2px;font-weight:300}
+.pr-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.pr-adh-bar{width:80px;height:6px;background:var(--off);border-radius:100px;overflow:hidden;margin-bottom:2px}
+.pr-adh-fill{height:100%;border-radius:100px;background:var(--teal)}
+.pr-adh-pct{font-size:11px;font-weight:700;color:var(--teal)}
+
+/* ── PLAN VIEWER ── */
+.plan-view-header{background:var(--navy);border-radius:14px;padding:20px 24px;margin-bottom:16px}
+.pvh-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.pvh-name{font-family:'Libre Baskerville',serif;font-size:20px;color:#fff}
+.pvh-diag{font-size:12px;color:rgba(255,255,255,.45);margin-top:4px}
+.pvh-nutri{font-size:12px;color:rgba(255,255,255,.4)}
+.pvh-cedula{display:inline-flex;align-items:center;gap:6px;background:rgba(14,124,134,.2);border:1px solid rgba(14,124,134,.3);color:var(--tealm);font-size:11px;padding:4px 12px;border-radius:4px;font-weight:600;margin-top:6px}
+.pvh-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
+.pvh-stat{}
+.pvh-stat-label{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;font-weight:600}
+.pvh-stat-val{font-size:16px;font-weight:700;color:#fff}
+.pvh-stat-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+
+.week-view{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+.wv-day{background:var(--white);border-radius:12px;border:1px solid var(--border)}
+.wvd-head{padding:10px 12px;background:var(--cream);border-bottom:1px solid var(--border)}
+.wvd-day{font-size:11px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.06em}
+.wvd-body{padding:12px}
+.wvd-dish{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:6px;line-height:1.35}
+.wvd-restrict{font-size:11px;color:var(--teal);font-weight:600;margin-bottom:8px}
+.wvd-cal{font-size:12px;color:var(--light);font-weight:500}
+
+/* ── ADHERENCIA COMPACTA ── */
+.adh-compact{display:flex;flex-direction:column;gap:12px}
+.adh-row{display:flex;align-items:center;gap:12px}
+.adh-name{font-size:13px;font-weight:500;color:var(--dark);width:140px;flex-shrink:0}
+.adh-bar-wrap{flex:1;height:7px;background:var(--off);border-radius:100px;overflow:hidden}
+.adh-fill{height:100%;border-radius:100px;background:var(--teal)}
+.adh-fill.low{background:var(--danger)}
+.adh-fill.mid{background:var(--warn)}
+.adh-pct{font-size:12px;font-weight:700;width:36px;text-align:right;flex-shrink:0}
+.adh-days-mini{display:flex;gap:3px;flex-shrink:0}
+.adh-d{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
+.adh-d.ok{background:var(--teall);color:var(--teal)}
+.adh-d.no{background:var(--dangerl);color:var(--danger)}
+.adh-d.pend{background:var(--cream);color:var(--light)}
+
+/* ── REPORTE ── */
+.reporte-card{background:var(--navyl);border:1px solid rgba(11,31,58,.1);border-radius:12px;padding:20px;margin-bottom:12px}
+.rc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.rc-paciente{font-size:15px;font-weight:600;color:var(--dark)}
+.rc-fecha{font-size:12px;color:var(--light);margin-top:3px}
+.rc-body{font-size:13.5px;color:var(--mid);line-height:1.7;background:var(--white);border-radius:8px;padding:14px;border:1px solid var(--border)}
+.rc-firma{margin-top:12px;font-size:12px;color:var(--light);font-style:italic}
+
+/* ── MODAL ── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-bg.open{display:flex}
+.modal{background:var(--white);border-radius:16px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto}
+.modal-head{padding:20px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.modal-title{font-family:'Libre Baskerville',serif;font-size:18px;color:var(--dark)}
+.modal-close{width:28px;height:28px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--mid)}
+.modal-body{padding:22px}
+.modal-foot{padding:14px 22px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end}
+.mbtn-ghost{padding:9px 20px;border-radius:6px;border:1.5px solid var(--border);background:transparent;font-size:13px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;color:var(--mid)}
+.mbtn-prim{padding:9px 22px;border-radius:6px;background:var(--teal);border:none;font-size:13px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#fff}
+label{display:block;font-size:10px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+input,select,textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark);background:var(--off);outline:none;transition:.15s}
+input:focus,select:focus{border-color:var(--teal);background:var(--white)}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:12px 24px;border-radius:6px;font-size:13px;z-index:9999;opacity:0;transition:opacity .3s;white-space:nowrap;font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+  <div class="sb-logo">Nutri<em>chef</em></div>
+  <div class="sb-role">Portal · Médico aliado</div>
+
+  <div class="sb-sect">General</div>
+  <button class="sbtn active" onclick="showV('resumen',this)">
+    <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" opacity=".5"/><rect x="1" y="9" width="6" height="6" rx="1.5" opacity=".5"/><rect x="9" y="9" width="6" height="6" rx="1.5" opacity=".3"/></svg>
+    Resumen
+  </button>
+  <button class="sbtn" onclick="showV('pacientes',this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="6" cy="5" r="2.5"/><path d="M1.5 13c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4"/><circle cx="12" cy="5" r="2" stroke-width="1.2"/><path d="M12 9c1.5 0 2.5 1 2.5 3" stroke-linecap="round"/></svg>
+    Mis pacientes
+  </button>
+  <div class="sb-div"></div>
+
+  <div class="sb-sect">Seguimiento</div>
+  <button class="sbtn" onclick="showV('adherencia',this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 11l3-4 3 2 3-5 3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Adherencia
+  </button>
+  <button class="sbtn" onclick="showV('planes',this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1" y="2" width="14" height="12" rx="2"/><path d="M4 6h8M4 9h5" stroke-linecap="round"/></svg>
+    Planes nutricionales
+  </button>
+  <button class="sbtn" onclick="showV('reportes',this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 2h12v9H2z" rx="2"/><path d="M5 14l3-3 3 3" stroke-linecap="round"/></svg>
+    Reportes recibidos
+  </button>
+  <div class="sb-div"></div>
+
+  <div class="sb-sect">Cuenta</div>
+  <button class="sbtn" onclick="showV('perfil',this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5.5" r="2.5"/><path d="M2.5 13.5c0-3 2.5-4.5 5.5-4.5s5.5 1.5 5.5 4.5" stroke-linecap="round"/></svg>
+    Mi perfil
+  </button>
+
+  <div class="sb-sp"></div>
+  <div class="sb-info">
+    <div class="si-label">Tus pacientes en Nutrichef</div>
+    <div class="si-val">4 pacientes activos<br><span style="color:rgba(255,255,255,.35);font-size:11px">Adherencia promedio 82%</span></div>
+  </div>
+  <div class="sb-profile">
+    <div class="sp-av">RH</div>
+    <div>
+      <div class="sp-name">Dr. Roberto Hernández</div>
+      <div class="sp-spec">Endocrinólogo · IMSS Saltillo</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<div class="main">
+  <div class="main-header">
+    <div class="mh-left">Nutrichef · Portal Médico</div>
+    <button class="btn-primary" onclick="openModal('modal-nuevo-paciente')">+ Agregar paciente</button>
+  </div>
+
+  <!-- ══════ RESUMEN ══════ -->
+  <div class="view active" id="v-resumen">
+    <div class="ph">
+      <div><div class="pt">Bienvenido, <em>Dr. Hernández.</em></div><div class="ps">Sus pacientes activos en Nutrichef · semana 31 mar – 4 abr</div></div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="ml">Pacientes activos</div><div class="mv">4</div><div class="ms">Con plan nutricional vigente</div></div>
+      <div class="metric"><div class="ml">Adherencia promedio</div><div class="mv">82%</div><div class="ms">Últimas 4 semanas</div><div class="mb mb-ok">Buena</div></div>
+      <div class="metric"><div class="ml">Cumplimiento esta semana</div><div class="mv">3/4</div><div class="ms">1 paciente con adherencia baja</div><div class="mb mb-warn">Revisar</div></div>
+      <div class="metric"><div class="ml">Reportes sin leer</div><div class="mv">2</div><div class="ms">Enviados por la nutrióloga clínica</div><div class="mb mb-teal">Nuevos</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">Pacientes — adherencia esta semana</div></div>
+        <div class="inner">
+          <div class="adh-compact">
+            <div class="adh-row">
+              <div class="adh-name">María González</div>
+              <div class="adh-bar-wrap"><div class="adh-fill" style="width:100%"></div></div>
+              <div class="adh-pct" style="color:var(--ok)">100%</div>
+              <div class="adh-days-mini"><div class="adh-d ok">L</div><div class="adh-d ok">M</div><div class="adh-d ok">X</div><div class="adh-d ok">J</div><div class="adh-d ok">V</div></div>
+            </div>
+            <div class="adh-row">
+              <div class="adh-name">Juan Ramírez</div>
+              <div class="adh-bar-wrap"><div class="adh-fill" style="width:80%"></div></div>
+              <div class="adh-pct">80%</div>
+              <div class="adh-days-mini"><div class="adh-d ok">L</div><div class="adh-d ok">M</div><div class="adh-d ok">X</div><div class="adh-d ok">J</div><div class="adh-d no">V</div></div>
+            </div>
+            <div class="adh-row">
+              <div class="adh-name">Laura Morales</div>
+              <div class="adh-bar-wrap"><div class="adh-fill low" style="width:60%"></div></div>
+              <div class="adh-pct" style="color:var(--danger)">60%</div>
+              <div class="adh-days-mini"><div class="adh-d ok">L</div><div class="adh-d ok">M</div><div class="adh-d no">X</div><div class="adh-d ok">J</div><div class="adh-d no">V</div></div>
+            </div>
+            <div class="adh-row">
+              <div class="adh-name">Pedro Torres</div>
+              <div class="adh-bar-wrap"><div class="adh-fill" style="width:100%"></div></div>
+              <div class="adh-pct" style="color:var(--ok)">100%</div>
+              <div class="adh-days-mini"><div class="adh-d ok">L</div><div class="adh-d ok">M</div><div class="adh-d ok">X</div><div class="adh-d ok">J</div><div class="adh-d ok">V</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">Reportes recientes de la nutrióloga</div><button class="btn-sm" onclick="showV('reportes',null)">Ver todos</button></div>
+        <div class="inner" style="display:flex;flex-direction:column;gap:12px">
+          <div style="padding:14px;background:var(--teall);border:1px solid rgba(14,124,134,.2);border-radius:10px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div style="font-size:13px;font-weight:600;color:var(--teal)">María González · Nuevo</div>
+              <span style="font-size:10px;color:var(--teal);background:#fff;padding:2px 8px;border-radius:100px;font-weight:600">Sin leer</span>
+            </div>
+            <div style="font-size:12.5px;color:var(--mid);line-height:1.6">Semana 31 mar–4 abr: completó 5/5 comidas. Adherencia 100%. Plan renal fase 3 en marcha sin incidencias.</div>
+          </div>
+          <div style="padding:14px;background:var(--warnl);border:1px solid rgba(196,122,0,.2);border-radius:10px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div style="font-size:13px;font-weight:600;color:var(--warn)">Laura Morales · Atención</div>
+              <span style="font-size:10px;color:var(--warn);background:#fff;padding:2px 8px;border-radius:100px;font-weight:600">Sin leer</span>
+            </div>
+            <div style="font-size:12.5px;color:var(--mid);line-height:1.6">Semana 31 mar–4 abr: 3/5 comidas (60%). Miércoles y viernes sin recoger. Se recomienda revisar barreras de adherencia en consulta.</div>
+          </div>
+          <div style="padding:14px;background:var(--cream);border:1px solid var(--border);border-radius:10px">
+            <div style="font-size:13px;font-weight:600;color:var(--mid);margin-bottom:6px">Juan Ramírez · Leído</div>
+            <div style="font-size:12.5px;color:var(--light)">Semana 24 mar: 4/5 comidas. Adherencia en mejora sostenida.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ PACIENTES ══════ -->
+  <div class="view" id="v-pacientes">
+    <div class="ph">
+      <div><div class="pt">Mis <em>pacientes</em></div><div class="ps">4 pacientes activos en Nutrichef</div></div>
+      <button class="btn-primary" onclick="openModal('modal-nuevo-paciente')">+ Agregar paciente</button>
+    </div>
+    <div class="card">
+      <div class="inner" style="display:flex;flex-direction:column;gap:0">
+        <div class="patient-row" onclick="showV('planes',null)">
+          <div class="pr-av">MG</div>
+          <div class="pr-info">
+            <div class="pr-name">María González · <span style="color:var(--mid);font-weight:400;font-size:13px">52 años</span></div>
+            <div class="pr-meta">Dieta renal fase 3 · Nut. Clínica: Laura Ramírez · Cédula 4782910</div>
+          </div>
+          <div class="pr-right">
+            <div class="pr-adh-bar"><div class="pr-adh-fill" style="width:100%"></div></div>
+            <div class="pr-adh-pct">100% esta semana</div>
+          </div>
+        </div>
+        <div class="patient-row">
+          <div class="pr-av" style="background:#FDF0E0;color:#C97B2E">CL</div>
+          <div class="pr-info">
+            <div class="pr-name">Carlos López · <span style="color:var(--mid);font-weight:400;font-size:13px">45 años</span></div>
+            <div class="pr-meta">Dieta diabética tipo 2 · Nut. Clínica: Laura Ramírez · Cédula 4782910</div>
+          </div>
+          <div class="pr-right">
+            <span class="pill pill-warn" style="font-size:10px">Plan en preparación</span>
+            <div style="font-size:11px;color:var(--light);margin-top:4px">Iniciando esta semana</div>
+          </div>
+        </div>
+        <div class="patient-row">
+          <div class="pr-av" style="background:#DCFCE7;color:#15803D">JR</div>
+          <div class="pr-info">
+            <div class="pr-name">Juan Ramírez · <span style="color:var(--mid);font-weight:400;font-size:13px">38 años</span></div>
+            <div class="pr-meta">Dieta renal fase 2 · Nut. Clínica: Laura Ramírez · Cédula 4782910</div>
+          </div>
+          <div class="pr-right">
+            <div class="pr-adh-bar"><div class="pr-adh-fill" style="width:80%"></div></div>
+            <div class="pr-adh-pct">80% esta semana</div>
+          </div>
+        </div>
+        <div class="patient-row">
+          <div class="pr-av" style="background:var(--dangerl);color:var(--danger)">LM</div>
+          <div class="pr-info">
+            <div class="pr-name">Laura Morales · <span style="color:var(--mid);font-weight:400;font-size:13px">61 años</span></div>
+            <div class="pr-meta">Dieta cardíaca · Nut. Clínica: Laura Ramírez · Cédula 4782910</div>
+          </div>
+          <div class="pr-right">
+            <div class="pr-adh-bar"><div class="pr-adh-fill" style="width:60%;background:var(--danger)"></div></div>
+            <div class="pr-adh-pct" style="color:var(--danger)">60% — atención</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ ADHERENCIA ══════ -->
+  <div class="view" id="v-adherencia">
+    <div class="ph"><div><div class="pt">Adherencia de <em>pacientes</em></div><div class="ps">Últimas 4 semanas · datos en tiempo real</div></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">María González</div><span class="pill pill-ok">Excelente</span></div>
+        <div class="inner">
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill" style="width:100%"></div></div><div class="adh-pct">100%</div><div style="font-size:11px;color:var(--light);margin-left:4px">31 mar</div></div>
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill" style="width:80%"></div></div><div class="adh-pct">80%</div><div style="font-size:11px;color:var(--light);margin-left:4px">24 mar</div></div>
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill" style="width:100%"></div></div><div class="adh-pct">100%</div><div style="font-size:11px;color:var(--light);margin-left:4px">17 mar</div></div>
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill" style="width:80%"></div></div><div class="adh-pct">80%</div><div style="font-size:11px;color:var(--light);margin-left:4px">10 mar</div></div>
+          </div>
+          <div style="font-size:12.5px;color:var(--mid);background:var(--teall);border-radius:8px;padding:10px">Dieta renal fase 3 · Plan vigente semana 31 mar. Siguiente consulta: 3 abr.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">Laura Morales</div><span class="pill pill-danger">Atención</span></div>
+        <div class="inner">
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill low" style="width:60%"></div></div><div class="adh-pct" style="color:var(--danger)">60%</div><div style="font-size:11px;color:var(--light);margin-left:4px">31 mar</div></div>
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill low" style="width:60%"></div></div><div class="adh-pct" style="color:var(--danger)">60%</div><div style="font-size:11px;color:var(--light);margin-left:4px">24 mar</div></div>
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill mid" style="width:80%"></div></div><div class="adh-pct" style="color:var(--warn)">80%</div><div style="font-size:11px;color:var(--light);margin-left:4px">17 mar</div></div>
+            <div class="adh-row"><div class="adh-bar-wrap"><div class="adh-fill low" style="width:40%"></div></div><div class="adh-pct" style="color:var(--danger)">40%</div><div style="font-size:11px;color:var(--light);margin-left:4px">10 mar</div></div>
+          </div>
+          <div style="font-size:12.5px;color:var(--mid);background:var(--dangerl);border-radius:8px;padding:10px">Tendencia a la baja en las últimas 3 semanas. Se recomienda revisar barreras en la próxima consulta.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ PLANES ══════ -->
+  <div class="view" id="v-planes">
+    <div class="ph"><div><div class="pt">Planes <em>nutricionales</em></div><div class="ps">Diseñados por la Nut. Clínica Laura Ramírez · Cédula 4782910</div></div></div>
+
+    <div class="plan-view-header">
+      <div class="pvh-top">
+        <div>
+          <div class="pvh-name">María González</div>
+          <div class="pvh-diag">Dieta renal fase 3 · 1,800 kcal/día</div>
+        </div>
+        <div style="text-align:right">
+          <div class="pvh-nutri">Plan diseñado por Nut. Clínica Laura Ramírez</div>
+          <div class="pvh-cedula">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Firmado · Cédula 4782910
+          </div>
+        </div>
+      </div>
+      <div class="pvh-stats">
+        <div class="pvh-stat"><div class="pvh-stat-label">Semana</div><div class="pvh-stat-val">31 mar–4 abr</div><div class="pvh-stat-sub">Semana 8 del plan</div></div>
+        <div class="pvh-stat"><div class="pvh-stat-label">Restricciones</div><div class="pvh-stat-val">5 activas</div><div class="pvh-stat-sub">K, P, Na, proteína, líquidos</div></div>
+        <div class="pvh-stat"><div class="pvh-stat-label">Adherencia</div><div class="pvh-stat-val">100%</div><div class="pvh-stat-sub">Esta semana</div></div>
+        <div class="pvh-stat"><div class="pvh-stat-label">Próx. revisión</div><div class="pvh-stat-val">7 abr</div><div class="pvh-stat-sub">Revisión del plan</div></div>
+      </div>
+    </div>
+
+    <div class="week-view">
+      <div class="wv-day"><div class="wvd-head"><div class="wvd-day">Lunes</div></div><div class="wvd-body"><div class="wvd-dish">Arroz con pollo al vapor y ejotes</div><div class="wvd-restrict">Sin sal · Sin P añadido</div><div class="wvd-cal">380 kcal</div></div></div>
+      <div class="wv-day"><div class="wvd-head"><div class="wvd-day">Martes</div></div><div class="wvd-body"><div class="wvd-dish">Pechuga al limón con calabacita y quinoa</div><div class="wvd-restrict">Sin sal · Bajo en K</div><div class="wvd-cal">370 kcal</div></div></div>
+      <div class="wv-day"><div class="wvd-head"><div class="wvd-day">Miércoles</div></div><div class="wvd-body"><div class="wvd-dish">Ensalada tibia de lentejas con espinaca</div><div class="wvd-restrict">Bajo en P · Sin sal</div><div class="wvd-cal">360 kcal</div></div></div>
+      <div class="wv-day"><div class="wvd-head"><div class="wvd-day">Jueves</div></div><div class="wvd-body"><div class="wvd-dish">Caldo de res con verduras bajas en K</div><div class="wvd-restrict">Sin sal · Bajo en K y P</div><div class="wvd-cal">350 kcal</div></div></div>
+      <div class="wv-day"><div class="wvd-head"><div class="wvd-day">Viernes</div></div><div class="wvd-body"><div class="wvd-dish">Pasta integral con pollo y aceite de oliva</div><div class="wvd-restrict">Sin sal · Sin P añadido</div><div class="wvd-cal">390 kcal</div></div></div>
+    </div>
+  </div>
+
+  <!-- ══════ REPORTES ══════ -->
+  <div class="view" id="v-reportes">
+    <div class="ph"><div><div class="pt">Reportes <em>recibidos</em></div><div class="ps">Enviados por la Nut. Clínica Laura Ramírez antes de cada consulta</div></div></div>
+
+    <div class="reporte-card" style="background:var(--teall);border-color:rgba(14,124,134,.2)">
+      <div class="rc-head">
+        <div>
+          <div class="rc-paciente">María González — Semana 31 mar–4 abr</div>
+          <div class="rc-fecha">Recibido: sábado 29 mar · Consulta programada: jueves 3 abr</div>
+        </div>
+        <span class="pill pill-teal">Nuevo</span>
+      </div>
+      <div class="rc-body">
+        <strong>Resumen de adherencia:</strong> Su paciente María González completó las 5 comidas de la semana (100%). El plan de dieta renal fase 3 se está siguiendo sin incidencias reportadas. Restricciones activas: potasio &lt;2g/día, fósforo &lt;800mg/día, sodio restringido, proteína 0.8g/kg, líquidos 1.5L/día.<br><br>
+        <strong>Observaciones de la nutrióloga clínica:</strong> Sin modificaciones al plan esta semana. Se recomienda evaluar en consulta si es posible avanzar a la siguiente fase del protocolo renal.
+      </div>
+      <div class="rc-firma">Firmado por Nut. Clínica Laura Ramírez · Cédula 4782910 · Nutrichef</div>
+    </div>
+
+    <div class="reporte-card" style="background:var(--warnl);border-color:rgba(196,122,0,.2)">
+      <div class="rc-head">
+        <div>
+          <div class="rc-paciente">Laura Morales — Semana 31 mar–4 abr</div>
+          <div class="rc-fecha">Recibido: sábado 29 mar · Consulta programada: martes 1 abr</div>
+        </div>
+        <span class="pill pill-warn">Atención requerida</span>
+      </div>
+      <div class="rc-body">
+        <strong>Resumen de adherencia:</strong> Su paciente Laura Morales completó 3 de 5 comidas (60%). Los días sin recogida fueron miércoles y viernes. Esta es la tercera semana consecutiva con adherencia por debajo del 80%.<br><br>
+        <strong>Observaciones de la nutrióloga clínica:</strong> Se recomienda explorar en consulta posibles barreras logísticas o motivacionales. El plan está clínicamente correcto. Si la adherencia no mejora, se evaluará simplificar el plan o ajustar el punto de recogida.
+      </div>
+      <div class="rc-firma">Firmado por Nut. Clínica Laura Ramírez · Cédula 4782910 · Nutrichef</div>
+    </div>
+
+    <div class="reporte-card">
+      <div class="rc-head">
+        <div>
+          <div class="rc-paciente">Juan Ramírez — Semana 24 mar–28 mar</div>
+          <div class="rc-fecha">Recibido: viernes 28 mar · Leído</div>
+        </div>
+        <span class="pill pill-ok">Leído</span>
+      </div>
+      <div class="rc-body">
+        <strong>Resumen de adherencia:</strong> 4/5 comidas (80%). Un día sin recogida (viernes). Tendencia de mejora: de 60% en semanas previas a 80% esta semana.
+      </div>
+      <div class="rc-firma">Firmado por Nut. Clínica Laura Ramírez · Cédula 4782910 · Nutrichef</div>
+    </div>
+  </div>
+
+  <!-- ══════ PERFIL ══════ -->
+  <div class="view" id="v-perfil">
+    <div class="ph"><div><div class="pt">Mi <em>perfil</em></div></div></div>
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:start">
+      <div style="background:var(--white);border-radius:14px;border:1px solid var(--border);overflow:hidden;position:sticky;top:20px">
+        <div style="background:var(--navy);padding:24px;text-align:center">
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--navyl);border:3px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:22px;color:var(--navy);margin:0 auto 12px;font-weight:600">RH</div>
+          <div style="font-size:17px;font-weight:700;color:#fff;font-family:'Libre Baskerville',serif">Dr. Roberto Hernández</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">Endocrinólogo · IMSS Saltillo</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(14,124,134,.2);border:1px solid rgba(14,124,134,.3);color:var(--tealm);font-size:11px;padding:5px 14px;border-radius:4px;font-weight:600">✓ Médico aliado verificado</div>
+        </div>
+        <div style="padding:16px">
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--mid)">Especialidad</span><span style="font-weight:700">Endocrinología</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--mid)">Pacientes activos</span><span style="font-weight:700">4</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13px"><span style="color:var(--mid)">Aliado desde</span><span style="font-weight:700">Enero 2026</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border-radius:14px;padding:20px;border:1px solid var(--border)">
+          <div style="font-size:14px;font-weight:700;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">Información del consultorio</div>
+          <div class="frow2">
+            <div><label>Nombre completo</label><input type="text" value="Dr. Roberto Hernández"></div>
+            <div><label>Especialidad</label><input type="text" value="Endocrinología"></div>
+          </div>
+          <div class="frow2">
+            <div><label>Consultorio / Hospital</label><input type="text" value="IMSS Saltillo · Módulo 3"></div>
+            <div><label>Correo de contacto</label><input type="email" value="rhernandez@imss.gob.mx"></div>
+          </div>
+          <div style="margin-top:4px"><label>Preferencia de reportes</label><select><option>Correo automático cada sábado</option><option>Solo antes de consultas programadas</option><option>Inmediatamente al generarse</option></select></div>
+          <div style="margin-top:16px"><button style="background:var(--teal);color:#fff;border:none;padding:10px 26px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif" onclick="toast('Perfil actualizado ✓')">Guardar cambios</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL nuevo paciente -->
+<div class="modal-bg" id="modal-nuevo-paciente">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Agregar paciente a Nutrichef</div>
+      <button class="modal-close" onclick="closeModal('modal-nuevo-paciente')">×</button>
+    </div>
+    <div class="modal-body">
+      <div style="padding:12px;background:var(--teall);border-radius:8px;font-size:13px;color:var(--teal);margin-bottom:18px">
+        El paciente recibirá un mensaje para completar su registro en Nutrichef. Una nutrióloga clínica revisará las indicaciones y diseñará el plan.
+      </div>
+      <div class="frow2">
+        <div><label>Nombre del paciente</label><input type="text" placeholder="Nombre completo"></div>
+        <div><label>Teléfono / WhatsApp</label><input type="tel" placeholder="844 000 0000"></div>
+      </div>
+      <div class="frow2">
+        <div><label>Diagnóstico / tipo de dieta</label><select><option>Dieta renal</option><option>Dieta diabética</option><option>Dieta cardíaca</option><option>Post-quirúrgica</option></select></div>
+        <div><label>Urgencia del inicio</label><select><option>Esta semana</option><option>Próxima semana</option><option>En 2+ semanas</option></select></div>
+      </div>
+      <div><label>Indicaciones clínicas</label><textarea placeholder="Resumen de restricciones y objetivos nutricionales del paciente..."></textarea></div>
+    </div>
+    <div class="modal-foot">
+      <button class="mbtn-ghost" onclick="closeModal('modal-nuevo-paciente')">Cancelar</button>
+      <button class="mbtn-prim" onclick="closeModal('modal-nuevo-paciente');toast('Paciente referido a Nutrichef ✓ — recibirá mensaje hoy')">Referir paciente →</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+function showV(id, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('v-' + id).classList.add('active');
+  if (btn) {
+    document.querySelectorAll('.sbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+}
+function openModal(id) { document.getElementById(id).classList.add('open') }
+function closeModal(id) { document.getElementById(id).classList.remove('open') }
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.opacity = 1;
+  setTimeout(() => t.style.opacity = 0, 2800);
+}
+</script>
+</body>
+</html>

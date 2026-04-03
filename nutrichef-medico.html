@@ -17,11 +17,10 @@
 }
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--dark);overflow-x:hidden}
 
+/* NAV — minimal */
 nav{display:flex;justify-content:space-between;align-items:center;padding:18px 56px;background:rgba(246,245,241,.96);border-bottom:1px solid rgba(0,0,0,.07);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
 .logo{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--navy);text-decoration:none}
 .logo span{color:var(--teal)}
-.navlinks{display:flex;gap:28px;align-items:center}
-.navlinks a{font-size:13.5px;color:var(--mid);text-decoration:none}
 .nav-cta{background:var(--teal);color:#fff;padding:9px 24px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none}
 
 /* HERO */
@@ -34,7 +33,6 @@ h1 em{color:var(--tealm);font-style:italic;font-weight:400}
 .hero-sub strong{color:rgba(255,255,255,.8);font-weight:500}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
 .btn-teal{background:var(--teal);color:#fff;padding:15px 36px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;display:inline-block}
-.btn-ghost{background:transparent;color:rgba(255,255,255,.7);padding:15px 28px;border-radius:6px;font-size:15px;border:1px solid rgba(255,255,255,.2);text-decoration:none;display:inline-block}
 
 /* Dashboard preview */
 .dashboard-prev{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;animation:fadeUp .7s .3s ease both;position:relative;z-index:1}
@@ -67,10 +65,10 @@ section{padding:88px 56px}
 .s-title em{color:var(--teal);font-style:italic}
 .s-sub{font-size:17px;color:var(--mid);line-height:1.75;font-weight:300;max-width:560px}
 
-/* PROPUESTA */
-.prop{background:#fff}
-.prop-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;align-items:start}
-.prop-left{}
+/* BENEFICIOS PARA EL DOCTOR */
+.beneficios{background:#fff}
+.ben-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;align-items:start}
+.ben-left{}
 .benefit-list{display:flex;flex-direction:column;gap:28px}
 .benefit{display:flex;gap:20px}
 .ben-num{font-family:'Libre Baskerville',serif;font-size:32px;color:var(--navyl);font-style:italic;font-weight:700;min-width:40px;line-height:1.1}
@@ -79,8 +77,9 @@ section{padding:88px 56px}
 .ben-desc{font-size:13.5px;color:var(--mid);line-height:1.65}
 .ben-highlight{margin-top:10px;padding:10px 14px;background:var(--teall);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;font-size:13px;color:var(--teal);font-weight:500;font-style:italic}
 
-.prop-right{}
-.flow-card{background:var(--navy);border-radius:16px;padding:32px;margin-bottom:20px}
+/* PROPUESTA / FLOW */
+.prop{background:var(--off)}
+.flow-card{background:var(--navy);border-radius:16px;padding:32px;max-width:620px}
 .fc-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
 .fc-flow{display:flex;flex-direction:column;gap:12px}
 .fc-step{display:flex;align-items:flex-start;gap:14px}
@@ -90,15 +89,63 @@ section{padding:88px 56px}
 .fc-note{margin-top:20px;padding:14px;background:rgba(14,124,134,.15);border:1px solid rgba(14,124,134,.25);border-radius:8px;font-size:12.5px;color:rgba(255,255,255,.5);line-height:1.6}
 .fc-note strong{color:var(--tealm)}
 
-.cta-card{background:var(--accentl);border:1px solid rgba(201,123,46,.2);border-radius:16px;padding:32px}
-.cc-title{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--dark);margin-bottom:10px}
-.cc-desc{font-size:14px;color:var(--mid);line-height:1.65;margin-bottom:24px}
-.btn-accent{background:var(--accent);color:#fff;padding:14px 32px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;display:inline-block}
-.btn-outline-dark{background:transparent;color:var(--dark);padding:14px 24px;border-radius:6px;font-size:14px;border:1.5px solid rgba(0,0,0,.18);text-decoration:none;display:inline-block;margin-top:10px}
+/* FIDELIDAD */
+.fidelidad{padding:88px 56px;background:#fff}
+.fidelidad-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.fid-items{display:flex;flex-direction:column;gap:0;margin-top:36px}
+.fid-item{display:flex;align-items:flex-start;gap:16px;padding:22px 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.fid-item:last-child{border-bottom:none}
+.fid-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px}
+.fid-head{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:5px;line-height:1.3}
+.fid-desc{font-size:13.5px;color:var(--mid);font-weight:300;line-height:1.65}
+.fid-visual{background:var(--navy);border-radius:16px;padding:32px;position:relative;overflow:hidden}
+.fid-visual::before{content:'🍱';position:absolute;bottom:-20px;right:-10px;font-size:120px;opacity:.06;user-select:none}
+.fv-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px}
+.fv-title{font-family:'Libre Baskerville',serif;font-size:24px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px}
+.fv-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.fv-tag{font-size:11px;font-weight:500;color:var(--tealm);background:rgba(14,124,134,.15);border:1px solid rgba(14,124,134,.2);padding:3px 10px;border-radius:6px}
+.fv-divider{height:1px;background:rgba(255,255,255,.08);margin-bottom:18px}
+.fv-macro-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
+.fv-macro{background:rgba(255,255,255,.06);border-radius:10px;padding:10px 8px;text-align:center}
+.fv-macro-v{font-size:18px;font-weight:700;color:#fff;font-family:'Libre Baskerville',serif}
+.fv-macro-l{font-size:10px;color:rgba(255,255,255,.35);margin-top:2px}
+.fv-credit{display:flex;align-items:center;gap:10px}
+.fv-av{width:30px;height:30px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.fv-txt{font-size:12px;color:rgba(255,255,255,.4)}
+.fv-name{color:rgba(255,255,255,.7);font-weight:600}
+
+/* MENÚ SEMANAL */
+.menu-sec{padding:88px 56px;background:var(--off)}
+.menu-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:40px}
+.menu-top-right{font-size:15px;color:var(--mid);line-height:1.7;font-weight:300;max-width:400px;justify-self:end}
+.dtabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.dtab{padding:9px 20px;border-radius:6px;font-size:13px;cursor:pointer;border:1px solid rgba(0,0,0,.1);background:transparent;color:var(--mid);font-family:'Plus Jakarta Sans',sans-serif;transition:all .15s}
+.dtab:hover{border-color:var(--teal);color:var(--teal)}
+.dtab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.dshow{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.07)}
+.dvis{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;min-height:420px}
+.dvbg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:130px;opacity:.18;user-select:none}
+.dvday{font-size:11px;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:10px;position:relative}
+.dvname{font-family:'Libre Baskerville',serif;font-size:24px;color:var(--navy);line-height:1.15;position:relative;margin-bottom:14px;font-weight:700}
+.clipill{display:inline-flex;align-items:center;gap:6px;font-size:12px;background:rgba(255,255,255,.75);padding:5px 14px;border-radius:6px;color:var(--navy);font-weight:500;position:relative;backdrop-filter:blur(4px)}
+.clidot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.dinfo{padding:28px;display:flex;flex-direction:column;gap:14px;background:#fff}
+.ib{padding:14px;background:var(--off);border-radius:10px}
+.ibt{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--light);font-weight:600;margin-bottom:10px}
+.tagcloud{display:flex;flex-wrap:wrap;gap:5px}
+.itag{font-size:11px;color:var(--navy);background:var(--navyl);padding:3px 10px;border-radius:6px}
+.rtag{font-size:11px;color:#8B2F2F;background:#FDEAEA;padding:3px 10px;border-radius:6px;font-weight:500}
+.nrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.nc{text-align:center;background:#fff;border-radius:8px;padding:8px 4px}
+.ncv{font-size:15px;font-weight:600;color:var(--dark)}
+.ncl{font-size:10px;color:var(--light);margin-top:2px}
+.mben{display:flex;gap:8px;font-size:13px;color:var(--mid);padding:5px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.mben:last-child{border-bottom:none}
+.mbdot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px}
 
 /* ESPECIALIDADES */
 .specs{background:var(--off)}
-.specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
 .spec-card{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(0,0,0,.07)}
 .spec-tag{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:var(--teall);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:16px}
 .spec-title{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:8px;font-family:'Libre Baskerville',serif}
@@ -107,20 +154,48 @@ section{padding:88px 56px}
 .spec-item{font-size:12.5px;color:var(--mid);display:flex;align-items:center;gap:7px}
 .spec-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
 
-/* DOCTORES ALIADOS */
-.aliados{background:var(--navy)}
-.aliados .seye{color:var(--tealm)}
-.aliados .s-title{color:#fff}
-.aliados .s-title em{color:var(--tealm)}
-.aliados .s-sub{color:rgba(255,255,255,.5)}
-.aliados-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.aliado-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:24px}
-.aliado-av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--navym));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;border:2px solid rgba(255,255,255,.15)}
-.aliado-name{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:2px}
-.aliado-spec{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:14px}
-.aliado-quote{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65;font-style:italic}
-.aliados-cta{margin-top:48px;text-align:center}
-.aliados-cta-note{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:20px}
+/* FORMULARIO */
+.registro-wrap{padding:88px 56px;background:var(--teall);border-top:1px solid rgba(14,124,134,.12)}
+.registro-inner{max-width:580px;margin:0 auto}
+.form-eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.form-title{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:700;color:var(--dark);line-height:1.1;margin-bottom:8px}
+.form-title em{color:var(--teal);font-style:italic}
+.form-sub{font-size:15px;color:var(--mid);font-weight:300;line-height:1.7;margin-bottom:36px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--mid);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 16px;border:1.5px solid rgba(14,124,134,.15);border-radius:8px;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark);background:#fff;outline:none;transition:.15s;-webkit-appearance:none;appearance:none}
+.field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,124,134,.08)}
+.field-hint{font-size:12px;color:var(--light);margin-top:5px;line-height:1.5}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.select-wrap{position:relative}
+.select-wrap::after{content:'▾';position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--light);pointer-events:none;font-size:13px}
+.btn-submit{width:100%;background:var(--teal);color:#fff;border:none;padding:15px 28px;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s;margin-top:8px}
+.btn-submit:hover{background:#0a6b74}
+.form-legal{font-size:11.5px;color:var(--light);text-align:center;margin-top:12px;line-height:1.6}
+.form-success{display:none;text-align:center;padding:48px 0}
+.form-success.visible{display:block}
+.success-icon{font-size:52px;margin-bottom:18px}
+.success-title{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:700;color:var(--dark);margin-bottom:12px;line-height:1.1}
+.success-title em{color:var(--teal);font-style:italic}
+.success-sub{font-size:15px;color:var(--mid);line-height:1.75;font-weight:300;max-width:400px;margin:0 auto}
+
+/* FAQ */
+.faq{padding:72px 56px 0;background:var(--navy)}
+.faq-inner{max-width:760px;margin:0 auto;padding-bottom:72px}
+.faq-top{text-align:center;margin-bottom:40px}
+.faq-top-title{font-family:'Libre Baskerville',serif;font-size:38px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px}
+.faq-top-title em{color:var(--tealm);font-style:italic}
+.faq-top-sub{font-size:14px;color:rgba(255,255,255,.35);font-weight:300}
+.faq-list{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.faq-item{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.06)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.8);gap:16px;transition:color .15s}
+.faq-q:hover{color:#fff}
+.faq-icon{font-size:18px;color:rgba(255,255,255,.25);flex-shrink:0;transition:transform .25s;line-height:1}
+.faq-icon.open{transform:rotate(45deg);color:var(--tealm)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a.open{max-height:200px}
+.faq-a-inner{padding:0 22px 18px;font-size:13.5px;color:rgba(255,255,255,.45);font-weight:300;line-height:1.7}
 
 /* CTA FINAL */
 .cta-final{background:var(--teal);padding:100px 56px;text-align:center}
@@ -130,6 +205,7 @@ section{padding:88px 56px}
 .btn-white{background:#fff;color:var(--teal);padding:16px 40px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;display:inline-block}
 .btn-ghost-white{background:transparent;color:rgba(255,255,255,.8);padding:16px 30px;border-radius:6px;font-size:15px;border:1.5px solid rgba(255,255,255,.35);text-decoration:none;display:inline-block}
 
+/* FOOTER */
 footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(255,255,255,.07)}
 .footer-logo{font-family:'Libre Baskerville',serif;font-size:20px;color:#fff;text-decoration:none}
 .footer-logo span{color:var(--teal)}
@@ -138,37 +214,56 @@ footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:spa
 .footer-links a{font-size:12.5px;color:rgba(255,255,255,.4);text-decoration:none}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:14px 24px}
+  .hero{grid-template-columns:1fr;padding:56px 24px 48px}
+  section{padding:64px 24px}
+  .ben-grid{grid-template-columns:1fr}
+  .fidelidad-layout{grid-template-columns:1fr}
+  .fidelidad{padding:64px 24px}
+  .menu-sec{padding:64px 24px}
+  .menu-top{grid-template-columns:1fr}
+  .menu-top-right{justify-self:start;max-width:100%}
+  .dshow{grid-template-columns:1fr}
+  .dvis{min-height:280px}
+  .specs-grid{grid-template-columns:1fr 1fr}
+  .registro-wrap{padding:64px 24px}
+  .faq{padding:56px 24px 0}
+  .faq-inner{padding-bottom:56px}
+  .cta-final{padding:64px 24px}
+  footer{padding:28px 24px;flex-direction:column;gap:16px;text-align:center}
+  .field-row{grid-template-columns:1fr}
+  .fv-macro-row{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:36px}
+  .s-title{font-size:30px}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV — solo logo + botón -->
 <nav>
   <a href="nutrichef-index.html" class="logo">Nutri<span>chef</span></a>
-  <div class="navlinks">
-    <a href="#propuesta">Propuesta</a>
-    <a href="#especialidades">Especialidades</a>
-    <a href="#registro">Registro</a>
-    <a href="nutrichef-index.html">Para pacientes</a>
-  </div>
   <a href="#registro" class="nav-cta">Registrarme</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-badge">Para médicos · Endocrinología · Nefrología · Medicina interna</div>
+    <div class="hero-badge">Para médicos · Endocrinología · Nefrología · Cardiología · Cirugía</div>
     <h1>Sus pacientes seguirán<br>sus indicaciones<br><em>sin esfuerzo.</em></h1>
-    <p class="hero-sub">Nutrichef cocina exactamente lo que usted indica. <strong>Sin cambiar su flujo de trabajo.</strong> Solo refiere al paciente y recibe reportes de adherencia antes de cada consulta.</p>
+    <p class="hero-sub">Nutrichef cocina exactamente lo que usted indica. <strong>Sin cambiar su flujo de trabajo.</strong> Solo refiera al paciente y la dieta se cumple.</p>
     <div class="hero-actions">
-      <a href="#registro" class="btn-teal">Registrarme como médico aliado</a>
-      <a href="#propuesta" class="btn-ghost">Ver propuesta completa →</a>
+      <a href="#registro" class="btn-teal">Registrarme</a>
     </div>
   </div>
   <div class="dashboard-prev">
     <div class="dp-topbar">
       <div class="dp-tb-left">
         <div class="dp-tb-dot"></div>
-        <div class="dp-tb-title">Portal del Dr. Hernández</div>
+        <div class="dp-tb-title">Portal del médico</div>
       </div>
       <div class="dp-tb-tag">4 pacientes activos</div>
     </div>
@@ -221,17 +316,24 @@ footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:spa
   </div>
 </section>
 
-<!-- PROPUESTA -->
-<section class="prop" id="propuesta">
+<!-- BENEFICIOS PARA EL DOCTOR -->
+<section class="beneficios" id="beneficios">
   <div class="seye">Por qué Nutrichef</div>
   <h2 class="s-title">Lo que usted prescribe,<br><em>cocinado con rigor.</em></h2>
   <p class="s-sub">El mayor obstáculo para que sus pacientes cumplan la dieta no es la voluntad. Es que cocinar el plan correcto es difícil, caro y laborioso. Nutrichef elimina ese obstáculo.</p>
 
-  <div class="prop-grid">
-    <div class="prop-left">
+  <div class="ben-grid">
+    <div class="ben-left">
       <div class="benefit-list">
         <div class="benefit">
           <div class="ben-num">01</div>
+          <div class="ben-body">
+            <div class="ben-title">Sus pacientes cumplen la dieta sin esfuerzo extra de su parte</div>
+            <div class="ben-desc">Usted prescribe en consulta como siempre. El paciente llega a Nutrichef con sus indicaciones. Una nutrióloga clínica genera el plan y una nutrióloga lo cocina. Sin que usted coordine nada.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="ben-num">02</div>
           <div class="ben-body">
             <div class="ben-title">Recibe el plan nutricional automáticamente</div>
             <div class="ben-desc">Cuando su paciente se registra en Nutrichef, usted recibe un correo con el plan nutricional completo y cómo cubre cada indicación clínica que usted dio. Sin pedirlo, sin seguimiento manual.</div>
@@ -239,30 +341,23 @@ footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:spa
           </div>
         </div>
         <div class="benefit">
-          <div class="ben-num">02</div>
-          <div class="ben-body">
-            <div class="ben-title">Resumen de adherencia antes de cada consulta</div>
-            <div class="ben-desc">Antes de que su paciente llege a consulta, recibe un resumen: cuántas comidas completó esa semana, días que faltó y tendencia mensual. Dato clínico concreto para evaluar el cumplimiento de la dieta como parte del tratamiento.</div>
-          </div>
-        </div>
-        <div class="benefit">
           <div class="ben-num">03</div>
           <div class="ben-body">
-            <div class="ben-title">Portal de seguimiento centralizado</div>
-            <div class="ben-desc">Dashboard donde puede ver todos sus pacientes activos en Nutrichef, el plan nutricional vigente de cada uno y su historial de adherencia. Complementa su expediente sin reemplazarlo.</div>
+            <div class="ben-title">Sus pacientes llegan mejor preparados a consulta</div>
+            <div class="ben-desc">Cuando el paciente cumple la dieta, los resultados de laboratorio mejoran, las consultas son más productivas y su reputación como médico que ve resultados se fortalece.</div>
           </div>
         </div>
         <div class="benefit">
           <div class="ben-num">04</div>
           <div class="ben-body">
-            <div class="ben-title">Sus pacientes llegan mejor preparados</div>
-            <div class="ben-desc">Cuando el paciente cumple la dieta, los resultados de laboratorio mejoran, las consultas son más productivas y su reputación como médico que ve resultados se fortalece.</div>
+            <div class="ben-title">Sin costo para usted</div>
+            <div class="ben-desc">Nutrichef no cobra al médico. El paciente paga su plan directamente. Para usted es un beneficio funcional integrado al tratamiento — sus indicaciones se cumplen sin fricción adicional.</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="prop-right">
+    <div>
       <div class="flow-card">
         <div class="fc-title">Cómo funciona para usted</div>
         <div class="fc-flow">
@@ -272,33 +367,94 @@ footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:spa
           </div>
           <div class="fc-step">
             <div class="fc-step-num">2</div>
-            <div class="fc-step-text">El paciente llega a Nutrichef con las indicaciones. Una <strong>nutrióloga clínica</strong> genera el plan y lo cocina.</div>
+            <div class="fc-step-text">El paciente llega a Nutrichef con las indicaciones. Una <strong>nutrióloga clínica</strong> genera el plan.</div>
           </div>
           <div class="fc-step">
             <div class="fc-step-num">3</div>
-            <div class="fc-step-text">Usted recibe un correo con el plan y cómo cubre sus indicaciones. <strong>Primer contacto automático.</strong></div>
+            <div class="fc-step-text">Una <strong>nutrióloga de la red</strong> cocina exactamente lo indicado y lo entrega en el punto de recogida asignado.</div>
           </div>
           <div class="fc-step">
             <div class="fc-step-num">4</div>
-            <div class="fc-step-text">Se registra en el portal y ve la <strong>adherencia semanal</strong> de ese paciente — y de todos los que refiera después.</div>
-          </div>
-          <div class="fc-step">
-            <div class="fc-step-num">5</div>
-            <div class="fc-step-text">Antes de la siguiente consulta, recibe el <strong>resumen de adherencia</strong> listo para revisión clínica.</div>
+            <div class="fc-step-text">Usted recibe un correo con el plan y cómo cubre sus indicaciones. <strong>Primer contacto automático.</strong></div>
           </div>
         </div>
-        <div class="fc-note"><strong>Sin cambiar su flujo:</strong> usted no necesita aprender ningún sistema nuevo. El correo llega solo. El portal existe si quiere usarlo. El resumen llega antes de la consulta.</div>
-      </div>
-
-      <div class="cta-card" id="registro">
-        <div class="cc-title">Registrarse como médico aliado</div>
-        <div class="cc-desc">Cree su perfil, agregue sus primeros pacientes y empiece a recibir reportes de adherencia en menos de 10 minutos.</div>
-        <a href="#" class="btn-accent">Crear mi perfil →</a>
-        <br>
-        <a href="#" class="btn-outline-dark">Hablar con el equipo primero</a>
+        <div class="fc-note"><strong>Sin cambiar su flujo:</strong> usted no necesita aprender ningún sistema nuevo. El correo llega solo. Sin coordinación, sin trabajo extra.</div>
       </div>
     </div>
   </div>
+</section>
+
+<!-- FIDELIDAD AL PLAN -->
+<section class="fidelidad">
+  <div class="fidelidad-layout">
+    <div>
+      <div class="seye">Sin sustituciones</div>
+      <h2 class="s-title">Lo que usted prescribe<br>se ejecuta <em>sin interpretaciones.</em></h2>
+      <p class="s-sub" style="margin-bottom:0">Nutrichef no modifica ni adapta sus indicaciones. Cada detalle de su prescripción se respeta sin excepción.</p>
+      <div class="fid-items">
+        <div class="fid-item">
+          <div class="fid-dot"></div>
+          <div>
+            <div class="fid-head">Gramos exactos según su prescripción</div>
+            <div class="fid-desc">Las cantidades de cada ingrediente son las que indica el plan — ni más, ni menos. La nutrióloga que cocina no improvisa.</div>
+          </div>
+        </div>
+        <div class="fid-item">
+          <div class="fid-dot"></div>
+          <div>
+            <div class="fid-head">Restricciones clínicas respetadas al pie de la letra</div>
+            <div class="fid-desc">Sin sodio, bajo potasio, sin fósforo añadido — lo que usted indicó, así se cocina. Si un ingrediente no está disponible, se coordina con la nutrióloga clínica antes de cualquier cambio.</div>
+          </div>
+        </div>
+        <div class="fid-item">
+          <div class="fid-dot"></div>
+          <div>
+            <div class="fid-head">El método de cocción que usted indicó</div>
+            <div class="fid-desc">Al vapor, al horno, hervido — lo que diga la prescripción es lo que va al plato. Sin atajos ni sustituciones por conveniencia.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fid-visual">
+      <div class="fv-label">Ejemplo de contenedor para su paciente</div>
+      <div class="fv-title">Pollo al vapor con arroz<br>y verduras sin sal</div>
+      <div class="fv-tags">
+        <span class="fv-tag">⚠ Sin sodio</span>
+        <span class="fv-tag">⚠ Bajo potasio</span>
+        <span class="fv-tag">⚠ Sin fósforo añadido</span>
+      </div>
+      <div class="fv-divider"></div>
+      <div class="fv-macro-row">
+        <div class="fv-macro"><div class="fv-macro-v">420</div><div class="fv-macro-l">kcal</div></div>
+        <div class="fv-macro"><div class="fv-macro-v">38g</div><div class="fv-macro-l">proteína</div></div>
+        <div class="fv-macro"><div class="fv-macro-v">12g</div><div class="fv-macro-l">grasas</div></div>
+        <div class="fv-macro"><div class="fv-macro-v">36g</div><div class="fv-macro-l">carbos</div></div>
+      </div>
+      <div class="fv-credit">
+        <div class="fv-av">CR</div>
+        <div class="fv-txt">Plan diseñado por <span class="fv-name">Nut. Clínica Ramírez</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENÚ SEMANAL -->
+<section class="menu-sec">
+  <div class="menu-top">
+    <div>
+      <div class="seye">Ejemplo de menú clínico</div>
+      <h2 class="s-title">Así se ve una semana<br>de <em>su paciente.</em></h2>
+    </div>
+    <p class="menu-top-right">La nutrióloga clínica revisa sus indicaciones y diseña un menú semanal específico para la condición de su paciente. La nutrióloga que cocina lo prepara con fidelidad exacta.</p>
+  </div>
+  <div class="dtabs">
+    <button class="dtab active" onclick="showDish(0,this)">Lunes</button>
+    <button class="dtab" onclick="showDish(1,this)">Martes</button>
+    <button class="dtab" onclick="showDish(2,this)">Miércoles</button>
+    <button class="dtab" onclick="showDish(3,this)">Jueves</button>
+    <button class="dtab" onclick="showDish(4,this)">Viernes</button>
+  </div>
+  <div class="dshow" id="dshow"></div>
 </section>
 
 <!-- ESPECIALIDADES -->
@@ -338,38 +494,16 @@ footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:spa
         <div class="spec-item"><div class="spec-dot"></div>Control de colesterol</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- DOCTORES ALIADOS -->
-<section class="aliados">
-  <div class="seye">Médicos que se preocupan por la alimentación de sus pacientes</div>
-  <h2 class="s-title">Doctores que <em>ven resultados.</em></h2>
-  <p class="s-sub">Después de que sus pacientes completaron ciclos con Nutrichef y reportaron mejoras en consulta, estos médicos se unieron a la red de aliados.</p>
-
-  <div class="aliados-grid">
-    <div class="aliado-card">
-      <div class="aliado-av">RH</div>
-      <div class="aliado-name">Dr. Roberto Hernández</div>
-      <div class="aliado-spec">Endocrinólogo · IMSS Saltillo</div>
-      <div class="aliado-quote">"Mis pacientes diabéticos llegan a la siguiente consulta con la HbA1c más controlada. La adherencia mejoró notablemente desde que empezamos a usar Nutrichef."</div>
+    <div class="spec-card">
+      <span class="spec-tag">Cirugía · Med. Interna</span>
+      <div class="spec-title">Dieta Post-quirúrgica</div>
+      <div class="spec-desc">Textura y progresión adaptadas al estado de recuperación. Para pacientes en etapas post-operatorias.</div>
+      <div class="spec-list">
+        <div class="spec-item"><div class="spec-dot"></div>Texturas progresivas</div>
+        <div class="spec-item"><div class="spec-dot"></div>Alta proteína</div>
+        <div class="spec-item"><div class="spec-dot"></div>Fácil digestión</div>
+      </div>
     </div>
-    <div class="aliado-card">
-      <div class="aliado-av" style="background:linear-gradient(135deg,#2EA8B4,#0B1F3A)">AS</div>
-      <div class="aliado-name">Dra. Andrea Solís</div>
-      <div class="aliado-spec">Nefróloga · Práctica privada</div>
-      <div class="aliado-quote">"El reporte de adherencia que llega antes de consulta me ahorra tiempo y me da datos concretos para ajustar el tratamiento."</div>
-    </div>
-    <div class="aliado-card">
-      <div class="aliado-av" style="background:linear-gradient(135deg,#C97B2E,#0B1F3A)">CM</div>
-      <div class="aliado-name">Dr. Carlos Mendoza</div>
-      <div class="aliado-spec">Internista · Clínica del Valle</div>
-      <div class="aliado-quote">"Antes de Nutrichef, saber si el paciente cumplía la dieta era solo su palabra. Ahora tengo datos reales de adherencia semana a semana."</div>
-    </div>
-  </div>
-  <div class="aliados-cta">
-    <div class="aliados-cta-note">Después de ver resultados reales, lo invitamos a aparecer en esta sección.</div>
-    <a href="#registro" class="btn-teal">Registrarme como médico aliado →</a>
   </div>
 </section>
 
@@ -377,22 +511,155 @@ footer{background:var(--navy);padding:48px 56px;display:flex;justify-content:spa
 <section class="cta-final">
   <div class="seye">Empieza sin compromiso</div>
   <h2 class="cf-title">Su primer paciente<br>en 10 minutos.</h2>
-  <p class="cf-sub">Cree su perfil, agregue a un paciente y comience a recibir reportes de adherencia. Sin cuotas, sin compromisos.</p>
+  <p class="cf-sub">Regístrese, refiera a un paciente y empiece a recibir el plan nutricional de forma automática. Sin cuotas, sin compromisos.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <a href="#registro" class="btn-white">Crear mi perfil →</a>
+    <a href="#registro" class="btn-white">Registrarme →</a>
     <a href="nutrichef-index.html" class="btn-ghost-white">Ver cómo funciona para el paciente</a>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="registro-wrap" id="registro">
+  <div class="registro-inner">
+    <div id="form-state">
+      <div class="form-eyebrow">Registro para médicos</div>
+      <h2 class="form-title">Únase a la red <em>de aliados.</em></h2>
+      <p class="form-sub">Le contactamos en menos de 24 horas por WhatsApp para explicarle cómo funciona y resolver cualquier duda.</p>
+
+      <div class="field-row">
+        <div class="field"><label>Nombre</label><input type="text" id="f-nombre" placeholder="Su nombre"></div>
+        <div class="field"><label>Apellido</label><input type="text" id="f-apellido" placeholder="Su apellido"></div>
+      </div>
+      <div class="field">
+        <label>WhatsApp</label>
+        <input type="tel" id="f-whatsapp" placeholder="00 0000 0000">
+        <div class="field-hint">Le contactamos por aquí para darle los próximos pasos.</div>
+      </div>
+      <div class="field">
+        <label>Correo electrónico</label>
+        <input type="email" id="f-email" placeholder="su@correo.com">
+      </div>
+      <div class="field">
+        <label>Especialidad</label>
+        <div class="select-wrap">
+          <select id="f-especialidad">
+            <option value="">Seleccionar especialidad</option>
+            <option value="endocrinologia">Endocrinología</option>
+            <option value="nefrologia">Nefrología</option>
+            <option value="cardiologia">Cardiología</option>
+            <option value="medicina-interna">Medicina interna</option>
+            <option value="cirugia">Cirugía general</option>
+            <option value="gastroenterologia">Gastroenterología</option>
+            <option value="oncologia">Oncología</option>
+            <option value="otra">Otra especialidad</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>¿Cómo nos encontró? <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:11px">(opcional)</span></label>
+        <div class="select-wrap">
+          <select id="f-como">
+            <option value="">Seleccionar</option>
+            <option>Un paciente me lo mencionó</option>
+            <option>Recomendación de un colega</option>
+            <option>Una nutrióloga me lo recomendó</option>
+            <option>Instagram / Facebook</option>
+            <option>Hospital o clínica</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-submit" onclick="submitForm()">Registrarme →</button>
+      <p class="form-legal">Sin cuotas, sin compromisos. Solo le contactamos para explicarle cómo funciona.</p>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="success-icon">🎉</div>
+      <h2 class="success-title">¡Listo,<br><em>registro recibido!</em></h2>
+      <p class="success-sub">Le contactamos por WhatsApp en menos de 24 horas con toda la información sobre cómo funciona Nutrichef para sus pacientes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-top">
+      <h2 class="faq-top-title">Preguntas <em>frecuentes.</em></h2>
+      <p class="faq-top-sub">Si su pregunta no está aquí, regístrese y le contactaremos.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Quién es responsable del plan nutricional?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">La nutrióloga clínica que genera el plan. Su cédula profesional respalda cada decisión. Nutrichef nunca indica qué cocinar — actúa como intermediario entre la nutrióloga clínica y la nutrióloga que cocina.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si quiero cambiar las indicaciones de un paciente?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Usted ajusta las indicaciones en consulta como siempre. El paciente las comparte con Nutrichef y la nutrióloga clínica actualiza el plan. Si el cambio es urgente, puede contactarnos directamente.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Puedo referir pacientes que ya tienen nutrióloga clínica?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Sí. Si el paciente ya tiene nutrióloga clínica externa, ella puede enviar el plan directamente. Nutrichef lo recibe y lo cocina. No es obligatorio usar una nutrióloga de la red.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Tiene algún costo para mí como médico?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">No. Nutrichef no cobra al médico. El paciente paga su plan directamente. Para usted es un beneficio funcional: sus indicaciones se cumplen sin esfuerzo adicional de su parte.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Mis pacientes pagan por semana o por mes?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">El paciente contrata por semana. El precio incluye la preparación por la nutrióloga que cocina más el costo de los insumos (ingredientes). Puede cancelar cuando quiera, sin penalizaciones.</div></div></div>
+    </div>
   </div>
 </section>
 
 <footer>
   <a href="nutrichef-index.html" class="footer-logo">Nutri<span>chef</span></a>
-  <div class="footer-mid">Un servicio de Nutrilú · Saltillo, Coahuila, México<br>La responsabilidad clínica recae en las nutriólogas certificadas con cédula profesional.</div>
+  <div class="footer-mid">Un servicio de Nutrilú · México<br>La responsabilidad clínica recae en las nutriólogas certificadas con cédula profesional.</div>
   <div class="footer-links">
     <a href="nutrichef-index.html">Para pacientes</a>
     <a href="nutrichef-nutriologa-clinica.html">Para nutriólogas</a>
     <a href="#">Términos</a>
   </div>
 </footer>
+
+<script>
+function toggleFaq(el){
+  const a=el.nextElementSibling,icon=el.querySelector('.faq-icon'),open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(x=>x.classList.remove('open'));
+  if(!open){a.classList.add('open');icon.classList.add('open');}
+}
+
+/* Menú semanal — ejemplo clínico para doctores */
+const M=[
+  {day:'Lunes',emoji:'🍗',color:'#E4F4F5',name:'Pollo al vapor con arroz y verduras sin sal',restrictions:['Sin sodio','Bajo potasio','Sin fósforo añadido'],ingredients:['Pechuga de pollo','Arroz blanco','Calabacita','Chayote','Aceite de oliva','Limón'],nutrition:[{v:'420',l:'kcal'},{v:'38g',l:'proteína'},{v:'12g',l:'grasas'},{v:'36g',l:'carbos'},{v:'4g',l:'fibra'}],benefits:['Proteína magra sin carga renal excesiva','Control estricto de sodio para función renal','Verduras bajas en potasio para seguridad clínica']},
+  {day:'Martes',emoji:'🐟',color:'#E8EEF5',name:'Pescado blanco al horno con puré de coliflor',restrictions:['Sin sodio','Bajo en fósforo','Control glucémico'],ingredients:['Filete de tilapia','Coliflor','Aceite de oliva','Ajo','Limón','Perejil'],nutrition:[{v:'380',l:'kcal'},{v:'34g',l:'proteína'},{v:'14g',l:'grasas'},{v:'24g',l:'carbos'},{v:'5g',l:'fibra'}],benefits:['Proteína de alta biodisponibilidad','Puré bajo en potasio como alternativa a la papa','Omega-3 para protección cardiovascular']},
+  {day:'Miércoles',emoji:'🥩',color:'#FDF0E0',name:'Res magra con quinoa y espinaca salteada',restrictions:['Bajo índice glucémico','Control de colesterol','Sin azúcar añadida'],ingredients:['Aguayón de res 130g','Quinoa','Espinaca','Zanahoria','Aceite de oliva','Orégano'],nutrition:[{v:'460',l:'kcal'},{v:'36g',l:'proteína'},{v:'15g',l:'grasas'},{v:'38g',l:'carbos'},{v:'6g',l:'fibra'}],benefits:['Hierro hemo para prevención de anemia','Quinoa de bajo IG para energía estable','Fibra para control glucémico sostenido']},
+  {day:'Jueves',emoji:'🍳',color:'#E4F4F5',name:'Omelette de claras con verduras al vapor',restrictions:['Textura blanda','Alta proteína','Fácil digestión'],ingredients:['Claras de huevo','Calabacita','Zanahoria','Espinaca','Aceite de oliva','Arroz blanco'],nutrition:[{v:'350',l:'kcal'},{v:'32g',l:'proteína'},{v:'10g',l:'grasas'},{v:'30g',l:'carbos'},{v:'3g',l:'fibra'}],benefits:['Ideal para recuperación post-quirúrgica','Textura adaptada a etapa de recuperación','Proteína completa para reconstrucción de tejido']},
+  {day:'Viernes',emoji:'🥗',color:'#E8EEF5',name:'Pechuga a la plancha con ensalada tibia de lentejas',restrictions:['Control glucémico','Bajo en sodio','Sin grasas trans'],ingredients:['Pechuga de pollo','Lentejas','Pepino','Jitomate','Limón','Aceite de oliva'],nutrition:[{v:'440',l:'kcal'},{v:'40g',l:'proteína'},{v:'12g',l:'grasas'},{v:'40g',l:'carbos'},{v:'8g',l:'fibra'}],benefits:['Combinación proteína + fibra para saciedad','Lentejas de bajo IG para pacientes diabéticos','Sin procesados ni sodio oculto']}
+];
+
+function showDish(i,btn){
+  document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  const d=M[i];
+  document.getElementById('dshow').innerHTML=`
+    <div class="dvis" style="background:${d.color}">
+      <div class="dvbg">${d.emoji}</div>
+      <div class="dvday">${d.day}</div>
+      <div class="dvname">${d.name}</div>
+      <div class="clipill"><div class="clidot"></div>Dieta clínica supervisada</div>
+    </div>
+    <div class="dinfo">
+      <div class="ib"><div class="ibt">Restricciones clínicas</div><div class="tagcloud">${d.restrictions.map(x=>`<span class="rtag">⚠ ${x}</span>`).join('')}</div></div>
+      <div class="ib"><div class="ibt">Ingredientes</div><div class="tagcloud">${d.ingredients.map(x=>`<span class="itag">${x}</span>`).join('')}</div></div>
+      <div class="ib"><div class="ibt">Información nutricional</div><div class="nrow">${d.nutrition.map(n=>`<div class="nc"><div class="ncv">${n.v}</div><div class="ncl">${n.l}</div></div>`).join('')}</div></div>
+      <div class="ib"><div class="ibt">Beneficios clínicos</div>${d.benefits.map(x=>`<div class="mben"><div class="mbdot"></div>${x}</div>`).join('')}</div>
+    </div>`;
+}
+showDish(0,document.querySelector('.dtab.active'));
+
+function submitForm(){
+  const ids=['f-nombre','f-apellido','f-whatsapp','f-email'];
+  let ok=true;
+  ids.forEach(id=>{
+    const el=document.getElementById(id);
+    el.style.borderColor='';
+    if(!el.value.trim()){el.style.borderColor='#dc3545';ok=false;}
+  });
+  if(!document.getElementById('f-especialidad').value) ok=false;
+  if(!ok) return;
+  document.getElementById('form-state').style.display='none';
+  document.getElementById('form-success').classList.add('visible');
+}
+</script>
 
 </body>
 </html>

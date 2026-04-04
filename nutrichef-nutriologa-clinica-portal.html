@@ -18,6 +18,7 @@
   --ok:#15803D;--okl:#DCFCE7;
   --warn:#C47A00;--warnl:#FFFBEA;
   --danger:#E24B4A;--dangerl:#FCEBEB;
+  --whatsapp:#25D366;
 }
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--dark);min-height:100vh;display:grid;grid-template-columns:248px 1fr}
 
@@ -26,18 +27,19 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(
 .sb-logo{font-family:'Libre Baskerville',serif;font-size:20px;color:#fff;letter-spacing:-.02em;margin-bottom:2px}
 .sb-logo em{font-style:italic;color:var(--tealm)}
 .sb-role{font-size:10px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
-.sb-sect{font-size:10px;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.1em;font-weight:700;padding:12px 10px 5px}
 .sbtn{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;font-size:13px;color:rgba(255,255,255,.4);cursor:pointer;border:none;background:transparent;width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;transition:.14s;text-align:left}
 .sbtn:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
 .sbtn.active{background:rgba(14,124,134,.2);color:#fff;border:1px solid rgba(14,124,134,.3)}
 .sbtn svg{width:14px;height:14px;flex-shrink:0;opacity:.5}
 .sbtn.active svg{opacity:1}
-.sb-div{height:1px;background:rgba(255,255,255,.07);margin:4px 0}
 .sb-sp{flex:1}
 .sb-earn{background:rgba(14,124,134,.15);border:1px solid rgba(14,124,134,.2);border-radius:10px;padding:14px;margin-top:8px}
 .se-label{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:5px}
 .se-val{font-family:'Libre Baskerville',serif;font-size:24px;color:#fff}
 .se-sub{font-size:11px;color:rgba(255,255,255,.28);margin-top:3px;font-weight:300}
+.sb-stat{background:rgba(255,255,255,.06);border-radius:10px;padding:14px;margin-top:8px}
+.ss-val{font-family:'Libre Baskerville',serif;font-size:20px;color:#fff}
+.ss-label{font-size:10px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-top:3px}
 .sb-profile{margin-top:10px;padding:12px;background:rgba(255,255,255,.05);border-radius:9px;display:flex;align-items:center;gap:10px}
 .sp-av{width:32px;height:32px;border-radius:50%;background:var(--teall);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--teal);flex-shrink:0}
 .sp-name{font-size:12px;font-weight:700;color:#fff}
@@ -55,24 +57,22 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(
 /* ── HEADER ── */
 .main-header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px 0;position:sticky;top:0;z-index:50;background:var(--off)}
 .mh-left{font-size:12px;color:var(--light)}
-.mh-right{display:flex;gap:10px;align-items:center}
 
 /* ── BUTTONS ── */
 .btn-primary{background:var(--teal);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
 .btn-sm{font-size:12px;padding:6px 14px;border-radius:6px;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--mid);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600}
 .btn-sm:hover{border-color:var(--teal);color:var(--teal)}
-.btn-teal-sm{font-size:12px;padding:6px 14px;border-radius:6px;cursor:pointer;border:none;background:var(--teal);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:6px;background:var(--whatsapp);color:#fff;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-wa:hover{filter:brightness(.92)}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;background:var(--whatsapp);color:#fff;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
 
-/* ── METRICS ── */
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
-.metric{background:var(--white);border-radius:12px;padding:16px;border:1px solid var(--border)}
-.ml{font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;font-weight:700}
-.mv{font-size:22px;font-weight:700;color:var(--dark)}
-.ms{font-size:11px;color:var(--mid);margin-top:3px;font-weight:300}
-.mb{display:inline-block;margin-top:5px;font-size:11px;padding:2px 9px;border-radius:100px;font-weight:600}
-.mb-ok{background:var(--okl);color:var(--ok)}
-.mb-teal{background:var(--teall);color:var(--teal)}
-.mb-warn{background:var(--warnl);color:var(--warn)}
+/* ── PILLS ── */
+.pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:100px;font-weight:600}
+.pill-ok{background:var(--okl);color:var(--ok)}
+.pill-warn{background:var(--warnl);color:var(--warn)}
+.pill-danger{background:var(--dangerl);color:var(--danger)}
+.pill-teal{background:var(--teall);color:var(--teal)}
+.pill-navy{background:var(--navyl);color:var(--navy)}
 
 /* ── CARDS ── */
 .card{background:var(--white);border-radius:14px;border:1px solid var(--border);margin-bottom:18px}
@@ -80,77 +80,67 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(
 .card-t{font-size:14px;font-weight:700;color:var(--dark)}
 .inner{padding:18px 20px}
 
-/* ── PILLS / TAGS ── */
-.pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:100px;font-weight:600}
-.pill-ok{background:var(--okl);color:var(--ok)}
-.pill-warn{background:var(--warnl);color:var(--warn)}
-.pill-danger{background:var(--dangerl);color:var(--danger)}
-.pill-teal{background:var(--teall);color:var(--teal)}
-.pill-navy{background:var(--navyl);color:var(--navy)}
-.pill-off{background:var(--cream);color:var(--light)}
+/* ── METRICS ── */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.metric{background:var(--white);border-radius:12px;padding:16px;border:1px solid var(--border)}
+.ml{font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;font-weight:700}
+.mv{font-size:22px;font-weight:700;color:var(--dark)}
+.ms{font-size:11px;color:var(--mid);margin-top:3px;font-weight:300}
+.mb{display:inline-block;margin-top:5px;font-size:11px;padding:2px 9px;border-radius:100px;font-weight:600}
+.mb-teal{background:var(--teall);color:var(--teal)}
 
-/* ── PATIENT LIST ── */
-.patient-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:.12s}
-.patient-row:last-child{border-bottom:none}
-.patient-row:hover{background:var(--off);margin:0 -20px;padding:14px 20px;border-radius:8px}
-.pr-av{width:38px;height:38px;border-radius:50%;background:var(--teall);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
-.pr-info{flex:1}
-.pr-name{font-size:14px;font-weight:600;color:var(--dark)}
-.pr-meta{font-size:12px;color:var(--mid);margin-top:2px;font-weight:300}
-.pr-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
-.pr-adh{font-size:12px;font-weight:600;color:var(--teal)}
-.pr-next{font-size:11px;color:var(--light)}
+/* ── PATIENT CARDS ── */
+.patients-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.p-card{background:var(--white);border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:.15s;cursor:pointer}
+.p-card:hover{border-color:rgba(14,124,134,.25);box-shadow:0 2px 12px rgba(14,124,134,.08)}
+.p-card-head{background:var(--navy);padding:18px 20px;display:flex;align-items:center;gap:14px}
+.p-card-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;border:2px solid rgba(255,255,255,.15)}
+.p-card-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#fff;line-height:1.2}
+.p-card-age{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.p-card-status{margin-left:auto}
+.p-card-body{padding:20px}
+.p-field{margin-bottom:14px}
+.p-field:last-child{margin-bottom:0}
+.p-field-label{font-size:10px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.p-field-value{font-size:13.5px;color:var(--dark);line-height:1.55}
+.p-field-value strong{font-weight:600}
+.p-divider{height:1px;background:var(--border);margin:14px 0}
 
-/* ── PLAN EDITOR ── */
-.plan-header{background:var(--navy);border-radius:14px;padding:20px 24px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
-.plan-h-left{}
-.plan-pat-name{font-family:'Libre Baskerville',serif;font-size:22px;color:#fff}
-.plan-pat-diag{font-size:13px;color:rgba(255,255,255,.45);margin-top:4px}
-.plan-h-right{text-align:right}
-.plan-medico{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:6px}
-.plan-cedula-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(14,124,134,.2);border:1px solid rgba(14,124,134,.3);color:var(--tealm);font-size:11px;padding:4px 12px;border-radius:4px;font-weight:600}
+/* ── INACTIVE CARDS ── */
+.p-card.inactive{opacity:.55;filter:saturate(.3);cursor:default}
+.p-card.inactive .p-card-head{background:var(--mid)}
+.p-card.inactive:hover{opacity:.7;border-color:var(--border);box-shadow:none}
 
-.week-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
-.day-slot{background:var(--white);border-radius:12px;border:1px solid var(--border);overflow:hidden}
-.ds-head{padding:10px 12px;background:var(--cream);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.ds-day{font-size:11px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.06em}
-.ds-body{padding:12px}
-.ds-dish{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:6px;line-height:1.35}
-.ds-restrict{font-size:11px;color:var(--teal);font-weight:600;margin-bottom:8px}
-.ds-macros{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.ds-macro{text-align:center;background:var(--off);border-radius:6px;padding:4px}
-.ds-macro-v{font-size:12px;font-weight:700;color:var(--dark)}
-.ds-macro-l{font-size:9px;color:var(--light);font-weight:600;text-transform:uppercase}
-.ds-empty{border:1.5px dashed var(--border);border-radius:8px;padding:16px;text-align:center;cursor:pointer;color:var(--light);font-size:12px;font-weight:500;transition:.12s}
-.ds-empty:hover{border-color:var(--teal);color:var(--teal);background:var(--teall)}
+/* ── FILTER ── */
+.filter-bar{display:flex;gap:6px;margin-bottom:20px}
+.filter-btn{padding:7px 18px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:.15s}
+.filter-btn:hover{border-color:var(--teal);color:var(--teal)}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.filter-count{font-weight:400;opacity:.6;margin-left:4px}
 
-.restricciones-bar{background:var(--navyl);border:1px solid rgba(11,31,58,.12);border-radius:10px;padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.rb-label{font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;flex-shrink:0}
-.rb-tags{display:flex;gap:6px;flex-wrap:wrap}
-.rb-tag{font-size:11.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid rgba(11,31,58,.15);padding:3px 10px;border-radius:100px}
+/* ── DOCTORS LIST ── */
+.doc-list{display:flex;flex-direction:column;gap:6px}
+.doc-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dark)}
+.doc-icon{width:22px;height:22px;border-radius:50%;background:var(--navyl);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-icon svg{width:11px;height:11px;color:var(--navy)}
 
-.plan-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-send{background:var(--teal);color:#fff;border:none;padding:11px 24px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:8px}
-.btn-save{background:transparent;color:var(--dark);border:1.5px solid var(--border);padding:11px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
-.btn-preview{background:var(--navyl);color:var(--navy);border:none;padding:11px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+/* ── DOCUMENTS ── */
+.doc-file{display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--off);border-radius:8px;margin-top:6px;font-size:12px;cursor:pointer;transition:.12s;border:1px solid transparent}
+.doc-file:hover{border-color:var(--teal);background:var(--teall)}
+.doc-file-icon{width:32px;height:32px;border-radius:6px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-file-info{flex:1}
+.doc-file-name{font-weight:600;color:var(--dark)}
+.doc-file-meta{font-size:11px;color:var(--light);margin-top:1px}
+.doc-upload{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border:1.5px dashed var(--border);border-radius:8px;margin-top:6px;font-size:12px;color:var(--light);font-weight:500;cursor:pointer;transition:.12s}
+.doc-upload:hover{border-color:var(--teal);color:var(--teal);background:var(--teall)}
 
-/* ── ADHERENCIA ── */
-.adh-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
-.adh-patient{background:var(--white);border-radius:12px;border:1px solid var(--border);padding:18px}
-.adp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.adp-name{font-size:14px;font-weight:600;color:var(--dark)}
-.adp-diag{font-size:11px;color:var(--mid);margin-top:2px}
-.adh-weeks{display:flex;flex-direction:column;gap:8px}
-.adh-week-row{display:flex;align-items:center;gap:10px}
-.adh-week-label{font-size:11px;color:var(--light);width:60px;flex-shrink:0}
-.adh-bar-wrap{flex:1;height:8px;background:var(--off);border-radius:100px;overflow:hidden}
-.adh-bar-fill{height:100%;border-radius:100px;background:var(--teal)}
-.adh-pct{font-size:11px;font-weight:700;color:var(--teal);width:32px;text-align:right}
-.adh-days{display:flex;gap:4px;margin-top:10px}
-.adh-day{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
-.adh-day.done{background:var(--teall);color:var(--teal)}
-.adh-day.miss{background:var(--dangerl);color:var(--danger)}
-.adh-day.pend{background:var(--cream);color:var(--light)}
+/* ── EXPEDIENTE ── */
+.exp-header{background:var(--navy);border-radius:14px;padding:22px 24px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.exp-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.4);cursor:pointer;margin-bottom:10px;border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif}
+.exp-back:hover{color:rgba(255,255,255,.8)}
+.exp-name{font-family:'Libre Baskerville',serif;font-size:22px;color:#fff}
+.exp-condition{font-size:13px;color:rgba(255,255,255,.45);margin-top:4px}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
 /* ── PERFIL ── */
 .perfil-grid{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:start}
@@ -177,7 +167,7 @@ textarea{resize:vertical;min-height:80px}
 /* ── MODAL ── */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .modal-bg.open{display:flex}
-.modal{background:var(--white);border-radius:16px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto}
+.modal{background:var(--white);border-radius:16px;width:100%;max-width:560px;max-height:92vh;overflow-y:auto}
 .modal-head{padding:20px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-family:'Libre Baskerville',serif;font-size:18px;color:var(--dark)}
 .modal-close{width:28px;height:28px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--mid)}
@@ -185,6 +175,13 @@ textarea{resize:vertical;min-height:80px}
 .modal-foot{padding:14px 22px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end}
 .mbtn-ghost{padding:9px 20px;border-radius:6px;border:1.5px solid var(--border);background:transparent;font-size:13px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;color:var(--mid)}
 .mbtn-prim{padding:9px 22px;border-radius:6px;background:var(--teal);border:none;font-size:13px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#fff}
+
+/* ── ADD DOCTOR ROW ── */
+.add-doc-row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-bottom:10px}
+.add-doc-btn{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:var(--off);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--mid);font-size:18px;transition:.12s;margin-bottom:0}
+.add-doc-btn:hover{border-color:var(--teal);color:var(--teal);background:var(--teall)}
+.added-doc{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--navyl);border-radius:8px;margin-bottom:6px;font-size:13px}
+.added-doc-remove{width:20px;height:20px;border-radius:50%;border:none;background:rgba(0,0,0,.06);cursor:pointer;font-size:12px;color:var(--mid);display:flex;align-items:center;justify-content:center;margin-left:auto}
 
 /* toast */
 #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:12px 24px;border-radius:6px;font-size:13px;z-index:9999;opacity:0;transition:opacity .3s;white-space:nowrap;font-weight:500}
@@ -197,40 +194,10 @@ textarea{resize:vertical;min-height:80px}
   <div class="sb-logo">Nutri<em>chef</em></div>
   <div class="sb-role">Portal · Nutrióloga Clínica</div>
 
-  <div class="sb-sect">General</div>
-  <button class="sbtn active" onclick="showV('resumen',this)">
-    <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5" opacity=".5"/><rect x="1" y="9" width="6" height="6" rx="1.5" opacity=".5"/><rect x="9" y="9" width="6" height="6" rx="1.5" opacity=".3"/></svg>
-    Resumen
-  </button>
-  <button class="sbtn" onclick="showV('pacientes',this)">
+  <button class="sbtn active" onclick="showV('pacientes',this)">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="6" cy="5" r="2.5"/><path d="M1.5 13c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4"/><circle cx="12" cy="5" r="2" stroke-width="1.2"/><path d="M12 9c1.5 0 2.5 1 2.5 3" stroke-linecap="round"/></svg>
     Mis pacientes
   </button>
-  <div class="sb-div"></div>
-
-  <div class="sb-sect">Planes</div>
-  <button class="sbtn" onclick="showV('planes',this)">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1" y="2" width="14" height="12" rx="2"/><path d="M4 6h8M4 9h5" stroke-linecap="round"/></svg>
-    Planes activos
-  </button>
-  <button class="sbtn" onclick="showV('nuevo-plan',this)">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1" y="2" width="14" height="12" rx="2"/><path d="M8 5v6M5 8h6" stroke-linecap="round"/></svg>
-    Nuevo plan
-  </button>
-  <div class="sb-div"></div>
-
-  <div class="sb-sect">Seguimiento</div>
-  <button class="sbtn" onclick="showV('adherencia',this)">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 11l3-4 3 2 3-5 3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Adherencia
-  </button>
-  <button class="sbtn" onclick="showV('reportes',this)">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Reportes al médico
-  </button>
-  <div class="sb-div"></div>
-
-  <div class="sb-sect">Cuenta</div>
   <button class="sbtn" onclick="showV('pagos',this)">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1" y="4" width="14" height="9" rx="2"/><path d="M1 7h14" stroke-linecap="round"/></svg>
     Pagos
@@ -241,10 +208,15 @@ textarea{resize:vertical;min-height:80px}
   </button>
 
   <div class="sb-sp"></div>
+
   <div class="sb-earn">
     <div class="se-label">Este mes</div>
     <div class="se-val">$4,200</div>
     <div class="se-sub">3 consultas · 4 revisiones</div>
+  </div>
+  <div class="sb-stat">
+    <div class="ss-val">23</div>
+    <div class="ss-label">Pacientes atendidos en Nutrichef</div>
   </div>
   <div class="sb-profile">
     <div class="sp-av">LR</div>
@@ -259,400 +231,282 @@ textarea{resize:vertical;min-height:80px}
 <div class="main">
   <div class="main-header">
     <div class="mh-left">Nutrichef · Portal Nutrióloga Clínica</div>
-    <div class="mh-right">
-      <button class="btn-primary" onclick="showV('nuevo-plan',document.querySelector('.sbtn'))">+ Nuevo plan</button>
-    </div>
-  </div>
-
-  <!-- ══════ RESUMEN ══════ -->
-  <div class="view active" id="v-resumen">
-    <div class="ph">
-      <div><div class="pt">Buenos días, <em>Laura.</em></div><div class="ps">Semana del 31 mar – 4 abr · 2026</div></div>
-    </div>
-    <div class="metrics">
-      <div class="metric"><div class="ml">Pacientes activos</div><div class="mv">5</div><div class="ms">4 con plan vigente · 1 pendiente</div><div class="mb mb-teal">↑ +1 nuevo</div></div>
-      <div class="metric"><div class="ml">Planes enviados</div><div class="mv">4</div><div class="ms">Esta semana · 1 en borrador</div></div>
-      <div class="metric"><div class="ml">Adherencia promedio</div><div class="mv">82%</div><div class="ms">Últimas 4 semanas</div><div class="mb mb-ok">Buena</div></div>
-      <div class="metric"><div class="ml">Ingreso este mes</div><div class="mv" style="font-size:20px">$4,200</div><div class="ms">3 consultas · 4 revisiones</div></div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-      <div class="card" style="margin-bottom:0">
-        <div class="card-h"><div class="card-t">Pacientes — acción requerida</div></div>
-        <div class="inner" style="display:flex;flex-direction:column;gap:0">
-          <div class="patient-row" onclick="showV('planes',null)">
-            <div class="pr-av">CL</div>
-            <div class="pr-info">
-              <div class="pr-name">Carlos López</div>
-              <div class="pr-meta">Dieta diabética · Dr. Solís · Endocrinología</div>
-            </div>
-            <div class="pr-right">
-              <span class="pill pill-warn">Plan pendiente</span>
-              <div class="pr-next">Vence mañana</div>
-            </div>
-          </div>
-          <div class="patient-row">
-            <div class="pr-av" style="background:#FDF0E0;color:#C97B2E">MG</div>
-            <div class="pr-info">
-              <div class="pr-name">María González</div>
-              <div class="pr-meta">Dieta renal · Dr. Hernández · Nefrología</div>
-            </div>
-            <div class="pr-right">
-              <span class="pill pill-ok">Plan activo</span>
-              <div class="pr-next">Revisión: 7 abr</div>
-            </div>
-          </div>
-          <div class="patient-row">
-            <div class="pr-av" style="background:#DCFCE7;color:#15803D">JR</div>
-            <div class="pr-info">
-              <div class="pr-name">Juan Ramírez</div>
-              <div class="pr-meta">Dieta renal · Dr. Hernández · Nefrología</div>
-            </div>
-            <div class="pr-right">
-              <span class="pill pill-ok">Plan activo</span>
-              <div class="pr-next">Revisión: 14 abr</div>
-            </div>
-          </div>
-          <div class="patient-row">
-            <div class="pr-av" style="background:var(--dangerl);color:var(--danger)">LM</div>
-            <div class="pr-info">
-              <div class="pr-name">Laura Morales</div>
-              <div class="pr-meta">Dieta cardíaca · Dra. Vega · Cardiología</div>
-            </div>
-            <div class="pr-right">
-              <span class="pill pill-danger">Adh. baja 60%</span>
-              <div class="pr-next">Revisar plan</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:0">
-        <div class="card-h"><div class="card-t">Reportes pendientes de enviar</div><button class="btn-sm">Ver todos</button></div>
-        <div class="inner" style="display:flex;flex-direction:column;gap:10px">
-          <div style="padding:12px;background:var(--warnl);border:1px solid rgba(196,122,0,.2);border-radius:10px;display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div style="font-size:13px;font-weight:600;color:var(--warn)">Laura Morales</div>
-              <div style="font-size:12px;color:var(--mid);margin-top:2px">Reporte semanal pendiente · Dr. Vega</div>
-            </div>
-            <button class="btn-teal-sm" onclick="toast('Reporte enviado al Dr. Vega')">Enviar →</button>
-          </div>
-          <div style="padding:12px;background:var(--cream);border:1px solid var(--border);border-radius:10px;display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div style="font-size:13px;font-weight:600;color:var(--dark)">Carlos López</div>
-              <div style="font-size:12px;color:var(--mid);margin-top:2px">Plan nuevo · pendiente de envío al Dr. Solís</div>
-            </div>
-            <button class="btn-teal-sm" onclick="toast('Plan enviado al Dr. Solís')">Enviar →</button>
-          </div>
-          <div style="padding:12px;background:var(--okl);border:1px solid rgba(21,128,61,.2);border-radius:10px">
-            <div style="font-size:12px;color:var(--ok);font-weight:600;margin-bottom:2px">✓ María González · enviado ayer</div>
-            <div style="font-size:12px;color:var(--mid)">Plan semana 31 mar–4 abr enviado al Dr. Hernández</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════ PACIENTES ══════ -->
-  <div class="view" id="v-pacientes">
-    <div class="ph">
-      <div><div class="pt">Mis <em>pacientes</em></div><div class="ps">5 pacientes activos bajo tu supervisión clínica</div></div>
+    <div style="display:flex;gap:10px">
+      <button class="btn-wa-sm" onclick="openModal('modal-invitar-doctor')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Invitar doctor
+      </button>
       <button class="btn-primary" onclick="openModal('modal-nuevo-paciente')">+ Agregar paciente</button>
     </div>
-    <div class="card">
-      <div class="inner" style="display:flex;flex-direction:column;gap:0">
-        <div class="patient-row">
-          <div class="pr-av">MG</div>
-          <div class="pr-info">
-            <div class="pr-name">María González · <span style="color:var(--mid);font-weight:400;font-size:13px">52 años</span></div>
-            <div class="pr-meta">Dieta renal fase 3 · Dr. Hernández · Nefrología · IMSS</div>
-          </div>
-          <div class="pr-right">
-            <span class="pill pill-ok">Plan activo</span>
-            <div class="pr-adh">Adh. 100% esta semana</div>
-          </div>
-        </div>
-        <div class="patient-row">
-          <div class="pr-av" style="background:#FDF0E0;color:#C97B2E">CL</div>
-          <div class="pr-info">
-            <div class="pr-name">Carlos López · <span style="color:var(--mid);font-weight:400;font-size:13px">45 años</span></div>
-            <div class="pr-meta">Dieta diabética tipo 2 · Dr. Solís · Endocrinología</div>
-          </div>
-          <div class="pr-right">
-            <span class="pill pill-warn">Plan pendiente</span>
-            <div class="pr-adh" style="color:var(--warn)">Nuevo paciente</div>
-          </div>
-        </div>
-        <div class="patient-row">
-          <div class="pr-av" style="background:#DCFCE7;color:#15803D">JR</div>
-          <div class="pr-info">
-            <div class="pr-name">Juan Ramírez · <span style="color:var(--mid);font-weight:400;font-size:13px">38 años</span></div>
-            <div class="pr-meta">Dieta renal fase 2 · Dr. Hernández · Nefrología</div>
-          </div>
-          <div class="pr-right">
-            <span class="pill pill-ok">Plan activo</span>
-            <div class="pr-adh">Adh. 80% esta semana</div>
-          </div>
-        </div>
-        <div class="patient-row">
-          <div class="pr-av" style="background:var(--dangerl);color:var(--danger)">LM</div>
-          <div class="pr-info">
-            <div class="pr-name">Laura Morales · <span style="color:var(--mid);font-weight:400;font-size:13px">61 años</span></div>
-            <div class="pr-meta">Dieta cardíaca · Dra. Vega · Cardiología · Clínica del Valle</div>
-          </div>
-          <div class="pr-right">
-            <span class="pill pill-danger">Adh. baja 60%</span>
-            <div class="pr-adh" style="color:var(--danger)">Revisar plan</div>
-          </div>
-        </div>
-        <div class="patient-row">
-          <div class="pr-av" style="background:var(--navyl);color:var(--navy)">PT</div>
-          <div class="pr-info">
-            <div class="pr-name">Pedro Torres · <span style="color:var(--mid);font-weight:400;font-size:13px">55 años</span></div>
-            <div class="pr-meta">Post-quirúrgico bariátrico · Dr. Ruiz · Cirugía</div>
-          </div>
-          <div class="pr-right">
-            <span class="pill pill-ok">Plan activo</span>
-            <div class="pr-adh">Adh. 100% esta semana</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <!-- ══════ PLANES ══════ -->
-  <div class="view" id="v-planes">
+  <!-- ══════ MIS PACIENTES ══════ -->
+  <div class="view active" id="v-pacientes">
     <div class="ph">
-      <div><div class="pt">Planes <em>activos</em></div><div class="ps">Semana 31 mar – 4 abr</div></div>
-      <button class="btn-primary" onclick="showV('nuevo-plan',null)">+ Crear plan</button>
-    </div>
-    <!-- Plan María -->
-    <div class="plan-header">
-      <div class="plan-h-left">
-        <div class="plan-pat-name">María González</div>
-        <div class="plan-pat-diag">Dieta renal fase 3 · Restricción de potasio, fósforo y sodio · 1,800 kcal/día</div>
-      </div>
-      <div class="plan-h-right">
-        <div class="plan-medico">Dr. Hernández · Nefrología · IMSS</div>
-        <div class="plan-cedula-badge">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          Firmado · Cédula 4782910
-        </div>
+      <div>
+        <div class="pt">Mis <em>pacientes</em></div>
+        <div class="ps">5 pacientes activos bajo tu supervisión clínica</div>
       </div>
     </div>
-    <div class="restricciones-bar">
-      <div class="rb-label">Restricciones</div>
-      <div class="rb-tags">
-        <span class="rb-tag">Sin sal añadida</span>
-        <span class="rb-tag">K &lt; 2g/día</span>
-        <span class="rb-tag">P &lt; 800mg/día</span>
-        <span class="rb-tag">Proteína 0.8g/kg</span>
-        <span class="rb-tag">Líquidos 1.5L/día</span>
-      </div>
-    </div>
-    <div class="week-grid">
-      <div class="day-slot">
-        <div class="ds-head"><div class="ds-day">Lunes</div><span class="pill pill-ok" style="font-size:10px">Listo</span></div>
-        <div class="ds-body">
-          <div class="ds-dish">Arroz con pollo al vapor y ejotes</div>
-          <div class="ds-restrict">Sin sal · Sin fósforo añadido</div>
-          <div class="ds-macros">
-            <div class="ds-macro"><div class="ds-macro-v">32g</div><div class="ds-macro-l">Prot</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">45g</div><div class="ds-macro-l">Carbs</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">8g</div><div class="ds-macro-l">Grasas</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">380</div><div class="ds-macro-l">Kcal</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-slot">
-        <div class="ds-head"><div class="ds-day">Martes</div><span class="pill pill-ok" style="font-size:10px">Listo</span></div>
-        <div class="ds-body">
-          <div class="ds-dish">Pechuga al limón con calabacita y quinoa</div>
-          <div class="ds-restrict">Sin sal · Bajo en K</div>
-          <div class="ds-macros">
-            <div class="ds-macro"><div class="ds-macro-v">34g</div><div class="ds-macro-l">Prot</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">42g</div><div class="ds-macro-l">Carbs</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">7g</div><div class="ds-macro-l">Grasas</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">370</div><div class="ds-macro-l">Kcal</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-slot">
-        <div class="ds-head"><div class="ds-day">Miércoles</div><span class="pill pill-ok" style="font-size:10px">Listo</span></div>
-        <div class="ds-body">
-          <div class="ds-dish">Ensalada tibia de lentejas con espinaca</div>
-          <div class="ds-restrict">Bajo en P · Sin sal</div>
-          <div class="ds-macros">
-            <div class="ds-macro"><div class="ds-macro-v">28g</div><div class="ds-macro-l">Prot</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">48g</div><div class="ds-macro-l">Carbs</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">6g</div><div class="ds-macro-l">Grasas</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">360</div><div class="ds-macro-l">Kcal</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-slot">
-        <div class="ds-head"><div class="ds-day">Jueves</div><span class="pill pill-ok" style="font-size:10px">Listo</span></div>
-        <div class="ds-body">
-          <div class="ds-dish">Caldo de res con verduras bajas en K</div>
-          <div class="ds-restrict">Sin sal · Bajo en K y P</div>
-          <div class="ds-macros">
-            <div class="ds-macro"><div class="ds-macro-v">30g</div><div class="ds-macro-l">Prot</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">36g</div><div class="ds-macro-l">Carbs</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">9g</div><div class="ds-macro-l">Grasas</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">350</div><div class="ds-macro-l">Kcal</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-slot">
-        <div class="ds-head"><div class="ds-day">Viernes</div><span class="pill pill-ok" style="font-size:10px">Listo</span></div>
-        <div class="ds-body">
-          <div class="ds-dish">Pasta integral con pollo y aceite de oliva</div>
-          <div class="ds-restrict">Sin sal · Sin fósforo añadido</div>
-          <div class="ds-macros">
-            <div class="ds-macro"><div class="ds-macro-v">33g</div><div class="ds-macro-l">Prot</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">50g</div><div class="ds-macro-l">Carbs</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">10g</div><div class="ds-macro-l">Grasas</div></div>
-            <div class="ds-macro"><div class="ds-macro-v">390</div><div class="ds-macro-l">Kcal</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="plan-actions">
-      <button class="btn-send" onclick="toast('Plan enviado al Dr. Hernández y a la nutrióloga que cocina ✓')">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7l4 4 8-8" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
-        Plan ya enviado · Reenviar
-      </button>
-      <button class="btn-save" onclick="toast('Borrador guardado')">Guardar cambios</button>
-      <button class="btn-preview" onclick="toast('Vista previa generada')">Vista previa</button>
-    </div>
-  </div>
 
-  <!-- ══════ NUEVO PLAN ══════ -->
-  <div class="view" id="v-nuevo-plan">
-    <div class="ph">
-      <div><div class="pt">Crear <em>nuevo plan</em></div><div class="ps">Diseña el plan nutricional semanal del paciente</div></div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterPatients('activos',this)">Activos<span class="filter-count">5</span></button>
+      <button class="filter-btn" onclick="filterPatients('historial',this)">Historial<span class="filter-count">1</span></button>
     </div>
-    <div class="card">
-      <div class="card-h"><div class="card-t">Datos del paciente y médico</div></div>
-      <div class="inner">
-        <div class="frow2">
-          <div><label>Paciente</label><select><option>Seleccionar paciente</option><option>Carlos López</option><option>Nuevo paciente...</option></select></div>
-          <div><label>Tipo de dieta</label><select><option>Seleccionar</option><option>Dieta renal</option><option>Dieta diabética</option><option>Dieta cardíaca</option><option>Post-quirúrgica</option></select></div>
-        </div>
-        <div class="frow2">
-          <div><label>Médico tratante</label><input type="text" placeholder="Nombre del médico y especialidad"></div>
-          <div><label>Calorías por día</label><input type="text" placeholder="Ej. 1,800 kcal"></div>
-        </div>
-        <div><label>Restricciones clínicas</label><textarea placeholder="Ej. Sin sal añadida, potasio &lt; 2g/día, fósforo &lt; 800mg/día, proteína 0.8g/kg..."></textarea></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-h"><div class="card-t">Plan semanal</div><span style="font-size:12px;color:var(--light)">Agrega un platillo por día</span></div>
-      <div class="inner">
-        <div class="week-grid">
-          <div class="day-slot"><div class="ds-head"><div class="ds-day">Lunes</div></div><div class="ds-body"><div class="ds-empty" onclick="toast('Editor de platillo — próximamente')">+ Agregar platillo</div></div></div>
-          <div class="day-slot"><div class="ds-head"><div class="ds-day">Martes</div></div><div class="ds-body"><div class="ds-empty" onclick="toast('Editor de platillo — próximamente')">+ Agregar platillo</div></div></div>
-          <div class="day-slot"><div class="ds-head"><div class="ds-day">Miércoles</div></div><div class="ds-body"><div class="ds-empty" onclick="toast('Editor de platillo — próximamente')">+ Agregar platillo</div></div></div>
-          <div class="day-slot"><div class="ds-head"><div class="ds-day">Jueves</div></div><div class="ds-body"><div class="ds-empty" onclick="toast('Editor de platillo — próximamente')">+ Agregar platillo</div></div></div>
-          <div class="day-slot"><div class="ds-head"><div class="ds-day">Viernes</div></div><div class="ds-body"><div class="ds-empty" onclick="toast('Editor de platillo — próximamente')">+ Agregar platillo</div></div></div>
-        </div>
-        <div class="plan-actions" style="margin-top:8px">
-          <button class="btn-send" onclick="toast('Plan guardado como borrador')">Guardar borrador</button>
-          <button class="btn-save" onclick="toast('Plan enviado al médico y a la nutrióloga ✓')">Enviar plan →</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ══════ ADHERENCIA ══════ -->
-  <div class="view" id="v-adherencia">
-    <div class="ph"><div><div class="pt">Adherencia de <em>pacientes</em></div><div class="ps">Últimas 4 semanas</div></div></div>
-    <div class="adh-grid">
-      <div class="adh-patient">
-        <div class="adp-head">
-          <div><div class="adp-name">María González</div><div class="adp-diag">Dieta renal · Dr. Hernández</div></div>
-          <span class="pill pill-ok">92% promedio</span>
-        </div>
-        <div class="adh-weeks">
-          <div class="adh-week-row"><div class="adh-week-label">Sem 31 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:100%"></div></div><div class="adh-pct">100%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 24 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:80%"></div></div><div class="adh-pct">80%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 17 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:100%"></div></div><div class="adh-pct">100%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 10 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:80%"></div></div><div class="adh-pct">80%</div></div>
-        </div>
-        <div class="adh-days" style="margin-top:14px">
-          <div class="adh-day done">L</div><div class="adh-day done">M</div><div class="adh-day done">X</div><div class="adh-day done">J</div><div class="adh-day done">V</div>
-        </div>
-      </div>
-      <div class="adh-patient">
-        <div class="adp-head">
-          <div><div class="adp-name">Laura Morales</div><div class="adp-diag">Dieta cardíaca · Dra. Vega</div></div>
-          <span class="pill pill-danger">60% promedio</span>
-        </div>
-        <div class="adh-weeks">
-          <div class="adh-week-row"><div class="adh-week-label">Sem 31 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:60%;background:var(--danger)"></div></div><div class="adh-pct" style="color:var(--danger)">60%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 24 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:60%;background:var(--danger)"></div></div><div class="adh-pct" style="color:var(--danger)">60%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 17 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:80%"></div></div><div class="adh-pct">80%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 10 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:40%;background:var(--danger)"></div></div><div class="adh-pct" style="color:var(--danger)">40%</div></div>
-        </div>
-        <div class="adh-days" style="margin-top:14px">
-          <div class="adh-day done">L</div><div class="adh-day done">M</div><div class="adh-day miss">X</div><div class="adh-day done">J</div><div class="adh-day miss">V</div>
-        </div>
-      </div>
-      <div class="adh-patient">
-        <div class="adp-head">
-          <div><div class="adp-name">Juan Ramírez</div><div class="adp-diag">Dieta renal · Dr. Hernández</div></div>
-          <span class="pill pill-teal">80% promedio</span>
-        </div>
-        <div class="adh-weeks">
-          <div class="adh-week-row"><div class="adh-week-label">Sem 31 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:80%"></div></div><div class="adh-pct">80%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 24 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:80%"></div></div><div class="adh-pct">80%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 17 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:60%"></div></div><div class="adh-pct">60%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 10 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:100%"></div></div><div class="adh-pct">100%</div></div>
-        </div>
-        <div class="adh-days" style="margin-top:14px">
-          <div class="adh-day done">L</div><div class="adh-day done">M</div><div class="adh-day done">X</div><div class="adh-day done">J</div><div class="adh-day miss">V</div>
-        </div>
-      </div>
-      <div class="adh-patient">
-        <div class="adp-head">
-          <div><div class="adp-name">Pedro Torres</div><div class="adp-diag">Post-quirúrgico · Dr. Ruiz</div></div>
-          <span class="pill pill-ok">100% promedio</span>
-        </div>
-        <div class="adh-weeks">
-          <div class="adh-week-row"><div class="adh-week-label">Sem 31 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:100%"></div></div><div class="adh-pct">100%</div></div>
-          <div class="adh-week-row"><div class="adh-week-label">Sem 24 mar</div><div class="adh-bar-wrap"><div class="adh-bar-fill" style="width:100%"></div></div><div class="adh-pct">100%</div></div>
-        </div>
-        <div class="adh-days" style="margin-top:14px">
-          <div class="adh-day done">L</div><div class="adh-day done">M</div><div class="adh-day done">X</div><div class="adh-day done">J</div><div class="adh-day done">V</div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div class="patients-grid" id="grid-activos">
 
-  <!-- ══════ REPORTES ══════ -->
-  <div class="view" id="v-reportes">
-    <div class="ph"><div><div class="pt">Reportes al <em>médico</em></div><div class="ps">Resúmenes de adherencia enviados antes de cada consulta</div></div></div>
-    <div class="card">
-      <div class="card-h"><div class="card-t">Por enviar esta semana</div></div>
-      <div class="inner" style="display:flex;flex-direction:column;gap:12px">
-        <div style="padding:16px;background:var(--warnl);border:1px solid rgba(196,122,0,.2);border-radius:12px">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
-            <div>
-              <div style="font-size:14px;font-weight:600;color:var(--dark)">Laura Morales → Dra. Vega · Cardiología</div>
-              <div style="font-size:12px;color:var(--mid);margin-top:3px">Consulta: martes 1 abr · Adherencia 60% esta semana</div>
+      <!-- María González -->
+      <div class="p-card" onclick="showExpediente('maria')">
+        <div class="p-card-head">
+          <div class="p-card-av">MG</div>
+          <div><div class="p-card-name">María González</div><div class="p-card-age">52 años</div></div>
+          <div class="p-card-status"><span class="pill pill-ok">Plan activo</span></div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-field"><div class="p-field-label">Condición médica</div><div class="p-field-value">Enfermedad renal crónica</div></div>
+          <div class="p-field"><div class="p-field-label">Equipo médico</div>
+            <div class="doc-list">
+              <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dr. Hernández</strong>&nbsp;· Nefrología</div>
+              <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dra. Vega</strong>&nbsp;· Cardiología</div>
             </div>
-            <button class="btn-send" style="font-size:12px;padding:8px 16px" onclick="toast('Reporte enviado a la Dra. Vega ✓')">Enviar reporte →</button>
           </div>
-          <div style="font-size:12.5px;color:var(--mid);line-height:1.65;background:#fff;border-radius:8px;padding:12px">
-            <strong>Resumen para la Dra. Vega:</strong> Su paciente Laura Morales completó 3 de 5 comidas esta semana (60%). Los días de incumplimiento fueron miércoles y viernes. El plan está en semana 4 de dieta cardíaca baja en sodio. Se recomienda revisar posibles barreras de adherencia en consulta.
+          <div class="p-field"><div class="p-field-label">Nutrióloga que cocina</div><div class="p-field-value"><strong>Patricia M.</strong></div></div>
+          <div class="p-divider"></div>
+          <div class="p-field"><div class="p-field-label">Documentos en expediente</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+              <span class="pill pill-teal">Plan nutricional ✓</span>
+              <span class="pill pill-navy">Receta nefrología ✓</span>
+              <span class="pill pill-navy">Receta cardiología ✓</span>
+            </div>
           </div>
         </div>
-        <div style="padding:16px;background:var(--okl);border:1px solid rgba(21,128,61,.2);border-radius:12px">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div style="font-size:14px;font-weight:600;color:var(--ok)">María González → Dr. Hernández · ✓ Enviado</div>
-              <div style="font-size:12px;color:var(--mid);margin-top:3px">Adherencia 100% · Consulta 3 abr</div>
+      </div>
+
+      <!-- Carlos López -->
+      <div class="p-card" onclick="showExpediente('carlos')">
+        <div class="p-card-head">
+          <div class="p-card-av">CL</div>
+          <div><div class="p-card-name">Carlos López</div><div class="p-card-age">45 años</div></div>
+          <div class="p-card-status"><span class="pill pill-warn">Pendiente de plan</span></div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-field"><div class="p-field-label">Condición médica</div><div class="p-field-value">Diabetes tipo 2</div></div>
+          <div class="p-field"><div class="p-field-label">Equipo médico</div>
+            <div class="doc-list">
+              <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dr. Solís</strong>&nbsp;· Endocrinología</div>
             </div>
-            <span class="pill pill-ok">Enviado ayer</span>
+          </div>
+          <div class="p-field"><div class="p-field-label">Nutrióloga que cocina</div><div class="p-field-value" style="color:var(--warn)">Pendiente de asignación</div></div>
+          <div class="p-divider"></div>
+          <div class="p-field"><div class="p-field-label">Documentos en expediente</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+              <span class="pill pill-warn">⚠ Plan nutricional pendiente</span>
+              <span class="pill pill-navy">Receta endocrinología ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Juan Ramírez -->
+      <div class="p-card" onclick="toast('Expediente de Juan Ramírez')">
+        <div class="p-card-head">
+          <div class="p-card-av">JR</div>
+          <div><div class="p-card-name">Juan Ramírez</div><div class="p-card-age">38 años</div></div>
+          <div class="p-card-status"><span class="pill pill-ok">Plan activo</span></div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-field"><div class="p-field-label">Condición médica</div><div class="p-field-value">Enfermedad renal crónica</div></div>
+          <div class="p-field"><div class="p-field-label">Equipo médico</div>
+            <div class="doc-list">
+              <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dr. Hernández</strong>&nbsp;· Nefrología</div>
+            </div>
+          </div>
+          <div class="p-field"><div class="p-field-label">Nutrióloga que cocina</div><div class="p-field-value"><strong>Patricia M.</strong></div></div>
+          <div class="p-divider"></div>
+          <div class="p-field"><div class="p-field-label">Documentos en expediente</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+              <span class="pill pill-teal">Plan nutricional ✓</span>
+              <span class="pill pill-navy">Receta nefrología ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laura Morales -->
+      <div class="p-card" onclick="toast('Expediente de Laura Morales')">
+        <div class="p-card-head">
+          <div class="p-card-av">LM</div>
+          <div><div class="p-card-name">Laura Morales</div><div class="p-card-age">61 años</div></div>
+          <div class="p-card-status"><span class="pill pill-ok">Plan activo</span></div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-field"><div class="p-field-label">Condición médica</div><div class="p-field-value">Insuficiencia cardíaca</div></div>
+          <div class="p-field"><div class="p-field-label">Equipo médico</div>
+            <div class="doc-list">
+              <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dra. Vega</strong>&nbsp;· Cardiología</div>
+              <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dr. Solís</strong>&nbsp;· Endocrinología</div>
+            </div>
+          </div>
+          <div class="p-field"><div class="p-field-label">Nutrióloga que cocina</div><div class="p-field-value"><strong>Patricia M.</strong></div></div>
+          <div class="p-divider"></div>
+          <div class="p-field"><div class="p-field-label">Documentos en expediente</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+              <span class="pill pill-teal">Plan nutricional ✓</span>
+              <span class="pill pill-navy">Receta cardiología ✓</span>
+              <span class="pill pill-navy">Receta endocrinología ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pedro Torres -->
+      <div class="p-card" onclick="toast('Expediente de Pedro Torres')">
+        <div class="p-card-head">
+          <div class="p-card-av">PT</div>
+          <div><div class="p-card-name">Pedro Torres</div><div class="p-card-age">55 años</div></div>
+          <div class="p-card-status"><span class="pill pill-ok">Plan activo</span></div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-field"><div class="p-field-label">Condición médica</div><div class="p-field-value">Post-quirúrgico bariátrico</div></div>
+          <div class="p-field"><div class="p-field-label">Equipo médico</div>
+            <div class="doc-list">
+              <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dr. Ruiz</strong>&nbsp;· Cirugía</div>
+            </div>
+          </div>
+          <div class="p-field"><div class="p-field-label">Nutrióloga que cocina</div><div class="p-field-value"><strong>Patricia M.</strong></div></div>
+          <div class="p-divider"></div>
+          <div class="p-field"><div class="p-field-label">Documentos en expediente</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+              <span class="pill pill-teal">Plan nutricional ✓</span>
+              <span class="pill pill-navy">Indicaciones cirugía ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- HISTORIAL -->
+    <div class="patients-grid" id="grid-historial" style="display:none">
+      <div class="p-card inactive">
+        <div class="p-card-head">
+          <div class="p-card-av">RM</div>
+          <div><div class="p-card-name">Rosa Medina</div><div class="p-card-age">58 años</div></div>
+          <div class="p-card-status"><span class="pill" style="background:var(--cream);color:var(--mid)">Inactivo</span></div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-field"><div class="p-field-label">Condición médica</div><div class="p-field-value">Diabetes tipo 2</div></div>
+          <div class="p-field"><div class="p-field-label">Equipo médico</div>
+            <div class="doc-list"><div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><strong>Dr. Hernández</strong>&nbsp;· Endocrinología</div></div>
+          </div>
+          <div class="p-field"><div class="p-field-label">Nutrióloga que cocina</div><div class="p-field-value"><strong>Patricia M.</strong></div></div>
+          <div style="margin-top:12px;font-size:11px;color:var(--light);padding:8px 12px;background:var(--cream);border-radius:6px">Activa del 6 ene al 14 mar 2026 · 10 semanas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ EXPEDIENTE MARÍA ══════ -->
+  <div class="view" id="v-expediente-maria">
+    <button class="exp-back" onclick="showV('pacientes',document.querySelectorAll('.sbtn')[0])">← Volver a mis pacientes</button>
+    <div class="exp-header">
+      <div>
+        <div class="exp-name">María González</div>
+        <div class="exp-condition">52 años · Enfermedad renal crónica</div>
+      </div>
+      <div style="text-align:right">
+        <span class="pill pill-ok">Plan activo</span>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:8px">Nutrióloga que cocina: <strong style="color:rgba(255,255,255,.7)">Patricia M.</strong></div>
+      </div>
+    </div>
+
+    <div class="exp-grid">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">Equipo médico</div></div>
+        <div class="inner">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <div class="doc-icon" style="width:36px;height:36px"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div>
+            <div><div style="font-size:14px;font-weight:600">Dr. Hernández</div><div style="font-size:12px;color:var(--mid)">Nefrología · IMSS</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0">
+            <div class="doc-icon" style="width:36px;height:36px"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div>
+            <div><div style="font-size:14px;font-weight:600">Dra. Vega</div><div style="font-size:12px;color:var(--mid)">Cardiología</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">Expediente clínico</div><span style="font-size:11px;color:var(--light)">3 documentos</span></div>
+        <div class="inner">
+          <div class="doc-file" onclick="toast('Abriendo plan nutricional…')">
+            <div class="doc-file-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--teal)" stroke-width="1.3"><rect x="2" y="1" width="12" height="14" rx="2"/><path d="M5 5h6M5 8h6M5 11h3" stroke-linecap="round"/></svg></div>
+            <div class="doc-file-info"><div class="doc-file-name">Plan nutricional — Lic. Laura Ramírez</div><div class="doc-file-meta">PDF · Cédula 4782910 · Subido 28 mar 2026</div></div>
+            <span class="pill pill-teal" style="flex-shrink:0">Tu plan</span>
+          </div>
+          <div class="doc-file" onclick="toast('Abriendo receta…')">
+            <div class="doc-file-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--navy)" stroke-width="1.3"><rect x="2" y="1" width="12" height="14" rx="2"/><path d="M5 5h6M5 8h6M5 11h3" stroke-linecap="round"/></svg></div>
+            <div class="doc-file-info"><div class="doc-file-name">Receta — Dr. Hernández · Nefrología</div><div class="doc-file-meta">Imagen · Subido 25 mar 2026</div></div>
+            <span class="pill pill-navy" style="flex-shrink:0">Médico</span>
+          </div>
+          <div class="doc-file" onclick="toast('Abriendo receta…')">
+            <div class="doc-file-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--navy)" stroke-width="1.3"><rect x="2" y="1" width="12" height="14" rx="2"/><path d="M5 5h6M5 8h6M5 11h3" stroke-linecap="round"/></svg></div>
+            <div class="doc-file-info"><div class="doc-file-name">Receta — Dra. Vega · Cardiología</div><div class="doc-file-meta">PDF · Subido 26 mar 2026</div></div>
+            <span class="pill pill-navy" style="flex-shrink:0">Médico</span>
+          </div>
+          <div class="doc-upload" onclick="toast('Subir documento — próximamente')">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3v8M3 7h8" stroke-linecap="round"/></svg>
+            Subir documento (PDF, imagen)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ EXPEDIENTE CARLOS ══════ -->
+  <div class="view" id="v-expediente-carlos">
+    <button class="exp-back" onclick="showV('pacientes',document.querySelectorAll('.sbtn')[0])">← Volver a mis pacientes</button>
+    <div class="exp-header">
+      <div>
+        <div class="exp-name">Carlos López</div>
+        <div class="exp-condition">45 años · Diabetes tipo 2</div>
+      </div>
+      <div style="text-align:right">
+        <span class="pill pill-warn">Pendiente de plan</span>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:8px">Nutrióloga que cocina: <strong style="color:var(--warn)">Pendiente</strong></div>
+      </div>
+    </div>
+
+    <div style="padding:14px 18px;background:var(--warnl);border:1px solid rgba(196,122,0,.2);border-radius:12px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
+      <div style="font-size:22px">⚠</div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--warn)">Este paciente necesita tu plan nutricional</div>
+        <div style="font-size:12px;color:var(--mid);margin-top:2px">El Dr. Solís ya subió sus indicaciones. Sube tu plan para que se le asigne nutrióloga que cocina.</div>
+      </div>
+    </div>
+
+    <div class="exp-grid">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">Equipo médico</div></div>
+        <div class="inner">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0">
+            <div class="doc-icon" style="width:36px;height:36px"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div>
+            <div><div style="font-size:14px;font-weight:600">Dr. Solís</div><div style="font-size:12px;color:var(--mid)">Endocrinología</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:0">
+        <div class="card-h"><div class="card-t">Expediente clínico</div><span style="font-size:11px;color:var(--warn);font-weight:600">⚠ Plan pendiente</span></div>
+        <div class="inner">
+          <div class="doc-file" onclick="toast('Abriendo receta…')">
+            <div class="doc-file-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--navy)" stroke-width="1.3"><rect x="2" y="1" width="12" height="14" rx="2"/><path d="M5 5h6M5 8h6M5 11h3" stroke-linecap="round"/></svg></div>
+            <div class="doc-file-info"><div class="doc-file-name">Receta — Dr. Solís · Endocrinología</div><div class="doc-file-meta">Imagen · Subido 1 abr 2026</div></div>
+            <span class="pill pill-navy" style="flex-shrink:0">Médico</span>
+          </div>
+          <div class="doc-upload" style="border-color:var(--warn);color:var(--warn);background:var(--warnl)" onclick="toast('Subir plan nutricional — próximamente')">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3v8M3 7h8" stroke-linecap="round"/></svg>
+            Subir tu plan nutricional (PDF, imagen)
           </div>
         </div>
       </div>
@@ -662,7 +516,7 @@ textarea{resize:vertical;min-height:80px}
   <!-- ══════ PAGOS ══════ -->
   <div class="view" id="v-pagos">
     <div class="ph"><div><div class="pt">Mis <em>pagos</em></div></div></div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px">
+    <div class="metrics">
       <div class="metric"><div class="ml">Este mes</div><div class="mv">$4,200</div><div class="ms">3 consultas · 4 revisiones</div></div>
       <div class="metric"><div class="ml">Mes anterior</div><div class="mv">$3,600</div><div class="ms">2 consultas · 5 revisiones</div></div>
       <div class="metric"><div class="ml">Próximo pago</div><div class="mv">$1,800</div><div class="ms">Se deposita el lunes 7 abr</div><div class="mb mb-teal">Pendiente</div></div>
@@ -699,7 +553,7 @@ textarea{resize:vertical;min-height:80px}
         <div class="pcard-body">
           <div class="prow"><span class="plbl">Especialidad</span><span class="pval">Nutrición clínica</span></div>
           <div class="prow"><span class="plbl">Pacientes activos</span><span class="pval">5</span></div>
-          <div class="prow"><span class="plbl">Adherencia promedio</span><span class="pval">82%</span></div>
+          <div class="prow"><span class="plbl">Total atendidos</span><span class="pval" style="color:var(--teal)">23</span></div>
           <div class="prow"><span class="plbl">Ingreso este mes</span><span class="pval">$4,200</span></div>
           <div class="prow"><span class="plbl">En la red desde</span><span class="pval">Enero 2026</span></div>
         </div>
@@ -723,7 +577,7 @@ textarea{resize:vertical;min-height:80px}
   </div>
 </div>
 
-<!-- MODAL nuevo paciente -->
+<!-- MODAL agregar paciente -->
 <div class="modal-bg" id="modal-nuevo-paciente">
   <div class="modal">
     <div class="modal-head">
@@ -731,19 +585,80 @@ textarea{resize:vertical;min-height:80px}
       <button class="modal-close" onclick="closeModal('modal-nuevo-paciente')">×</button>
     </div>
     <div class="modal-body">
-      <div class="frow2" style="margin-bottom:14px">
+      <div style="padding:12px;background:var(--teall);border-radius:8px;font-size:13px;color:var(--teal);margin-bottom:18px;line-height:1.6">
+        Registra los datos del paciente y sube los documentos clínicos disponibles. Los doctores no necesitan estar registrados en Nutrichef.
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Datos del paciente</div>
+      <div class="frow2">
         <div><label>Nombre del paciente</label><input type="text" placeholder="Nombre completo"></div>
         <div><label>Edad</label><input type="number" placeholder="Ej. 52"></div>
       </div>
-      <div class="frow2" style="margin-bottom:14px">
-        <div><label>Diagnóstico / tipo de dieta</label><select><option>Dieta renal</option><option>Dieta diabética</option><option>Dieta cardíaca</option><option>Post-quirúrgica</option></select></div>
-        <div><label>Médico tratante</label><input type="text" placeholder="Nombre y especialidad"></div>
+      <div style="margin-bottom:14px"><label>Condición médica</label><select>
+        <option value="">Seleccionar</option>
+        <option>Enfermedad renal crónica</option>
+        <option>Diabetes tipo 2</option>
+        <option>Insuficiencia cardíaca</option>
+        <option>Post-quirúrgico</option>
+        <option>Otra</option>
+      </select></div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;margin-top:18px">Equipo médico del paciente</div>
+      <div id="doctors-added">
+        <div class="added-doc">
+          <div class="doc-icon" style="width:24px;height:24px"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div>
+          <span style="font-weight:600">Dr. Solís</span>&nbsp;· Endocrinología
+          <button class="added-doc-remove" onclick="this.parentElement.remove()">×</button>
+        </div>
       </div>
-      <div style="margin-bottom:14px"><label>Restricciones clínicas iniciales</label><textarea placeholder="Resumen de indicaciones del médico..."></textarea></div>
+      <div class="add-doc-row">
+        <div><label>Nombre del doctor</label><input type="text" id="new-doc-name" placeholder="Ej. Dr. Hernández"></div>
+        <div><label>Especialidad</label><input type="text" id="new-doc-spec" placeholder="Ej. Nefrología"></div>
+        <button class="add-doc-btn" onclick="addDoctor()" title="Agregar doctor">+</button>
+      </div>
+      <div style="font-size:11px;color:var(--light);margin-bottom:14px">Puedes agregar varios doctores. No necesitan tener cuenta en Nutrichef.</div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;margin-top:18px">Documentos clínicos</div>
+      <div style="font-size:12px;color:var(--mid);margin-bottom:10px;line-height:1.6">Sube recetas médicas, planes nutricionales o cualquier documento del paciente. Cada archivo queda asociado al profesional que lo generó.</div>
+      <div class="doc-upload" onclick="toast('Subir archivo — próximamente')" style="margin-top:0">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3v8M3 7h8" stroke-linecap="round"/></svg>
+        Subir receta u otro documento
+      </div>
+      <div class="doc-upload" onclick="toast('Subir archivo — próximamente')" style="border-color:var(--teal);color:var(--teal)">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3v8M3 7h8" stroke-linecap="round"/></svg>
+        Subir mi plan nutricional (firmado con cédula)
+      </div>
     </div>
     <div class="modal-foot">
       <button class="mbtn-ghost" onclick="closeModal('modal-nuevo-paciente')">Cancelar</button>
-      <button class="mbtn-prim" onclick="closeModal('modal-nuevo-paciente');toast('Paciente agregado ✓')">Agregar paciente</button>
+      <button class="mbtn-prim" onclick="closeModal('modal-nuevo-paciente');toast('Paciente agregado ✓ · Nutrichef asignará nutrióloga que cocina')">Agregar paciente</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL invitar doctor -->
+<div class="modal-bg" id="modal-invitar-doctor">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Invitar doctor a Nutrichef</div>
+      <button class="modal-close" onclick="closeModal('modal-invitar-doctor')">×</button>
+    </div>
+    <div class="modal-body">
+      <div style="padding:14px;background:var(--off);border-radius:10px;margin-bottom:16px">
+        <div style="font-size:12px;font-weight:700;color:var(--dark);margin-bottom:8px">Vista previa del mensaje:</div>
+        <div style="font-size:13px;color:var(--mid);line-height:1.7" id="wa-preview">¡Hola Doctor! Soy la Lic. Laura Ramírez, nutrióloga clínica. Actualicé mis servicios: además de diseñar el plan nutricional de sus pacientes, ahora también podemos encargarnos de la preparación de sus alimentos a través de Nutrichef. Así aseguramos que sus pacientes sigan sus indicaciones al pie de la letra. ¿Le comparto más información?</div>
+      </div>
+      <div class="frow2">
+        <div><label>Nombre del doctor</label><input type="text" id="wa-doc-name" placeholder="Ej. Dr. Hernández" oninput="updateWaPreview()"></div>
+        <div><label>Teléfono / WhatsApp</label><input type="tel" id="wa-doc-tel" placeholder="844 000 0000"></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="mbtn-ghost" onclick="closeModal('modal-invitar-doctor')">Cancelar</button>
+      <button class="btn-wa" onclick="sendWaDoctor()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar por WhatsApp →
+      </button>
     </div>
   </div>
 </div>
@@ -759,13 +674,58 @@ function showV(id, btn) {
     btn.classList.add('active');
   }
 }
+
+function showExpediente(patient) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('v-expediente-' + patient).classList.add('active');
+}
+
+function filterPatients(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('grid-activos').style.display = type === 'activos' ? '' : 'none';
+  document.getElementById('grid-historial').style.display = type === 'historial' ? '' : 'none';
+}
+
+function addDoctor() {
+  const name = document.getElementById('new-doc-name').value;
+  const spec = document.getElementById('new-doc-spec').value;
+  if (!name || !spec) { toast('Completa nombre y especialidad'); return; }
+  const div = document.createElement('div');
+  div.className = 'added-doc';
+  div.innerHTML = '<div class="doc-icon" style="width:24px;height:24px"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4"/></svg></div><span style="font-weight:600">' + name + '</span>&nbsp;· ' + spec + '<button class="added-doc-remove" onclick="this.parentElement.remove()">×</button>';
+  document.getElementById('doctors-added').appendChild(div);
+  document.getElementById('new-doc-name').value = '';
+  document.getElementById('new-doc-spec').value = '';
+}
+
+function sendWaDoctor() {
+  const tel = document.getElementById('wa-doc-tel').value.replace(/\s/g,'');
+  const msg = encodeURIComponent(document.getElementById('wa-preview').textContent.trim());
+  const waNumber = tel ? '52' + tel : '528441234567';
+  window.open('https://wa.me/' + waNumber + '?text=' + msg, '_blank');
+  closeModal('modal-invitar-doctor');
+  toast('Abriendo WhatsApp…');
+}
+
+function updateWaPreview() {
+  const name = document.getElementById('wa-doc-name').value || 'Doctor';
+  document.getElementById('wa-preview').textContent = '¡Hola ' + name + '! Soy la Lic. Laura Ramírez, nutrióloga clínica. Actualicé mis servicios: además de diseñar el plan nutricional de sus pacientes, ahora también podemos encargarnos de la preparación de sus alimentos a través de Nutrichef. Así aseguramos que sus pacientes sigan sus indicaciones al pie de la letra. ¿Le comparto más información?';
+}
+
 function openModal(id) { document.getElementById(id).classList.add('open') }
 function closeModal(id) { document.getElementById(id).classList.remove('open') }
 function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.style.opacity = 1;
-  setTimeout(() => t.style.opacity = 0, 2800);
+  setTimeout(function() { t.style.opacity = 0 }, 2800);
 }
+
+document.querySelectorAll('.modal-bg').forEach(function(m) {
+  m.addEventListener('click', function(e) {
+    if (e.target === this) closeModal(this.id);
+  });
+});
 </script>
 </body>
 </html>

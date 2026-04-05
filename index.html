@@ -10,11 +10,15 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0B1F3A;--navym:#122844;--navyl:#E8EEF5;--teal:#0E7C86;--teall:#E4F4F5;--tealm:#2EA8B4;--off:#F6F5F1;--white:#FFFFFF;--dark:#0D1B2A;--mid:#4A5568;--light:#9AA5B4;--accent:#C97B2E;--accentl:#FDF0E0;--border:rgba(0,0,0,.07)}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--dark);overflow-x:hidden}
+
+/* NAV */
 nav{display:flex;justify-content:space-between;align-items:center;padding:18px 56px;background:rgba(246,245,241,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
 .logo{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--navy);text-decoration:none;letter-spacing:-.02em}.logo span{color:var(--teal)}
 .nav-right{display:flex;align-items:center;gap:18px}
 .nav-link{font-size:13px;color:var(--mid);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--teal)}
 .nav-cta{background:var(--teal);color:#fff;padding:9px 24px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s}.nav-cta:hover{background:#0a6970}
+
+/* HERO */
 .hero{min-height:88vh;display:grid;grid-template-columns:52% 48%;background:var(--navy);overflow:hidden;position:relative}
 .hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 75% 10%,rgba(14,124,134,.12) 0%,transparent 48%),radial-gradient(ellipse at 5% 90%,rgba(201,123,46,.06) 0%,transparent 44%)}
 .hero-left{padding:100px 64px 80px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
@@ -29,6 +33,8 @@ h1 em{color:var(--tealm);font-style:italic;font-weight:400}
 .btn-primary{background:var(--teal);color:#fff;padding:15px 36px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;display:inline-block;transition:background .2s}.btn-primary:hover{background:#0a6970}
 .hero-right{background:var(--navym);display:flex;align-items:center;justify-content:center;padding:60px 40px;position:relative;overflow:hidden}
 .hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(14,124,134,.15) 0%,transparent 50%),radial-gradient(circle at 20% 80%,rgba(201,123,46,.08) 0%,transparent 40%)}
+
+/* CARD PORTAL */
 .card-portal{width:340px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;position:relative;z-index:1;animation:fadeUp .7s .3s ease both}
 .cp-header{background:var(--teal);padding:16px 20px}
 .cp-row{display:flex;align-items:center;gap:10px;margin-bottom:5px}.cp-row:last-child{margin-bottom:0}
@@ -47,40 +53,50 @@ h1 em{color:var(--tealm);font-style:italic;font-weight:400}
 .cp-nut{font-size:11px;color:rgba(255,255,255,.5)}.cp-nut strong{color:rgba(255,255,255,.8)}
 .cp-status{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--tealm);font-weight:500}
 .cp-dot{width:6px;height:6px;border-radius:50%;background:var(--tealm)}
+
+/* SECTIONS */
 section{padding:88px 56px}
 .seye{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
 .s-title{font-family:'Libre Baskerville',serif;font-size:38px;line-height:1.1;color:var(--dark);margin-bottom:20px}.s-title em{color:var(--teal);font-style:italic}
 .s-sub{font-size:17px;color:var(--mid);line-height:1.75;font-weight:300;max-width:560px}
 .section-wrap{max-width:1100px;margin:0 auto}
-.how{background:#fff}
-.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:56px}
-.flow-steps{display:flex;flex-direction:column}
-.fstep{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border)}.fstep:last-child{border-bottom:none}
-.fstep-num{font-family:'Libre Baskerville',serif;font-size:28px;color:var(--navyl);font-style:italic;font-weight:700;min-width:36px;line-height:1}
-.fstep-title{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px}.fstep-title .hl{color:var(--teal);font-weight:700}
-.fstep-desc{font-size:13.5px;color:var(--mid);line-height:1.65}
-.fstep-tag{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;color:var(--teal);background:var(--teall);padding:3px 10px;border-radius:100px}
-.how-right{background:var(--navy);border-radius:16px;padding:36px;overflow:hidden;position:relative}
-.how-right::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(14,124,134,.15)}
-.esc-blocks{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
-.esc-block{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 20px}
-.esc-block-tag{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tealm);margin-bottom:8px}
-.esc-block-title{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:6px}
-.esc-block-flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.esc-arrow{font-size:11px;color:rgba(255,255,255,.25)}
-.esc-pill{font-size:11.5px;color:rgba(255,255,255,.65);background:rgba(255,255,255,.07);padding:3px 10px;border-radius:100px;border:1px solid rgba(255,255,255,.1)}
-.esc-pill.highlighted{background:rgba(14,124,134,.2);color:var(--tealm);border-color:rgba(14,124,134,.3)}
-.diets{background:var(--off)}
+
+/* CONDICIONES CLÍNICAS */
+.diets{background:#fff}
 .diets-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
-.diet-card{background:#fff;border-radius:14px;padding:28px 24px;border:1px solid var(--border)}
+.diet-card{background:var(--off);border-radius:14px;padding:28px 24px;border:1px solid var(--border)}
 .diet-icon{width:44px;height:44px;border-radius:10px;background:var(--teall);border:1px solid rgba(14,124,134,.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
 .diet-name{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:8px;font-family:'Libre Baskerville',serif}
 .diet-desc{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:16px}
 .diet-tags{display:flex;flex-wrap:wrap;gap:6px}
 .diet-tag{font-size:11px;background:var(--navyl);color:var(--navy);padding:3px 10px;border-radius:100px;font-weight:500}
+
+/* FIDELIDAD */
+.fidelidad{padding:88px 56px;background:var(--off)}
+.fidelidad-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto}
+.fid-items{display:flex;flex-direction:column;margin-top:36px}
+.fid-item{display:flex;align-items:flex-start;gap:16px;padding:22px 0;border-bottom:1px solid var(--border)}.fid-item:last-child{border-bottom:none}
+.fid-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px}
+.fid-head{font-size:15.5px;font-weight:700;color:var(--dark);margin-bottom:5px;line-height:1.3}
+.fid-desc{font-size:13.5px;color:var(--mid);font-weight:300;line-height:1.65}
+.fid-img-wrap{border-radius:20px;overflow:hidden;position:relative;aspect-ratio:4/5}
+.fid-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.fid-img-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:12px}
+.fid-badge-icon{width:36px;height:36px;border-radius:10px;background:var(--teall);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.fid-badge-txt{font-size:12.5px;font-weight:600;color:var(--dark);line-height:1.3}
+.fid-badge-sub{font-size:11px;color:var(--mid);font-weight:300;margin-top:1px}
+
+/* MENÚ POR ESPECIALIDAD */
 .menu-sec{padding:88px 56px;background:var(--white)}
-.menu-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:40px}
-.menu-top-right{font-size:15px;color:var(--mid);line-height:1.7;font-weight:300;max-width:380px;justify-self:end}
+.menu-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:40px;gap:40px}
+.menu-top-right{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.spec-select-wrap{position:relative}.spec-select-wrap::after{content:'▾';position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--light);pointer-events:none;font-size:13px}
+.spec-select{padding:11px 40px 11px 16px;border:1.5px solid rgba(14,124,134,.2);border-radius:8px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark);background:#fff;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer;min-width:260px;transition:.15s}.spec-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,124,134,.08)}
+.menu-spec-banner{border-radius:12px;overflow:hidden;margin-bottom:24px}
+.msb-top{background:var(--navy);padding:18px 24px}
+.msb-top-title{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:#fff}
+.msb-bottom{background:var(--navym);padding:14px 24px}
+.msb-bottom-text{font-size:14px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5}
 .dtabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
 .dtab{padding:9px 20px;border-radius:6px;font-size:13px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--mid);font-family:'Plus Jakarta Sans',sans-serif;transition:all .15s}
 .dtab:hover{border-color:var(--teal);color:var(--teal)}
@@ -103,21 +119,34 @@ section{padding:88px 56px}
 .ncv{font-size:15px;font-weight:600;color:var(--dark)}.ncl{font-size:10px;color:var(--light);margin-top:2px}
 .ben{display:flex;gap:8px;font-size:13px;color:var(--mid);padding:5px 0;border-bottom:1px solid rgba(0,0,0,.04)}.ben:last-child{border-bottom:none}
 .bdot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px}
-.fidelidad{padding:88px 56px;background:var(--off)}
-.fidelidad-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto}
-.fid-items{display:flex;flex-direction:column;margin-top:36px}
-.fid-item{display:flex;align-items:flex-start;gap:16px;padding:22px 0;border-bottom:1px solid var(--border)}.fid-item:last-child{border-bottom:none}
-.fid-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px}
-.fid-head{font-size:15.5px;font-weight:700;color:var(--dark);margin-bottom:5px;line-height:1.3}
-.fid-desc{font-size:13.5px;color:var(--mid);font-weight:300;line-height:1.65}
-.fid-img-wrap{border-radius:20px;overflow:hidden;position:relative;aspect-ratio:4/5}
-.fid-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.fid-img-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:12px}
-.fid-badge-icon{width:36px;height:36px;border-radius:10px;background:var(--teall);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
-.fid-badge-txt{font-size:12.5px;font-weight:600;color:var(--dark);line-height:1.3}
-.fid-badge-sub{font-size:11px;color:var(--mid);font-weight:300;margin-top:1px}
+
+/* DE TU PLAN A TU COMIDA */
+.plan-comida{background:var(--navy)}
+.plan-comida .s-title{color:#fff}.plan-comida .s-title em{color:var(--tealm)}
+.plan-comida .s-sub{color:rgba(255,255,255,.5)}.plan-comida .seye{color:var(--tealm)}
+.pc-steps{display:flex;gap:32px;margin-top:48px}
+.pc-step{flex:1;display:flex;gap:18px;padding:28px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+.pc-num{font-family:'Libre Baskerville',serif;font-size:28px;color:var(--tealm);font-style:italic;font-weight:700;min-width:36px;line-height:1}
+.pc-title{font-size:15px;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:8px}
+.pc-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
+
+/* DOS NUTRIÓLOGAS */
+.nutris{background:var(--off)}
+.nutris-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px}
+.nutri-role-card{border-radius:16px;padding:36px;border:1px solid var(--border)}
+.nutri-role-card.clinica{background:var(--navy);border-color:transparent}
+.nutri-role-card.cocina{background:var(--teall);border-color:rgba(14,124,134,.15)}
+.nrc-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;display:inline-block;padding:4px 12px;border-radius:4px}
+.clinica .nrc-tag{background:rgba(14,124,134,.25);color:var(--tealm)}.cocina .nrc-tag{background:rgba(14,124,134,.15);color:var(--teal)}
+.nrc-title{font-family:'Libre Baskerville',serif;font-size:22px;margin-bottom:12px}.clinica .nrc-title{color:#fff}.cocina .nrc-title{color:var(--navy)}
+.nrc-desc{font-size:14px;line-height:1.7;margin-bottom:24px}.clinica .nrc-desc{color:rgba(255,255,255,.55)}.cocina .nrc-desc{color:var(--mid)}
+.nrc-items{display:flex;flex-direction:column;gap:10px}
+.nrc-item{display:flex;align-items:flex-start;gap:10px;font-size:13.5px}.clinica .nrc-item{color:rgba(255,255,255,.7)}.cocina .nrc-item{color:var(--mid)}
+.nrc-check{width:18px;height:18px;border-radius:4px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* NUTRIÓLOGAS CHEF */
 .nutriologas{padding:88px 56px;background:var(--white)}
-.nut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.nut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
 .nut-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow .2s,border-color .2s}.nut-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(14,124,134,.1)}
 .nut-card-top{padding:26px 24px 18px;display:flex;align-items:flex-start;gap:14px}
 .nut-av{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;flex-shrink:0;border:2px solid}
@@ -129,8 +158,11 @@ section{padding:88px 56px}
 .nut-title{font-size:12px;color:var(--mid);margin-bottom:6px}
 .nut-stars{color:var(--accent);font-size:12px}
 .nut-card-body{padding:0 24px 20px}
-.nut-badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 12px;border-radius:100px;margin-bottom:14px}
+.nut-badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 12px;border-radius:100px;margin-bottom:10px}
 .nut-badge.b1{color:var(--teal);background:var(--teall)}.nut-badge.b2{color:#185FA5;background:#E6F1FB}.nut-badge.b3{color:var(--accent);background:var(--accentl)}
+.nut-modalidad{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--navy);border-radius:8px;margin-bottom:14px}
+.nut-mod-icon{font-size:14px;flex-shrink:0}
+.nut-mod-text{font-size:12.5px;color:rgba(255,255,255,.85);font-weight:500;line-height:1.3}
 .nut-price{font-size:32px;font-weight:700;color:var(--dark);line-height:1;margin-bottom:2px;font-family:'Libre Baskerville',serif}
 .nut-price-sub{font-size:12.5px;color:var(--mid);margin-bottom:14px}
 .nut-insumos{display:inline-flex;align-items:center;gap:7px;background:var(--off);border:1px solid var(--border);border-radius:100px;padding:5px 12px;margin-bottom:10px;font-size:12px;color:var(--mid)}.nut-insumos strong{color:var(--dark);font-weight:600}
@@ -148,18 +180,8 @@ section{padding:88px 56px}
 .nut-cupo{font-size:12px;color:var(--mid)}.nut-cupo span{color:var(--teal);font-weight:600}
 .nut-btn{font-size:12.5px;font-weight:600;color:var(--teal);background:var(--teall);border:none;padding:7px 18px;border-radius:6px;cursor:pointer;text-decoration:none;transition:background .15s}.nut-btn:hover{background:#d0ede4}.nut-btn.wait{color:var(--light);background:var(--off)}
 .nut-note{font-size:12px;color:var(--light);margin-top:20px;text-align:center}
-.nutris{background:var(--off)}
-.nutris-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px}
-.nutri-role-card{border-radius:16px;padding:36px;border:1px solid var(--border)}
-.nutri-role-card.clinica{background:var(--navy);border-color:transparent}
-.nutri-role-card.cocina{background:var(--teall);border-color:rgba(14,124,134,.15)}
-.nrc-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;display:inline-block;padding:4px 12px;border-radius:4px}
-.clinica .nrc-tag{background:rgba(14,124,134,.25);color:var(--tealm)}.cocina .nrc-tag{background:rgba(14,124,134,.15);color:var(--teal)}
-.nrc-title{font-family:'Libre Baskerville',serif;font-size:22px;margin-bottom:12px}.clinica .nrc-title{color:#fff}.cocina .nrc-title{color:var(--navy)}
-.nrc-desc{font-size:14px;line-height:1.7;margin-bottom:24px}.clinica .nrc-desc{color:rgba(255,255,255,.55)}.cocina .nrc-desc{color:var(--mid)}
-.nrc-items{display:flex;flex-direction:column;gap:10px}
-.nrc-item{display:flex;align-items:flex-start;gap:10px;font-size:13.5px}.clinica .nrc-item{color:rgba(255,255,255,.7)}.cocina .nrc-item{color:var(--mid)}
-.nrc-check{width:18px;height:18px;border-radius:4px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* REGISTRO */
 .registro-wrap{padding:88px 56px;background:var(--teall);border-top:1px solid rgba(14,124,134,.12)}
 .registro-inner{max-width:580px;margin:0 auto}
 .form-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
@@ -182,6 +204,8 @@ section{padding:88px 56px}
 .success-icon{font-size:52px;margin-bottom:18px}
 .success-title{font-family:'Libre Baskerville',serif;font-size:38px;font-weight:700;color:var(--dark);margin-bottom:12px;line-height:1.1}.success-title em{color:var(--teal);font-style:italic}
 .success-sub{font-size:15px;color:var(--mid);line-height:1.75;font-weight:300;max-width:400px;margin:0 auto}
+
+/* FAQ */
 .faq{padding:72px 56px 0;background:var(--navy)}
 .faq-inner{max-width:760px;margin:0 auto;padding-bottom:72px}
 .faq-top{text-align:center;margin-bottom:40px}
@@ -193,38 +217,43 @@ section{padding:88px 56px}
 .faq-icon{font-size:18px;color:rgba(255,255,255,.25);flex-shrink:0;transition:transform .25s;line-height:1}.faq-icon.open{transform:rotate(45deg);color:var(--tealm)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}.faq-a.open{max-height:200px}
 .faq-a-inner{padding:0 22px 18px;font-size:13.5px;color:rgba(255,255,255,.45);font-weight:300;line-height:1.7}
+
+/* FOOTER */
 footer{background:var(--navy);padding:36px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.06)}
 .footer-logo{font-family:'Libre Baskerville',serif;font-size:20px;color:#fff;text-decoration:none}.footer-logo span{color:var(--teal)}
 .footer-mid{font-size:12px;color:rgba(255,255,255,.3);text-align:center;line-height:1.7}
 .footer-links{display:flex;gap:20px}.footer-links a{font-size:12.5px;color:rgba(255,255,255,.4);text-decoration:none}
-/* INDICACIONES */
-.indicaciones{background:#fff}
-.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-.ind-card{background:var(--off);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;gap:16px}
-.ind-letter{font-family:'Libre Baskerville',serif;font-size:32px;color:var(--teal);font-style:italic;font-weight:700;line-height:1}
-.ind-title{font-size:16px;font-weight:600;color:var(--dark);line-height:1.4}
-.ind-desc{font-size:13.5px;color:var(--mid);line-height:1.65;flex-grow:1}
-.ind-flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-top:16px;border-top:1px solid rgba(0,0,0,.07)}
-.ind-pill{font-size:11px;color:var(--mid);background:#fff;padding:4px 10px;border-radius:100px;border:1px solid rgba(0,0,0,.1);font-weight:500}
-.ind-pill.hl{background:var(--teall);color:var(--teal);border-color:rgba(14,124,134,.2);font-weight:600}
-.ind-arrow{font-size:11px;color:var(--light)}
-/* PLAN A COMIDA */
-.plan-comida{background:var(--navy)}
-.plan-comida .s-title{color:#fff}.plan-comida .s-title em{color:var(--tealm)}
-.plan-comida .s-sub{color:rgba(255,255,255,.5)}.plan-comida .seye{color:var(--tealm)}
-.pc-steps{display:flex;gap:32px;margin-top:48px}
-.pc-step{flex:1;display:flex;gap:18px;padding:28px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px}
-.pc-num{font-family:'Libre Baskerville',serif;font-size:28px;color:var(--tealm);font-style:italic;font-weight:700;min-width:36px;line-height:1}
-.pc-title{font-size:15px;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:8px}
-.pc-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 svg{display:block}
-@media(max-width:960px){nav{padding:14px 24px}.hero{grid-template-columns:1fr;min-height:auto}.hero-left{padding:56px 24px 40px}.hero-right{padding:40px 24px}section{padding:64px 24px}.how-grid,.fidelidad-layout,.nutris-grid{grid-template-columns:1fr}.diets-grid{grid-template-columns:1fr 1fr;gap:14px}.ind-grid{grid-template-columns:1fr}.pc-steps{flex-direction:column}.nut-grid{grid-template-columns:1fr}.menu-sec,.nutriologas,.registro-wrap{padding:64px 24px}.menu-top{grid-template-columns:1fr;gap:20px}.menu-top-right{justify-self:start;max-width:100%}.dshow{grid-template-columns:1fr}.dvis{min-height:280px}.faq{padding:56px 24px 0}footer{padding:28px 24px;flex-direction:column;gap:16px;text-align:center}.field-row{grid-template-columns:1fr}.fid-img-wrap{max-height:400px}}
-@media(max-width:600px){h1{font-size:36px}.s-title{font-size:30px}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:14px 24px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:56px 24px 40px}
+  .hero-right{padding:40px 24px}
+  section{padding:64px 24px}
+  .diets-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .fidelidad,.menu-sec,.nutriologas,.registro-wrap{padding:64px 24px}
+  .fidelidad-layout,.nutris-grid{grid-template-columns:1fr}
+  .menu-top{flex-direction:column;align-items:flex-start}
+  .menu-top-right{align-items:flex-start}
+  .dshow{grid-template-columns:1fr}
+  .dvis{min-height:280px}
+  .pc-steps{flex-direction:column}
+  .nut-grid{grid-template-columns:1fr}
+  .faq{padding:56px 24px 0}
+  footer{padding:28px 24px;flex-direction:column;gap:16px;text-align:center}
+  .field-row{grid-template-columns:1fr}
+  .fid-img-wrap{max-height:400px}
+}
+@media(max-width:600px){h1{font-size:36px}.s-title{font-size:30px}.diets-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#" class="logo">Nutri<span>chef</span></a>
   <div class="nav-right">
@@ -233,6 +262,7 @@ svg{display:block}
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-badge"><div class="hero-badge-dot"></div>Alimentación clínica supervisada</div>
@@ -244,6 +274,7 @@ svg{display:block}
     <div class="card-portal">
       <div class="cp-header">
         <div class="cp-row"><div class="cp-label">Paciente</div><div class="cp-value">María González</div></div>
+        <div class="cp-row"><div class="cp-label">Doctor</div><div class="cp-value">Dr. Alejandro Ruiz</div></div>
         <div class="cp-row"><div class="cp-label">Nut. Clínica</div><div class="cp-value">Lic. Ana Ramírez</div></div>
         <div class="cp-row"><div class="cp-label">Nut. Chef</div><div class="cp-value">Lic. Laura Medina</div></div>
         <div class="cp-diag">Dieta renal · Fase 3</div>
@@ -263,51 +294,51 @@ svg{display:block}
   </div>
 </section>
 
-<!-- INDICACIONES MÉDICAS -->
-<section class="indicaciones" id="como-funciona">
-  <div class="seye">Tu punto de partida</div>
-  <h2 class="s-title">¿Cómo compartirás tus<br><em>indicaciones médicas?</em></h2>
-  <div class="ind-grid">
-    <div class="ind-card">
-      <div class="ind-letter">A</div>
-      <div class="ind-title">Tienes plan nutricional de una nutrióloga clínica</div>
-      <div class="ind-desc">Nos lo compartes y una nutrióloga de nuestra red lo convierte en comida diaria, con fidelidad exacta a cada indicación.</div>
-      <div class="ind-flow">
-        <span class="ind-pill">Tu plan</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill hl">Nutrióloga cocina</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill">Tú recoges</span>
+<!-- CONDICIONES CLÍNICAS -->
+<section class="diets">
+  <div class="seye">Especialidades</div>
+  <h2 class="s-title">Planes para <em>condiciones clínicas.</em></h2>
+  <p class="s-sub">No es comida saludable genérica. Es alimentación diseñada específicamente para tu diagnóstico y supervisada por profesionales con especialidad clínica.</p>
+  <div class="diets-grid">
+    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#0E7C86" stroke-width="1.5"/><path d="M7 11h8M11 7v8" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Renal</div><div class="diet-desc">Control estricto de potasio, fósforo y sodio para pacientes con enfermedad renal crónica.</div><div class="diet-tags"><span class="diet-tag">Bajo en potasio</span><span class="diet-tag">Sin fósforo añadido</span><span class="diet-tag">Control de sodio</span></div></div>
+    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="7" width="16" height="10" rx="3" stroke="#0E7C86" stroke-width="1.5"/><path d="M7 7V5a4 4 0 018 0v2" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Diabética</div><div class="diet-desc">Control glucémico estricto con índice glucémico bajo para pacientes con diabetes tipo 1 o 2.</div><div class="diet-tags"><span class="diet-tag">Bajo índice glucémico</span><span class="diet-tag">Sin azúcar añadida</span><span class="diet-tag">Carbohidratos controlados</span></div></div>
+    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4C7.13 4 4 7.13 4 11s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z" stroke="#0E7C86" stroke-width="1.5"/><path d="M11 8v4l3 2" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Cardíaca</div><div class="diet-desc">Reducción de sodio y grasas saturadas para pacientes con hipertensión o insuficiencia cardíaca.</div><div class="diet-tags"><span class="diet-tag">Bajo en sodio</span><span class="diet-tag">Sin grasas trans</span><span class="diet-tag">Control de colesterol</span></div></div>
+    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 11h12M11 5v12" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/><path d="M8 5.5C8 5.5 6 8 6 11s2 5.5 2 5.5M14 5.5S16 8 16 11s-2 5.5-2 5.5" stroke="#0E7C86" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Post-quirúrgica</div><div class="diet-desc">Textura y progresión adaptadas para pacientes en etapas post-operatorias.</div><div class="diet-tags"><span class="diet-tag">Texturas progresivas</span><span class="diet-tag">Alta proteína</span><span class="diet-tag">Fácil digestión</span></div></div>
+  </div>
+</section>
+
+<!-- FIDELIDAD AL PLAN -->
+<section class="fidelidad">
+  <div class="fidelidad-layout">
+    <div>
+      <div class="seye">Sin sustituciones</div>
+      <h2 class="s-title">Cada comida, exactamente como<br>lo indicó <em>tu especialista.</em></h2>
+      <p class="s-sub" style="margin-bottom:0">No interpretamos tu plan — lo ejecutamos. Cada detalle de tu prescripción se respeta sin excepción.</p>
+      <div class="fid-items">
+        <div class="fid-item"><div class="fid-dot"></div><div><div class="fid-head">Gramos exactos según tu prescripción</div><div class="fid-desc">Las cantidades de cada ingrediente son las que indica tu plan — ni más, ni menos.</div></div></div>
+        <div class="fid-item"><div class="fid-dot"></div><div><div class="fid-head">Los ingredientes que tu especialista indicó</div><div class="fid-desc">Sin sustituciones no autorizadas. Si un ingrediente no está disponible, te avisamos antes de cualquier cambio.</div></div></div>
+        <div class="fid-item"><div class="fid-dot"></div><div><div class="fid-head">El método de cocción de tu plan</div><div class="fid-desc">Al vapor, al horno, a la plancha — lo que diga tu prescripción es lo que va al plato.</div></div></div>
       </div>
     </div>
-    <div class="ind-card">
-      <div class="ind-letter">B</div>
-      <div class="ind-title">Tu doctor(a) te dio indicaciones sobre tu alimentación</div>
-      <div class="ind-desc">Una nutrióloga clínica convierte esas indicaciones en un plan nutricional. Después, otra nutrióloga lo cocina en tus platillos de cada día.</div>
-      <div class="ind-flow">
-        <span class="ind-pill">Indicaciones</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill hl">Nut. Clínica</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill">Nutrióloga cocina</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill">Tú recoges</span>
+    <div class="fid-img-wrap"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&auto=format" alt="Comida clínica preparada"><div class="fid-img-badge"><div class="fid-badge-icon">✓</div><div><div class="fid-badge-txt">Fiel a tu prescripción</div><div class="fid-badge-sub">Ingredientes, gramos y método de cocción</div></div></div></div>
+  </div>
+</section>
+
+<!-- MENÚ POR ESPECIALIDAD -->
+<section class="menu-sec">
+  <div class="section-wrap">
+    <div class="menu-top">
+      <div><div class="seye">Así recibirás tu comida</div><h2 class="s-title">Cumple tu plan clínico<br><em>cada semana.</em></h2></div>
+      <div class="menu-top-right">
+        <div class="spec-select-wrap"><select class="spec-select" id="spec-select" onchange="changeSpec(this.value)"><option value="diabetes">Selecciona tu condición</option><option value="diabetes" selected>Diabetes</option><option value="renal">Renal</option><option value="cardiaca">Cardíaca</option><option value="postquirurgica">Post-quirúrgica</option></select></div>
       </div>
     </div>
-    <div class="ind-card">
-      <div class="ind-letter">C</div>
-      <div class="ind-title">Sabes que tienes una condición pero no tienes indicaciones ni plan</div>
-      <div class="ind-desc">No te preocupes. Una nutrióloga clínica analizará tu caso para crear tu plan nutricional. Después, otra nutrióloga lo convierte en comida de cada día.</div>
-      <div class="ind-flow">
-        <span class="ind-pill">Tu caso</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill hl">Nut. Clínica</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill">Nutrióloga cocina</span>
-        <span class="ind-arrow">→</span>
-        <span class="ind-pill">Tú recoges</span>
-      </div>
+    <div class="menu-spec-banner" id="spec-banner">
+      <div class="msb-top"><div class="msb-top-title" id="msb-title">Comida para pacientes con Diabetes</div></div>
+      <div class="msb-bottom"><div class="msb-bottom-text" id="msb-desc">Enfocada en cuidar el índice glucémico en cada platillo</div></div>
     </div>
+    <div class="dtabs" id="dtabs"></div>
+    <div class="dshow" id="dshow"></div>
   </div>
 </section>
 
@@ -341,69 +372,92 @@ svg{display:block}
   </div>
 </section>
 
-<section class="diets">
-  <div class="seye">Especialidades</div>
-  <h2 class="s-title">Planes para <em>condiciones clínicas.</em></h2>
-  <p class="s-sub">No es comida saludable genérica. Es alimentación diseñada específicamente para tu diagnóstico y supervisada por profesionales con especialidad clínica.</p>
-  <div class="diets-grid">
-    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#0E7C86" stroke-width="1.5"/><path d="M7 11h8M11 7v8" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Renal</div><div class="diet-desc">Control estricto de potasio, fósforo y sodio para pacientes con enfermedad renal crónica.</div><div class="diet-tags"><span class="diet-tag">Bajo en potasio</span><span class="diet-tag">Sin fósforo añadido</span><span class="diet-tag">Control de sodio</span></div></div>
-    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="7" width="16" height="10" rx="3" stroke="#0E7C86" stroke-width="1.5"/><path d="M7 7V5a4 4 0 018 0v2" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Diabética</div><div class="diet-desc">Control glucémico estricto con índice glucémico bajo para pacientes con diabetes tipo 1 o 2.</div><div class="diet-tags"><span class="diet-tag">Bajo índice glucémico</span><span class="diet-tag">Sin azúcar añadida</span><span class="diet-tag">Carbohidratos controlados</span></div></div>
-    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4C7.13 4 4 7.13 4 11s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z" stroke="#0E7C86" stroke-width="1.5"/><path d="M11 8v4l3 2" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Cardíaca</div><div class="diet-desc">Reducción de sodio y grasas saturadas para pacientes con hipertensión o insuficiencia cardíaca.</div><div class="diet-tags"><span class="diet-tag">Bajo en sodio</span><span class="diet-tag">Sin grasas trans</span><span class="diet-tag">Control de colesterol</span></div></div>
-    <div class="diet-card"><div class="diet-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 11h12M11 5v12" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round"/><path d="M8 5.5C8 5.5 6 8 6 11s2 5.5 2 5.5M14 5.5S16 8 16 11s-2 5.5-2 5.5" stroke="#0E7C86" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="diet-name">Dieta Post-quirúrgica</div><div class="diet-desc">Textura y progresión adaptadas para pacientes en etapas post-operatorias.</div><div class="diet-tags"><span class="diet-tag">Texturas progresivas</span><span class="diet-tag">Alta proteína</span><span class="diet-tag">Fácil digestión</span></div></div>
-  </div>
-</section>
-
-<section class="menu-sec">
-  <div class="section-wrap">
-    <div class="menu-top">
-      <div><div class="seye">Así recibirás tu comida</div><h2 class="s-title">Cumple tu plan clínico<br><em>cada semana.</em></h2></div>
-      <p class="menu-top-right">Tu <strong style="color:var(--teal)">Nutrióloga Clínica</strong> y tu <strong style="color:var(--teal)">Nutrióloga Chef</strong> diseñarán un menú adecuado a tu condición, según las indicaciones de tu médico.</p>
-    </div>
-    <div class="dtabs"><button class="dtab active" onclick="showDish(0,this)">Lunes</button><button class="dtab" onclick="showDish(1,this)">Martes</button><button class="dtab" onclick="showDish(2,this)">Miércoles</button><button class="dtab" onclick="showDish(3,this)">Jueves</button><button class="dtab" onclick="showDish(4,this)">Viernes</button></div>
-    <div class="dshow" id="dshow"></div>
-  </div>
-</section>
-
-<section class="fidelidad">
-  <div class="fidelidad-layout">
-    <div>
-      <div class="seye">Sin sustituciones</div>
-      <h2 class="s-title">Cada comida, exactamente como<br>lo indicó <em>tu especialista.</em></h2>
-      <p class="s-sub" style="margin-bottom:0">No interpretamos tu plan — lo ejecutamos. Cada detalle de tu prescripción se respeta sin excepción.</p>
-      <div class="fid-items">
-        <div class="fid-item"><div class="fid-dot"></div><div><div class="fid-head">Gramos exactos según tu prescripción</div><div class="fid-desc">Las cantidades de cada ingrediente son las que indica tu plan — ni más, ni menos.</div></div></div>
-        <div class="fid-item"><div class="fid-dot"></div><div><div class="fid-head">Los ingredientes que tu especialista indicó</div><div class="fid-desc">Sin sustituciones no autorizadas. Si un ingrediente no está disponible, te avisamos antes de cualquier cambio.</div></div></div>
-        <div class="fid-item"><div class="fid-dot"></div><div><div class="fid-head">El método de cocción de tu plan</div><div class="fid-desc">Al vapor, al horno, a la plancha — lo que diga tu prescripción es lo que va al plato.</div></div></div>
+<!-- DOS NUTRIÓLOGAS -->
+<section class="nutris">
+  <div class="seye">Tu equipo profesional</div>
+  <h2 class="s-title">Dos nutriólogas cuidan<br><em>de tu salud.</em></h2>
+  <p class="s-sub">Nutrichef opera con dos perfiles distintos de nutriólogas. La clínica diseña tu plan. La chef lo cocina. La responsabilidad siempre está firmada.</p>
+  <div class="nutris-grid">
+    <div class="nutri-role-card clinica">
+      <span class="nrc-tag">Nutrióloga Clínica</span>
+      <div class="nrc-title">Diseña y valida tu plan</div>
+      <div class="nrc-desc">Recibe las indicaciones de tu médico y genera el plan nutricional semanal. Su cédula respalda cada decisión.</div>
+      <div class="nrc-items">
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Especialidad en nutrición clínica requerida</div>
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Puede ser externa (tu nutrióloga) o de la red</div>
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Envía el plan a tu doctor y a quien cocinará</div>
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Su cédula aparece en la etiqueta de tu comida</div>
       </div>
     </div>
-    <div class="fid-img-wrap"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&auto=format" alt="Comida clínica preparada"><div class="fid-img-badge"><div class="fid-badge-icon">✓</div><div><div class="fid-badge-txt">Fiel a tu prescripción</div><div class="fid-badge-sub">Ingredientes, gramos y método de cocción</div></div></div></div>
+    <div class="nutri-role-card cocina">
+      <span class="nrc-tag">Nutrióloga Chef</span>
+      <div class="nrc-title">Ejecuta tu plan</div>
+      <div class="nrc-desc">Recibe el plan aprobado por la nutrióloga clínica y lo cocina con fidelidad exacta a cada indicación. Sin interpretaciones propias.</div>
+      <div class="nrc-items">
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Nutrióloga registrada en la red</div>
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Recibe instrucciones exactas del plan</div>
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Gestiona compra de insumos y preparación</div>
+        <div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Entrega en punto de recogida asignado 4–9 PM</div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- NUTRIÓLOGAS CHEF -->
 <section class="nutriologas" id="nutriologas">
   <div class="section-wrap">
     <div class="seye">Nutriólogas disponibles</div>
     <h2 class="s-title">Elige la nutrióloga<br>que <em>cocina para ti.</em></h2>
-    <p class="s-sub">Compara perfiles, especialidades y precio por preparación. Los insumos van aparte — son exactamente lo que gastarías cocinando tú mismo.</p>
+    <p class="s-sub">Compara perfiles, especialidades y precio por preparación. Los insumos van aparte — son exactamente lo que gastarías comprándolos tú mismo.</p>
     <div class="nut-grid">
-      <div class="nut-card"><div class="nut-card-top"><div class="nut-av a1">LG</div><div class="nut-meta"><div class="nut-name">Laura G.</div><div class="nut-title">Lic. Nutrición · 6 años exp.</div><div class="nut-stars">★★★★★ <span style="color:var(--mid);font-size:12px">4.9 · 38 reseñas</span></div></div></div><div class="nut-card-body"><span class="nut-badge b1">Cocina clínica</span><div class="nut-price">$950</div><div class="nut-price-sub">por preparación · mensual</div><div class="nut-insumos">🛒 <strong>+ Insumos</strong> — lo que cuestan tus ingredientes</div><div class="nut-plato"><div class="nut-plato-label">Plato estrella</div><div class="nut-plato-name">Pollo al limón con quinoa y espinacas</div><div class="nut-plato-sub">Al vapor · Bajo sodio · Sin glutamato</div></div><div class="nut-cocina-para"><div class="nut-cp-label">Cocina planes para</div><div class="nut-cp-tags"><span class="nut-cp-tag">Diabetes</span><span class="nut-cp-tag">Hipertensión</span><span class="nut-cp-tag">Colesterol</span></div></div><div class="nut-features"><div class="nut-feat">Proteínas: pollo, res, atún</div><div class="nut-feat">Técnica: al vapor y al horno</div><div class="nut-feat">Sin glutamato monosódico</div></div></div><div class="nut-card-foot"><div class="nut-cupo">Cupo: <span>3 lugares</span></div><a href="#registro" class="nut-btn">Elegir →</a></div></div>
-      <div class="nut-card"><div class="nut-card-top"><div class="nut-av a2">MR</div><div class="nut-meta"><div class="nut-name">Mariana R.</div><div class="nut-title">Lic. Nutrición · 4 años exp.</div><div class="nut-stars">★★★★★ <span style="color:var(--mid);font-size:12px">4.8 · 22 reseñas</span></div></div></div><div class="nut-card-body"><span class="nut-badge b2">Cocina especializada</span><div class="nut-price">$1,100</div><div class="nut-price-sub">por preparación · mensual</div><div class="nut-insumos">🛒 <strong>+ Insumos</strong> — lo que cuestan tus ingredientes</div><div class="nut-plato"><div class="nut-plato-label">Plato estrella</div><div class="nut-plato-name">Salmón glaseado con puré de coliflor</div><div class="nut-plato-sub">Al horno · Omega-3 · Bajo en sodio</div></div><div class="nut-cocina-para"><div class="nut-cp-label">Cocina planes para</div><div class="nut-cp-tags"><span class="nut-cp-tag">Renal</span><span class="nut-cp-tag">Cardíaca</span><span class="nut-cp-tag">Post-quirúrgica</span></div></div><div class="nut-features"><div class="nut-feat">Proteínas: salmón, pollo, huevo</div><div class="nut-feat">Técnica: al vapor y al horno</div><div class="nut-feat">Coordinación con médico tratante</div></div></div><div class="nut-card-foot"><div class="nut-cupo">Cupo: <span>5 lugares</span></div><a href="#registro" class="nut-btn">Elegir →</a></div></div>
-      <div class="nut-card"><div class="nut-card-top"><div class="nut-av a3">SC</div><div class="nut-meta"><div class="nut-name">Sofía C.</div><div class="nut-title">Lic. Nutrición · 8 años exp.</div><div class="nut-stars">★★★★★ <span style="color:var(--mid);font-size:12px">5.0 · 61 reseñas</span></div></div></div><div class="nut-card-body"><span class="nut-badge b3">Alta complejidad</span><div class="nut-price">$1,350</div><div class="nut-price-sub">por preparación · mensual</div><div class="nut-insumos">🛒 <strong>+ Insumos</strong> — lo que cuestan tus ingredientes</div><div class="nut-plato"><div class="nut-plato-label">Plato estrella</div><div class="nut-plato-name">Bowl de res magra con arroz negro y aguacate</div><div class="nut-plato-sub">Al vapor · Alta proteína · Porciones controladas</div></div><div class="nut-cocina-para"><div class="nut-cp-label">Cocina planes para</div><div class="nut-cp-tags"><span class="nut-cp-tag">Renal</span><span class="nut-cp-tag">Hepático</span><span class="nut-cp-tag">Oncológico</span></div></div><div class="nut-features"><div class="nut-feat">Proteínas: res, pollo, salmón, huevo</div><div class="nut-feat">Técnica: al vapor exclusivamente</div><div class="nut-feat" style="color:var(--light)">Lista de espera — cupo lleno</div></div></div><div class="nut-card-foot"><div class="nut-cupo" style="color:var(--light)">Cupo lleno</div><a href="#registro" class="nut-btn wait">Lista de espera →</a></div></div>
+      <div class="nut-card">
+        <div class="nut-card-top"><div class="nut-av a1">LG</div><div class="nut-meta"><div class="nut-name">Laura G.</div><div class="nut-title">Lic. Nutrición · 6 años exp.</div><div class="nut-stars">★★★★★ <span style="color:var(--mid);font-size:12px">4.9 · 38 reseñas</span></div></div></div>
+        <div class="nut-card-body">
+          <span class="nut-badge b1">Cocina clínica</span>
+          <div class="nut-modalidad"><div class="nut-mod-icon">🍽</div><div class="nut-mod-text">Diseño tu platillo del día</div></div>
+          <div class="nut-price">$950</div>
+          <div class="nut-price-sub">por preparación · mensual</div>
+          <div class="nut-insumos">🛒 <strong>+ Insumos</strong> — lo que cuestan tus ingredientes</div>
+          <div class="nut-plato"><div class="nut-plato-label">Plato estrella</div><div class="nut-plato-name">Pollo al limón con quinoa y espinacas</div><div class="nut-plato-sub">Al vapor · Bajo sodio · Sin glutamato</div></div>
+          <div class="nut-cocina-para"><div class="nut-cp-label">Cocina planes para</div><div class="nut-cp-tags"><span class="nut-cp-tag">Diabetes</span><span class="nut-cp-tag">Hipertensión</span><span class="nut-cp-tag">Colesterol</span></div></div>
+          <div class="nut-features"><div class="nut-feat">Proteínas: pollo, res, atún</div><div class="nut-feat">Técnica: al vapor y al horno</div><div class="nut-feat">Sin glutamato monosódico</div></div>
+        </div>
+        <div class="nut-card-foot"><div class="nut-cupo">Cupo: <span>3 lugares</span></div><a href="#registro" class="nut-btn">Elegir →</a></div>
+      </div>
+      <div class="nut-card">
+        <div class="nut-card-top"><div class="nut-av a2">MR</div><div class="nut-meta"><div class="nut-name">Mariana R.</div><div class="nut-title">Lic. Nutrición · 4 años exp.</div><div class="nut-stars">★★★★★ <span style="color:var(--mid);font-size:12px">4.8 · 22 reseñas</span></div></div></div>
+        <div class="nut-card-body">
+          <span class="nut-badge b2">Cocina especializada</span>
+          <div class="nut-modalidad"><div class="nut-mod-icon">🍽</div><div class="nut-mod-text">2 opciones de platillo por día</div></div>
+          <div class="nut-price">$1,100</div>
+          <div class="nut-price-sub">por preparación · mensual</div>
+          <div class="nut-insumos">🛒 <strong>+ Insumos</strong> — lo que cuestan tus ingredientes</div>
+          <div class="nut-plato"><div class="nut-plato-label">Plato estrella</div><div class="nut-plato-name">Salmón glaseado con puré de coliflor</div><div class="nut-plato-sub">Al horno · Omega-3 · Bajo en sodio</div></div>
+          <div class="nut-cocina-para"><div class="nut-cp-label">Cocina planes para</div><div class="nut-cp-tags"><span class="nut-cp-tag">Renal</span><span class="nut-cp-tag">Cardíaca</span><span class="nut-cp-tag">Post-quirúrgica</span></div></div>
+          <div class="nut-features"><div class="nut-feat">Proteínas: salmón, pollo, huevo</div><div class="nut-feat">Técnica: al vapor y al horno</div><div class="nut-feat">Coordinación con médico tratante</div></div>
+        </div>
+        <div class="nut-card-foot"><div class="nut-cupo">Cupo: <span>5 lugares</span></div><a href="#registro" class="nut-btn">Elegir →</a></div>
+      </div>
+      <div class="nut-card">
+        <div class="nut-card-top"><div class="nut-av a3">SC</div><div class="nut-meta"><div class="nut-name">Sofía C.</div><div class="nut-title">Lic. Nutrición · 8 años exp.</div><div class="nut-stars">★★★★★ <span style="color:var(--mid);font-size:12px">5.0 · 61 reseñas</span></div></div></div>
+        <div class="nut-card-body">
+          <span class="nut-badge b3">Alta complejidad</span>
+          <div class="nut-modalidad"><div class="nut-mod-icon">🍽</div><div class="nut-mod-text">Diseñamos tu menú juntos</div></div>
+          <div class="nut-price">$1,350</div>
+          <div class="nut-price-sub">por preparación · mensual</div>
+          <div class="nut-insumos">🛒 <strong>+ Insumos</strong> — lo que cuestan tus ingredientes</div>
+          <div class="nut-plato"><div class="nut-plato-label">Plato estrella</div><div class="nut-plato-name">Bowl de res magra con arroz negro y aguacate</div><div class="nut-plato-sub">Al vapor · Alta proteína · Porciones controladas</div></div>
+          <div class="nut-cocina-para"><div class="nut-cp-label">Cocina planes para</div><div class="nut-cp-tags"><span class="nut-cp-tag">Renal</span><span class="nut-cp-tag">Hepático</span><span class="nut-cp-tag">Oncológico</span></div></div>
+          <div class="nut-features"><div class="nut-feat">Proteínas: res, pollo, salmón, huevo</div><div class="nut-feat">Técnica: al vapor exclusivamente</div><div class="nut-feat" style="color:var(--light)">Lista de espera — cupo lleno</div></div>
+        </div>
+        <div class="nut-card-foot"><div class="nut-cupo" style="color:var(--light)">Cupo lleno</div><a href="#registro" class="nut-btn wait">Lista de espera →</a></div>
+      </div>
     </div>
     <p class="nut-note">Los precios por preparación son fijados por cada nutrióloga independiente. Nutrichef actúa como plataforma intermediaria.</p>
   </div>
 </section>
 
-<section class="nutris">
-  <div class="seye">Red profesional</div>
-  <h2 class="s-title">Dos roles. <em>Un sistema.</em></h2>
-  <p class="s-sub">Nutrichef opera con dos perfiles distintos de nutriólogas. La clínica diseña. La cocinera ejecuta. La responsabilidad siempre está firmada.</p>
-  <div class="nutris-grid">
-    <div class="nutri-role-card clinica"><span class="nrc-tag">Nutrióloga Clínica</span><div class="nrc-title">Diseña y valida el plan</div><div class="nrc-desc">Recibe las indicaciones del médico o del paciente y genera el plan nutricional semanal. Su cédula respalda cada decisión.</div><div class="nrc-items"><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Especialidad en nutrición clínica requerida</div><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Puede ser externa (del paciente) o de la red</div><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Envía el plan al doctor y a quien cocinará</div><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Su cédula aparece en la etiqueta del paciente</div></div></div>
-    <div class="nutri-role-card cocina"><span class="nrc-tag">Nutrióloga Chef</span><div class="nrc-title">Ejecuta el plan</div><div class="nrc-desc">Recibe el plan aprobado por la nutrióloga clínica y lo cocina con fidelidad exacta a cada indicación. Sin interpretaciones propias.</div><div class="nrc-items"><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Nutrióloga general registrada en la red</div><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Recibe instrucciones exactas del plan</div><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Gestiona compra de insumos y preparación</div><div class="nrc-item"><div class="nrc-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>Entrega en punto de recogida asignado 4–9 PM</div></div></div>
-  </div>
-</section>
-
+<!-- REGISTRO -->
 <section class="registro-wrap" id="registro">
   <div class="registro-inner">
     <div id="form-state">
@@ -424,6 +478,7 @@ svg{display:block}
   </div>
 </section>
 
+<!-- FAQs -->
 <section class="faq">
   <div class="faq-inner">
     <div class="faq-top"><h2 class="faq-top-title">Preguntas <em>frecuentes.</em></h2><p class="faq-top-sub">Si tu pregunta no está aquí, regístrate y te contactaremos.</p></div>
@@ -438,6 +493,7 @@ svg{display:block}
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Nutri<span>chef</span></a>
   <div class="footer-mid">Un servicio de Nutrilú · México<br>Nutrichef actúa como intermediario. La responsabilidad clínica recae en las nutriólogas certificadas.</div>
@@ -445,18 +501,49 @@ svg{display:block}
 </footer>
 
 <script>
-function toggleFaq(el){const a=el.nextElementSibling,icon=el.querySelector('.faq-icon'),open=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.faq-icon').forEach(x=>x.classList.remove('open'));if(!open){a.classList.add('open');icon.classList.add('open');}}
-const M=[
-{day:'Lunes',emoji:'🍋',color:'#E4F4F5',name:'Pollo al vapor con arroz y verduras sin sal',tag:'Bajo en sodio',ingredients:['Pechuga de pollo','Arroz blanco','Calabacita','Zanahoria','Aceite de oliva','Limón','Ajo'],nutrition:[{v:'420',l:'kcal'},{v:'38g',l:'proteína'},{v:'12g',l:'grasas'},{v:'36g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Potasio controlado','Hierro','Zinc','Vitamina B6','Niacina B3'],benefits:['Proteína magra sin carga renal excesiva','Bajo en sodio para control de presión arterial','Método al vapor preserva nutrientes']},
+function toggleFaq(el){var a=el.nextElementSibling,icon=el.querySelector('.faq-icon'),open=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open')});document.querySelectorAll('.faq-icon').forEach(function(x){x.classList.remove('open')});if(!open){a.classList.add('open');icon.classList.add('open');}}
+
+var SPECS={
+diabetes:{title:'Comida para pacientes con Diabetes',desc:'Enfocada en cuidar el índice glucémico en cada platillo',days:[
+{day:'Lunes',emoji:'🥗',color:'#E4F4F5',name:'Ensalada tibia de lentejas con espinaca y quinoa',tag:'Control glucémico',ingredients:['Lentejas','Espinaca','Quinoa','Zanahoria','Aceite de oliva','Vinagre balsámico','Cebolla'],nutrition:[{v:'440',l:'kcal'},{v:'28g',l:'proteína'},{v:'14g',l:'grasas'},{v:'42g',l:'carbos'},{v:'10g',l:'fibra'}],vitamins:['Hierro','Folato','Vitamina K','Magnesio','Zinc','Vitamina A'],benefits:['Alto en fibra para control de glucosa','Proteína vegetal complementaria','Índice glucémico bajo–moderado']},
+{day:'Martes',emoji:'🍗',color:'#FDF0E0',name:'Pechuga a la mostaza con arroz integral y vegetales',tag:'Bajo índice glucémico',ingredients:['Pechuga de pollo','Mostaza Dijon','Arroz integral','Calabacita','Zanahoria','Aceite de oliva','Ajo'],nutrition:[{v:'460',l:'kcal'},{v:'40g',l:'proteína'},{v:'13g',l:'grasas'},{v:'40g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Vitamina B6','Vitamina A','Vitamina C','Magnesio','Zinc'],benefits:['Carbohidratos complejos de liberación lenta','Alta proteína para saciedad','Sin azúcares añadidos']},
+{day:'Miércoles',emoji:'🐟',color:'#E6F1FB',name:'Filete de pescado al horno con puré de coliflor',tag:'Sin azúcar añadida',ingredients:['Filete de pescado blanco','Coliflor','Brócoli','Aceite de oliva','Limón','Hierbas finas'],nutrition:[{v:'390',l:'kcal'},{v:'34g',l:'proteína'},{v:'16g',l:'grasas'},{v:'24g',l:'carbos'},{v:'6g',l:'fibra'}],vitamins:['Vitamina D','B12','Vitamina C','Omega-3'],benefits:['Bajo en carbohidratos simples','Omega-3 mejora sensibilidad a insulina','Coliflor como sustituto bajo en almidón']},
+{day:'Jueves',emoji:'🥣',color:'#E4F4F5',name:'Bowl de pavo con quinoa y vegetales al vapor',tag:'Control glucémico',ingredients:['Pechuga de pavo','Quinoa','Espinaca','Brócoli','Zanahoria','Aceite de oliva','Limón'],nutrition:[{v:'430',l:'kcal'},{v:'42g',l:'proteína'},{v:'12g',l:'grasas'},{v:'38g',l:'carbos'},{v:'7g',l:'fibra'}],vitamins:['Vitamina B6','Niacina B3','Vitamina C','Hierro','Magnesio'],benefits:['Quinoa con índice glucémico bajo','Proteína magra para estabilidad de glucosa','Fibra que ralentiza absorción']},
+{day:'Viernes',emoji:'🍋',color:'#E8EEF5',name:'Pollo al limón con vegetales asados y chía',tag:'Bajo índice glucémico',ingredients:['Pechuga de pollo','Calabacita','Zanahoria','Chía','Aceite de oliva','Limón','Ajo'],nutrition:[{v:'410',l:'kcal'},{v:'36g',l:'proteína'},{v:'15g',l:'grasas'},{v:'32g',l:'carbos'},{v:'8g',l:'fibra'}],vitamins:['Omega-3','Vitamina B6','Vitamina C','Zinc','Fibra soluble'],benefits:['Chía aporta fibra soluble para control glucémico','Sin almidones refinados','Método al horno sin grasas añadidas']}
+]},
+renal:{title:'Comida para pacientes con enfermedad renal',desc:'Enfocada en controlar potasio, fósforo y sodio según tu fase',days:[
+{day:'Lunes',emoji:'🍋',color:'#E4F4F5',name:'Pollo al vapor con arroz blanco y verduras sin sal',tag:'Bajo en sodio',ingredients:['Pechuga de pollo','Arroz blanco','Calabacita','Zanahoria','Aceite de oliva','Limón','Ajo'],nutrition:[{v:'420',l:'kcal'},{v:'38g',l:'proteína'},{v:'12g',l:'grasas'},{v:'36g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Potasio controlado','Hierro','Zinc','Vitamina B6','Niacina B3'],benefits:['Proteína magra sin carga renal excesiva','Bajo en sodio para control de presión arterial','Método al vapor preserva nutrientes']},
 {day:'Martes',emoji:'🐟',color:'#E6F1FB',name:'Filete de pescado al horno con puré de coliflor',tag:'Bajo en fósforo',ingredients:['Filete de pescado blanco','Coliflor','Brócoli','Aceite de oliva','Limón','Hierbas finas'],nutrition:[{v:'390',l:'kcal'},{v:'34g',l:'proteína'},{v:'16g',l:'grasas'},{v:'24g',l:'carbos'},{v:'6g',l:'fibra'}],vitamins:['Vitamina D','B12','Vitamina C','Calcio controlado','Omega-3'],benefits:['Bajo en fósforo para función renal','Omega-3 antiinflamatorio natural','Fácil digestión post-tratamiento']},
-{day:'Miércoles',emoji:'🥗',color:'#E8EEF5',name:'Ensalada tibia de lentejas con espinaca y quinoa',tag:'Control glucémico',ingredients:['Lentejas','Espinaca','Quinoa','Zanahoria','Aceite de oliva','Vinagre balsámico','Cebolla'],nutrition:[{v:'440',l:'kcal'},{v:'28g',l:'proteína'},{v:'14g',l:'grasas'},{v:'42g',l:'carbos'},{v:'10g',l:'fibra'}],vitamins:['Hierro','Folato','Vitamina K','Magnesio','Zinc','Vitamina A'],benefits:['Alto en fibra para control de glucosa','Proteína vegetal complementaria','Índice glucémico bajo–moderado']},
-{day:'Jueves',emoji:'🍗',color:'#FDF0E0',name:'Pechuga a la mostaza con arroz integral y vegetales',tag:'Alta proteína',ingredients:['Pechuga de pollo','Mostaza Dijon','Arroz integral','Calabacita','Zanahoria','Aceite de oliva','Ajo'],nutrition:[{v:'460',l:'kcal'},{v:'40g',l:'proteína'},{v:'13g',l:'grasas'},{v:'40g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Vitamina B6','Vitamina A','Vitamina C','Magnesio','Zinc','Potasio controlado'],benefits:['Alta proteína para recuperación tisular','Carbohidratos complejos de liberación lenta','Apto para dietas cardíacas con control de sodio']},
-{day:'Viernes',emoji:'🥣',color:'#E4F4F5',name:'Bowl de pavo con quinoa y vegetales al vapor',tag:'Bajo en sodio',ingredients:['Pechuga de pavo','Quinoa','Espinaca','Brócoli','Zanahoria','Aceite de oliva','Limón'],nutrition:[{v:'430',l:'kcal'},{v:'42g',l:'proteína'},{v:'12g',l:'grasas'},{v:'38g',l:'carbos'},{v:'7g',l:'fibra'}],vitamins:['Vitamina B6','Niacina B3','Vitamina C','Hierro','Magnesio','Zinc'],benefits:['Proteína magra ideal para dieta renal controlada','Quinoa como fuente de aminoácidos completos','Sin sodio añadido — sazonado con hierbas']}
-];
-function showDish(i,btn){document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');const d=M[i];document.getElementById('dshow').innerHTML=`<div class="dvis" style="background:${d.color}"><div class="dvbg">${d.emoji}</div><div class="dvday">${d.day}</div><div class="dvname">${d.name}</div><div class="dvpill"><div class="dvpill-dot"></div>${d.tag}</div></div><div class="dinfo"><div class="ib"><div class="ibt">Ingredientes</div><div class="tagcloud">${d.ingredients.map(x=>`<span class="itag">${x}</span>`).join('')}</div></div><div class="ib"><div class="ibt">Información nutricional</div><div class="nrow">${d.nutrition.map(n=>`<div class="nc"><div class="ncv">${n.v}</div><div class="ncl">${n.l}</div></div>`).join('')}</div></div><div class="ib"><div class="ibt">Vitaminas y minerales</div><div class="tagcloud">${d.vitamins.map(x=>`<span class="vtag">${x}</span>`).join('')}</div></div><div class="ib"><div class="ibt">Beneficios clínicos</div>${d.benefits.map(x=>`<div class="ben"><div class="bdot"></div>${x}</div>`).join('')}</div></div>`;}
-showDish(0,document.querySelector('.dtab.active'));
+{day:'Miércoles',emoji:'🍗',color:'#FDF0E0',name:'Pechuga al horno con puré de papa y calabacita',tag:'Potasio controlado',ingredients:['Pechuga de pollo','Papa','Calabacita','Aceite de oliva','Hierbas finas','Ajo'],nutrition:[{v:'430',l:'kcal'},{v:'36g',l:'proteína'},{v:'11g',l:'grasas'},{v:'40g',l:'carbos'},{v:'4g',l:'fibra'}],vitamins:['Vitamina B6','Vitamina C','Hierro','Zinc'],benefits:['Papa remojada para reducir potasio','Proteína controlada según prescripción','Sin sal añadida']},
+{day:'Jueves',emoji:'🥚',color:'#E8EEF5',name:'Tortilla de claras con arroz y verduras al vapor',tag:'Bajo en fósforo',ingredients:['Claras de huevo','Arroz blanco','Zanahoria','Calabacita','Aceite de oliva','Cebolla'],nutrition:[{v:'380',l:'kcal'},{v:'28g',l:'proteína'},{v:'10g',l:'grasas'},{v:'42g',l:'carbos'},{v:'4g',l:'fibra'}],vitamins:['Vitamina B2','Vitamina A','Hierro','Zinc'],benefits:['Claras con bajo fósforo vs huevo completo','Proteína de alto valor biológico','Sin aditivos con fósforo oculto']},
+{day:'Viernes',emoji:'🥣',color:'#E4F4F5',name:'Bowl de pavo con arroz y vegetales sin sal',tag:'Bajo en sodio',ingredients:['Pechuga de pavo','Arroz blanco','Zanahoria','Calabacita','Aceite de oliva','Limón'],nutrition:[{v:'410',l:'kcal'},{v:'40g',l:'proteína'},{v:'11g',l:'grasas'},{v:'36g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Vitamina B6','Niacina B3','Vitamina C','Hierro'],benefits:['Proteína magra ideal para indicaciones renales','Sin sodio añadido — sazonado con hierbas','Potasio bajo por selección de vegetales']}
+]},
+cardiaca:{title:'Comida para pacientes con condición cardíaca',desc:'Enfocada en reducir sodio y grasas saturadas para proteger tu corazón',days:[
+{day:'Lunes',emoji:'🐟',color:'#E6F1FB',name:'Salmón al horno con vegetales y aceite de oliva',tag:'Omega-3',ingredients:['Filete de salmón','Brócoli','Zanahoria','Aceite de oliva','Limón','Eneldo'],nutrition:[{v:'450',l:'kcal'},{v:'36g',l:'proteína'},{v:'20g',l:'grasas'},{v:'26g',l:'carbos'},{v:'6g',l:'fibra'}],vitamins:['Omega-3','Vitamina D','B12','Vitamina C','Magnesio'],benefits:['Omega-3 protege función cardiovascular','Sin sodio añadido','Grasas saludables de aceite de oliva']},
+{day:'Martes',emoji:'🍋',color:'#E4F4F5',name:'Pollo al vapor con arroz integral y espinaca',tag:'Bajo en sodio',ingredients:['Pechuga de pollo','Arroz integral','Espinaca','Zanahoria','Aceite de oliva','Ajo'],nutrition:[{v:'430',l:'kcal'},{v:'38g',l:'proteína'},{v:'12g',l:'grasas'},{v:'40g',l:'carbos'},{v:'6g',l:'fibra'}],vitamins:['Vitamina B6','Hierro','Magnesio','Folato','Vitamina K'],benefits:['Sin sal añadida — sazonado con especias','Espinaca rica en magnesio para el corazón','Arroz integral con fibra soluble']},
+{day:'Miércoles',emoji:'🥗',color:'#E8EEF5',name:'Ensalada de lentejas con aguacate y quinoa',tag:'Sin grasas trans',ingredients:['Lentejas','Aguacate','Quinoa','Tomate','Aceite de oliva','Limón','Cebolla morada'],nutrition:[{v:'460',l:'kcal'},{v:'26g',l:'proteína'},{v:'18g',l:'grasas'},{v:'44g',l:'carbos'},{v:'11g',l:'fibra'}],vitamins:['Folato','Vitamina K','Magnesio','Potasio','Vitamina E'],benefits:['Grasas monoinsaturadas del aguacate','Alto en fibra para colesterol','Sin grasas trans ni saturadas']},
+{day:'Jueves',emoji:'🍗',color:'#FDF0E0',name:'Pechuga a la plancha con camote y brócoli',tag:'Control de colesterol',ingredients:['Pechuga de pollo','Camote','Brócoli','Aceite de oliva','Ajo','Romero'],nutrition:[{v:'440',l:'kcal'},{v:'38g',l:'proteína'},{v:'12g',l:'grasas'},{v:'42g',l:'carbos'},{v:'7g',l:'fibra'}],vitamins:['Vitamina A','Vitamina C','Vitamina B6','Magnesio'],benefits:['Camote con bajo índice glucémico','Sin colesterol añadido','Método a la plancha sin grasas extra']},
+{day:'Viernes',emoji:'🐟',color:'#E4F4F5',name:'Filete de pescado con puré de papa y ejotes',tag:'Bajo en sodio',ingredients:['Filete de pescado blanco','Papa','Ejotes','Aceite de oliva','Limón','Perejil'],nutrition:[{v:'400',l:'kcal'},{v:'34g',l:'proteína'},{v:'14g',l:'grasas'},{v:'34g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Vitamina D','B12','Vitamina C','Potasio controlado'],benefits:['Proteína magra sin carga de sodio','Ejotes con fibra soluble','Sin sal — sazonado con hierbas frescas']}
+]},
+postquirurgica:{title:'Comida para pacientes post-quirúrgicos',desc:'Enfocada en facilitar tu recuperación con texturas progresivas y alta proteína',days:[
+{day:'Lunes',emoji:'🥣',color:'#E4F4F5',name:'Crema de calabaza con pollo desmenuzado',tag:'Textura suave',ingredients:['Calabaza','Pechuga de pollo','Aceite de oliva','Cebolla','Ajo','Caldo natural'],nutrition:[{v:'360',l:'kcal'},{v:'30g',l:'proteína'},{v:'12g',l:'grasas'},{v:'30g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Vitamina A','Vitamina C','Zinc','Hierro','Vitamina B6'],benefits:['Textura cremosa fácil de deglutir','Alta proteína para recuperación tisular','Calabaza antiinflamatoria']},
+{day:'Martes',emoji:'🐟',color:'#E6F1FB',name:'Puré de coliflor con pescado desmenuzado',tag:'Fácil digestión',ingredients:['Filete de pescado blanco','Coliflor','Aceite de oliva','Limón','Hierbas finas'],nutrition:[{v:'350',l:'kcal'},{v:'32g',l:'proteína'},{v:'14g',l:'grasas'},{v:'20g',l:'carbos'},{v:'4g',l:'fibra'}],vitamins:['Vitamina D','B12','Vitamina C','Omega-3'],benefits:['Textura suave adaptada a post-operatorio','Omega-3 ayuda a reducir inflamación','Sin fibra insoluble que irrite']},
+{day:'Miércoles',emoji:'🍗',color:'#FDF0E0',name:'Pollo hervido con arroz muy cocido y zanahoria',tag:'Alta proteína',ingredients:['Pechuga de pollo','Arroz blanco','Zanahoria','Aceite de oliva','Caldo natural'],nutrition:[{v:'420',l:'kcal'},{v:'38g',l:'proteína'},{v:'10g',l:'grasas'},{v:'40g',l:'carbos'},{v:'3g',l:'fibra'}],vitamins:['Vitamina B6','Vitamina A','Hierro','Zinc','Niacina B3'],benefits:['Arroz muy cocido para fácil absorción','Proteína completa para cicatrización','Zanahoria cocida suave al estómago']},
+{day:'Jueves',emoji:'🥚',color:'#E8EEF5',name:'Tortilla de huevo con puré de papa suave',tag:'Textura progresiva',ingredients:['Huevo','Papa','Aceite de oliva','Cebolla cocida','Sal mínima'],nutrition:[{v:'400',l:'kcal'},{v:'24g',l:'proteína'},{v:'16g',l:'grasas'},{v:'38g',l:'carbos'},{v:'3g',l:'fibra'}],vitamins:['Vitamina B12','Vitamina D','Hierro','Zinc','Vitamina A'],benefits:['Proteína de alto valor biológico','Textura suave y progresiva','Fácil masticación y digestión']},
+{day:'Viernes',emoji:'🥣',color:'#E4F4F5',name:'Crema de brócoli con pavo desmenuzado',tag:'Fácil digestión',ingredients:['Brócoli','Pechuga de pavo','Aceite de oliva','Cebolla','Ajo','Caldo natural'],nutrition:[{v:'370',l:'kcal'},{v:'34g',l:'proteína'},{v:'13g',l:'grasas'},{v:'26g',l:'carbos'},{v:'5g',l:'fibra'}],vitamins:['Vitamina C','Vitamina K','Vitamina B6','Zinc','Hierro'],benefits:['Crema sin lácteos para evitar intolerancia','Alta proteína para recuperación','Brócoli cocido y triturado para fácil absorción']}
+]}
+};
+
+var currentSpec='diabetes';
+function changeSpec(spec){currentSpec=spec;var s=SPECS[spec];document.getElementById('msb-title').textContent=s.title;document.getElementById('msb-desc').textContent=s.desc;renderTabs();showSpecDish(0);}
+function renderTabs(){var s=SPECS[currentSpec];var h='';s.days.forEach(function(d,i){h+='<button class="dtab'+(i===0?' active':'')+'" onclick="showSpecDish('+i+',this)">'+d.day+'</button>';});document.getElementById('dtabs').innerHTML=h;}
+function showSpecDish(i,btn){document.querySelectorAll('.dtab').forEach(function(t){t.classList.remove('active')});if(btn){btn.classList.add('active')}else{var tabs=document.querySelectorAll('.dtab');if(tabs[0])tabs[0].classList.add('active')}var d=SPECS[currentSpec].days[i];document.getElementById('dshow').innerHTML='<div class="dvis" style="background:'+d.color+'"><div class="dvbg">'+d.emoji+'</div><div class="dvday">'+d.day+'</div><div class="dvname">'+d.name+'</div><div class="dvpill"><div class="dvpill-dot"></div>'+d.tag+'</div></div><div class="dinfo"><div class="ib"><div class="ibt">Ingredientes</div><div class="tagcloud">'+d.ingredients.map(function(x){return'<span class="itag">'+x+'</span>'}).join('')+'</div></div><div class="ib"><div class="ibt">Información nutricional</div><div class="nrow">'+d.nutrition.map(function(n){return'<div class="nc"><div class="ncv">'+n.v+'</div><div class="ncl">'+n.l+'</div></div>'}).join('')+'</div></div><div class="ib"><div class="ibt">Vitaminas y minerales</div><div class="tagcloud">'+d.vitamins.map(function(x){return'<span class="vtag">'+x+'</span>'}).join('')+'</div></div><div class="ib"><div class="ibt">Beneficios clínicos</div>'+d.benefits.map(function(x){return'<div class="ben"><div class="bdot"></div>'+x+'</div>'}).join('')+'</div></div>';}
+
+renderTabs();showSpecDish(0);
+
 document.getElementById('f-condicion').addEventListener('change',function(){document.getElementById('nutripalm-alert').classList.toggle('visible',this.value==='sano')});
-function submitForm(){const ids=['f-nombre','f-apellido','f-whatsapp','f-email'];let ok=true;ids.forEach(id=>{const el=document.getElementById(id);el.style.borderColor='';if(!el.value.trim()){el.style.borderColor='#dc3545';ok=false;}});if(!document.getElementById('f-condicion').value)ok=false;if(!document.getElementById('f-plan').value)ok=false;if(!ok)return;document.getElementById('form-state').style.display='none';document.getElementById('form-success').classList.add('visible');}
+
+function submitForm(){var ids=['f-nombre','f-apellido','f-whatsapp','f-email'];var ok=true;ids.forEach(function(id){var el=document.getElementById(id);el.style.borderColor='';if(!el.value.trim()){el.style.borderColor='#dc3545';ok=false;}});if(!document.getElementById('f-condicion').value)ok=false;if(!document.getElementById('f-plan').value)ok=false;if(!ok)return;document.getElementById('form-state').style.display='none';document.getElementById('form-success').classList.add('visible');}
 </script>
 </body>
 </html>
